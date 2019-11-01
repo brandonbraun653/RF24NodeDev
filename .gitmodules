@@ -1,0 +1,15 @@
+[submodule "RF24Node"]
+	path = RF24Node
+	url = https://github.com/brandonbraun653/RF24Node.git
+[submodule "lib/Chimera"]
+	path = lib/Chimera
+	url = https://github.com/brandonbraun653/Chimera.git
+[submodule "lib/CommonTools"]
+	path = lib/CommonTools
+	url = https://github.com/brandonbraun653/CommonTools.git
+[submodule "lib/Thor"]
+	path = lib/Thor
+	url = https://github.com/brandonbraun653/Thor.git
+[submodule "lib/FreeRTOS"]
+	path = lib/FreeRTOS
+	url = https://github.com/brandonbraun653/FreeRTOS.git
