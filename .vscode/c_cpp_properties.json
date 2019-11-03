@@ -4,17 +4,28 @@
             "name": "Embedded",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/.vscode/",
                 "${workspaceFolder}/lib/**",
+                "${workspaceFolder}/lib/Chimera",
+                "${workspaceFolder}/lib/FreeRTOS",
                 "${workspaceFolder}/lib/FreeRTOS/portable/GCC/ARM_CM4F",
+                "${workspaceFolder}/lib/Thor",
+                "${workspaceFolder}/lib/Thor/Thor/config/chimera",
+                "${workspaceFolder}/lib/Thor/Thor/config/freertos",
                 "${BOOST_ROOT}/boost_1_70_0"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "CHIMERA_LITTLE_ENDIAN",
+                "USING_FREERTOS",
+                "STM32F446xx",
+                "BOOST_NO_EXCEPTIONS",
+                "_EMBEDDED",
+                "USE_FREERTOS",
+                "THOR_CUSTOM_DRIVERS=1"
             ],
-            "windowsSdkVersion": "10.0.17763.0",
-            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/VC/Tools/MSVC/14.24.28207/bin/Hostx64/x64/cl.exe",
             "cStandard": "c11",
             "cppStandard": "c++17"
         }
