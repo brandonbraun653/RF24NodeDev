@@ -63,12 +63,12 @@
   </ImportGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\algorithm\register_optimizer.cpp" />
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\hardware.cpp" />
+    <ClCompile Include="..\..\..\..\RF24Node\hardware\driver.cpp" />
     <ClCompile Include="NRF24HardwareDriver.cpp" />
     <None Include="stm32.props" />
     <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\algorithm\register_optimizer.hpp" />
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\definitions.hpp" />
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\hardware.hpp" />
+    <ClInclude Include="..\..\..\..\RF24Node\hardware\driver.hpp" />
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\register.hpp" />
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\types.hpp" />
     <None Include="NRF24HardwareDriver-Debug.vgdbsettings" />

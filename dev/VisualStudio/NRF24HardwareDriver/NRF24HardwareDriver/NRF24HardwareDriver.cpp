@@ -15,23 +15,37 @@
 #include <Chimera/threading.hpp>
 #include <Chimera/watchdog.hpp>
 
-
-void test_thread( void *arguments );
-void spi_thread( void *arguments );
+/* Radio Includes */
+#include <RF24Node/hardware/driver.hpp>
 
 void startup_sequence( Chimera::GPIO::GPIOClass *const led );
+void background_thread( void *arguments );
+void radio_thread( void *arguments );
 
 int main( void )
 {
   Chimera::System::initialize();
 
-  Chimera::Threading::addThread( test_thread, "wd_thread", 1000, nullptr, 3, nullptr );
-  Chimera::Threading::addThread( spi_thread, "spi_thread", 1000, nullptr, 3, nullptr );
+  Chimera::Threading::addThread( background_thread, "background", 1000, nullptr, 3, nullptr );
+  Chimera::Threading::addThread( radio_thread, "radio", 1000, nullptr, 3, nullptr );
   Chimera::Threading::startScheduler();
   return 0;
 }
 
-void test_thread( void *arguments )
+void startup_sequence( Chimera::GPIO::GPIOClass *const led )
+{
+  for ( uint8_t i = 0; i < 5; i++ )
+  {
+    led->setState( Chimera::GPIO::State::HIGH );
+    Chimera::delayMilliseconds( 65 );
+    led->setState( Chimera::GPIO::State::LOW );
+    Chimera::delayMilliseconds( 25 );
+  }
+
+  Chimera::delayMilliseconds( 350 );
+}
+
+void background_thread( void *arguments )
 {
   Chimera::Threading::signalSetupComplete();
 
@@ -62,14 +76,12 @@ void test_thread( void *arguments )
   }
 }
 
-void spi_thread( void *arguments )
+void radio_thread( void *arguments )
 {
   Chimera::Threading::signalSetupComplete();
 
-  std::string_view data = "Hello World!\r\n";
-
-
   Chimera::SPI::DriverConfig cfg;
+  Chimera::SPI::SPIClass_sPtr spi = std::make_shared<Chimera::SPI::SPIClass>();
 
   /*------------------------------------------------
   GPIO Initialization
@@ -116,18 +128,18 @@ void spi_thread( void *arguments )
   cfg.validity           = true;
 
   /*------------------------------------------------
-  SPI Driver Initialization
+  Radio Initialization
   ------------------------------------------------*/
-  auto spi = std::make_shared<Chimera::SPI::SPIClass>();
+  auto result = Chimera::CommonStatusCodes::OK;
+  auto radio = RF24::Hardware::Driver();
 
-  if ( spi->init( cfg ) != Chimera::CommonStatusCodes::OK )
+  result |= radio.attachSPI( spi, cfg );
+  result |= radio.initialize();
+
+  if ( result != Chimera::CommonStatusCodes::OK )
   {
     Chimera::Watchdog::invokeTimeout();
   }
-
-  /*------------------------------------------------
-  FRAM Initialization
-  ------------------------------------------------*/
 
   while ( 1 )
   {
@@ -135,15 +147,3 @@ void spi_thread( void *arguments )
   }
 }
 
-void startup_sequence( Chimera::GPIO::GPIOClass *const led )
-{
-  for ( uint8_t i = 0; i < 5; i++ )
-  {
-    led->setState( Chimera::GPIO::State::HIGH );
-    Chimera::delayMilliseconds( 65 );
-    led->setState( Chimera::GPIO::State::LOW );
-    Chimera::delayMilliseconds( 25 );
-  }
-
-  Chimera::delayMilliseconds( 350 );
-}

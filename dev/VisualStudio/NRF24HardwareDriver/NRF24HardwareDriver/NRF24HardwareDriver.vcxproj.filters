@@ -573,9 +573,6 @@
     <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\FreeRTOS\portable\MemMang\heap_4.c">
       <Filter>FreeRTOS\portable\MemMang</Filter>
     </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\hardware.cpp">
-      <Filter>RF24Node\hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\lib\Thor\Thor\sram.cpp">
       <Filter>Thor</Filter>
     </ClCompile>
@@ -1206,12 +1203,12 @@
     <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\algorithm\register_optimizer.cpp">
       <Filter>Chimera\algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\hardware\driver.cpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\definitions.hpp">
-      <Filter>RF24Node\hardware</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\hardware.hpp">
       <Filter>RF24Node\hardware</Filter>
     </ClInclude>
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\register.hpp">
@@ -1222,6 +1219,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\algorithm\register_optimizer.hpp">
       <Filter>Chimera\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\hardware\driver.hpp">
+      <Filter>RF24Node\hardware</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
