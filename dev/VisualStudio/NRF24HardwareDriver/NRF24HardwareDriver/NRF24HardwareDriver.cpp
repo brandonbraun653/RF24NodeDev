@@ -151,6 +151,9 @@ void radio_thread( void *arguments )
   cfg.HWInit.hwChannel          = 3;
   cfg.HWInit.txfrMode           = Chimera::SPI::TransferMode::INTERRUPT;
 
+  spi->init( cfg );
+  spi->unlock();
+
   /*------------------------------------------------
   Radio Initialization
   ------------------------------------------------*/
@@ -166,7 +169,6 @@ void radio_thread( void *arguments )
   CEPinConfig.pull       = Chimera::GPIO::Pull::NO_PULL;
   CEPinConfig.validity   = true;
 
-
   Chimera::GPIO::PinInit CSPinConfig;
   CSPinConfig.accessMode = Chimera::Hardware::AccessMode::THREADED;
   CSPinConfig.alternate  = Thor::Driver::GPIO::AF_NONE;
@@ -176,12 +178,8 @@ void radio_thread( void *arguments )
   CSPinConfig.pull       = Chimera::GPIO::Pull::NO_PULL;
   CSPinConfig.validity   = true;
 
-  result |= radio.attachSPI( spi, cfg );
+  result |= radio.attachSPI( spi );
   result |= radio.initialize( CEPinConfig, CSPinConfig );
-  spi->unlock();
-
-  // chip enable: PC3
-  // chip select: PC2
 
   if ( result != Chimera::CommonStatusCodes::OK )
   {
@@ -222,6 +220,9 @@ void fram_thread( void *arguments )
   CSPinConfig.pull       = Chimera::GPIO::Pull::NO_PULL;
   CSPinConfig.validity   = true;
 
+  /*------------------------------------------------
+  Create and initialize the FRAM driver
+  ------------------------------------------------*/
   fram.attachSPI( spi );
   fram.attachCS( CSPinConfig );
   spi->unlock();
