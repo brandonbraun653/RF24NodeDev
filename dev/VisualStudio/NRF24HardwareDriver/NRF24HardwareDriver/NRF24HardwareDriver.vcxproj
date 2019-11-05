@@ -44,7 +44,7 @@
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);DEBUG=1;_EMBEDDED;STM32F446xx;USING_FREERTOS;USE_FREERTOS;BOOST_NO_EXCEPTIONS;CHIMERA_LITTLE_ENDIAN;THOR_CUSTOM_DRIVERS=1;</PreprocessorDefinitions>
       <Optimization>Og</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/MB85RS64V</AdditionalIncludeDirectories>
       <CLanguageStandard>C11</CLanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -52,7 +52,7 @@
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);NDEBUG=1;RELEASE=1;_EMBEDDED;STM32F446xx;USING_FREERTOS;USE_FREERTOS;BOOST_NO_EXCEPTIONS;CHIMERA_LITTLE_ENDIAN;THOR_CUSTOM_DRIVERS=1;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/MB85RS64V</AdditionalIncludeDirectories>
       <CLanguageStandard>C11</CLanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -63,10 +63,12 @@
   </ImportGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\algorithm\register_optimizer.cpp" />
+    <ClCompile Include="..\..\..\..\lib\MB85RS64V\mb85rs64v.cpp" />
     <ClCompile Include="..\..\..\..\RF24Node\hardware\driver.cpp" />
     <ClCompile Include="NRF24HardwareDriver.cpp" />
     <None Include="stm32.props" />
     <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\algorithm\register_optimizer.hpp" />
+    <ClInclude Include="..\..\..\..\lib\MB85RS64V\mb85rs64v.hpp" />
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\definitions.hpp" />
     <ClInclude Include="..\..\..\..\RF24Node\hardware\driver.hpp" />
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\register.hpp" />

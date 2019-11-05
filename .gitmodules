@@ -13,3 +13,6 @@
 [submodule "lib/FreeRTOS"]
 	path = lib/FreeRTOS
 	url = https://github.com/brandonbraun653/FreeRTOS.git
+[submodule "lib/MB85RS64V"]
+	path = lib/MB85RS64V
+	url = https://github.com/brandonbraun653/MB85RS64V.git

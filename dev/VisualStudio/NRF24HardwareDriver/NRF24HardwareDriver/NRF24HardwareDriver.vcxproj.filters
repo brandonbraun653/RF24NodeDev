@@ -196,6 +196,9 @@
     <Filter Include="Chimera\algorithm">
       <UniqueIdentifier>{2888046d-3eb0-4e09-b095-641950af62c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MB85RS64V">
+      <UniqueIdentifier>{10dafe36-12c5-4ae0-8f7d-689e7badd6cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRF24HardwareDriver.cpp">
@@ -1206,6 +1209,9 @@
     <ClCompile Include="..\..\..\..\RF24Node\hardware\driver.cpp">
       <Filter>RF24Node\hardware</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\MB85RS64V\mb85rs64v.cpp">
+      <Filter>MB85RS64V</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\definitions.hpp">
@@ -1222,6 +1228,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\RF24Node\hardware\driver.hpp">
       <Filter>RF24Node\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\MB85RS64V\mb85rs64v.hpp">
+      <Filter>MB85RS64V</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
