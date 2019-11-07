@@ -199,6 +199,24 @@
     <Filter Include="MB85RS64V">
       <UniqueIdentifier>{10dafe36-12c5-4ae0-8f7d-689e7badd6cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RF24Node\physical">
+      <UniqueIdentifier>{d8a44094-00f6-4f99-9c3f-4b189ac7f1a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network">
+      <UniqueIdentifier>{954c83cc-6716-4a01-b42b-574207f8852c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network\frame">
+      <UniqueIdentifier>{6e86bae1-5779-4a03-b0b8-bf6a841c834d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network\header">
+      <UniqueIdentifier>{24a0628b-8515-4ccc-bc53-127a48ac4bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network\node">
+      <UniqueIdentifier>{3bb1fac3-961b-4b0e-9842-635b23fac974}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network\path">
+      <UniqueIdentifier>{89e58774-d9a9-4102-ac2b-ac8aec1cb26c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRF24HardwareDriver.cpp">
@@ -1212,6 +1230,24 @@
     <ClCompile Include="..\..\..\..\lib\MB85RS64V\mb85rs64v.cpp">
       <Filter>MB85RS64V</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\physical\physical.cpp">
+      <Filter>RF24Node\physical</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\network.cpp">
+      <Filter>RF24Node\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\node\node.cpp">
+      <Filter>RF24Node\network\node</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\path\path.cpp">
+      <Filter>RF24Node\network\path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\frame\frame.cpp">
+      <Filter>RF24Node\network\frame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\header\header.cpp">
+      <Filter>RF24Node\network\header</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\definitions.hpp">
@@ -1231,6 +1267,39 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\lib\MB85RS64V\mb85rs64v.hpp">
       <Filter>MB85RS64V</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\physical\physical.hpp">
+      <Filter>RF24Node\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\definitions.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\network.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\node\node.hpp">
+      <Filter>RF24Node\network\node</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\path\path.hpp">
+      <Filter>RF24Node\network\path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\frame\frame.hpp">
+      <Filter>RF24Node\network\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\frame\frame_definitions.hpp">
+      <Filter>RF24Node\network\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\frame\frame_types.hpp">
+      <Filter>RF24Node\network\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\header\header.hpp">
+      <Filter>RF24Node\network\header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\header\header_definitions.hpp">
+      <Filter>RF24Node\network\header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\header\header_types.hpp">
+      <Filter>RF24Node\network\header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
