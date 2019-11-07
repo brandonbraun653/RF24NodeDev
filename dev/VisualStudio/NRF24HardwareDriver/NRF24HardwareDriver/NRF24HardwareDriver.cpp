@@ -164,7 +164,7 @@ void radio_thread( void *arguments )
   CEPinConfig.accessMode = Chimera::Hardware::AccessMode::THREADED;
   CEPinConfig.alternate  = Thor::Driver::GPIO::AF_NONE;
   CEPinConfig.drive      = Chimera::GPIO::Drive::OUTPUT_PUSH_PULL;
-  CEPinConfig.pin        = 2;
+  CEPinConfig.pin        = 3;
   CEPinConfig.port       = Chimera::GPIO::Port::PORTC;
   CEPinConfig.pull       = Chimera::GPIO::Pull::NO_PULL;
   CEPinConfig.validity   = true;
@@ -173,7 +173,7 @@ void radio_thread( void *arguments )
   CSPinConfig.accessMode = Chimera::Hardware::AccessMode::THREADED;
   CSPinConfig.alternate  = Thor::Driver::GPIO::AF_NONE;
   CSPinConfig.drive      = Chimera::GPIO::Drive::OUTPUT_PUSH_PULL;
-  CSPinConfig.pin        = 3;
+  CSPinConfig.pin        = 2;
   CSPinConfig.port       = Chimera::GPIO::Port::PORTC;
   CSPinConfig.pull       = Chimera::GPIO::Pull::NO_PULL;
   CSPinConfig.validity   = true;
