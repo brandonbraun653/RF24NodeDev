@@ -13,5 +13,15 @@
     "statusBarItem.hoverBackground": "#2f7c47",
     "statusBar.foreground": "#e7e7e7"
   },
-  "peacock.color": "#215732"
+  "peacock.color": "#215732",
+  "files.associations": {
+    "*.tcc": "cpp",
+    "memory": "cpp",
+    "rope": "cpp",
+    "istream": "cpp",
+    "sstream": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp",
+    "*.ipp": "cpp"
+  }
 }
