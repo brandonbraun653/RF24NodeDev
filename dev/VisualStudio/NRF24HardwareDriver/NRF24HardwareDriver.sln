@@ -7,12 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NRF24HardwareDriver", "NRF2
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		ChildDBG|VisualGDB = ChildDBG|VisualGDB
 		Debug|VisualGDB = Debug|VisualGDB
+		ParentDBG|VisualGDB = ParentDBG|VisualGDB
 		Release|VisualGDB = Release|VisualGDB
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F69CED05-555F-42A1-BB51-D42923EDA85C}.ChildDBG|VisualGDB.ActiveCfg = ChildDBG|VisualGDB
+		{F69CED05-555F-42A1-BB51-D42923EDA85C}.ChildDBG|VisualGDB.Build.0 = ChildDBG|VisualGDB
 		{F69CED05-555F-42A1-BB51-D42923EDA85C}.Debug|VisualGDB.ActiveCfg = Debug|VisualGDB
 		{F69CED05-555F-42A1-BB51-D42923EDA85C}.Debug|VisualGDB.Build.0 = Debug|VisualGDB
+		{F69CED05-555F-42A1-BB51-D42923EDA85C}.ParentDBG|VisualGDB.ActiveCfg = ParentDBG|VisualGDB
+		{F69CED05-555F-42A1-BB51-D42923EDA85C}.ParentDBG|VisualGDB.Build.0 = ParentDBG|VisualGDB
 		{F69CED05-555F-42A1-BB51-D42923EDA85C}.Release|VisualGDB.ActiveCfg = Release|VisualGDB
 		{F69CED05-555F-42A1-BB51-D42923EDA85C}.Release|VisualGDB.Build.0 = Release|VisualGDB
 	EndGlobalSection

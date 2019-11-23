@@ -219,9 +219,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NRF24HardwareDriver.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
     <None Include="stm32.props">
       <Filter>Source files\Device-specific files</Filter>
     </None>
@@ -1301,5 +1298,10 @@
     <ClInclude Include="..\..\..\..\RF24Node\network\header\header_types.hpp">
       <Filter>RF24Node\network\header</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\NRF24HardwareDriver.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
