@@ -217,6 +217,18 @@
     <Filter Include="RF24Node\network\path">
       <UniqueIdentifier>{89e58774-d9a9-4102-ac2b-ac8aec1cb26c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="uLog">
+      <UniqueIdentifier>{eae1beb4-de78-4594-b5b5-ac7fd26aa032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uLog\sinks">
+      <UniqueIdentifier>{2138668e-bc9c-4e79-9901-34f9c5f5cd02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\modules\ulog">
+      <UniqueIdentifier>{fdf33887-f132-401c-8301-145f307a267b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\debug">
+      <UniqueIdentifier>{8c70fc91-3e39-4a9e-9c43-13f415707300}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="stm32.props">
@@ -1298,10 +1310,43 @@
     <ClInclude Include="..\..\..\..\RF24Node\network\header\header_types.hpp">
       <Filter>RF24Node\network\header</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\config.hpp">
+      <Filter>uLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\types.hpp">
+      <Filter>uLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\ulog.hpp">
+      <Filter>uLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_intf.hpp">
+      <Filter>uLog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_cout.hpp">
+      <Filter>uLog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink.hpp">
+      <Filter>Chimera\modules\ulog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink_config.hpp">
+      <Filter>Chimera\modules\ulog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\debug\cm_serial_sink_config.hpp">
+      <Filter>RF24Node\debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\NRF24HardwareDriver.cpp">
       <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\uLog\uLog\ulog.cpp">
+      <Filter>uLog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp">
+      <Filter>uLog\sinks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink.cpp">
+      <Filter>Chimera\modules\ulog</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

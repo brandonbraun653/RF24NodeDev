@@ -8,6 +8,9 @@
  *   2019 | Brandon Braun | brandonbraun653@gmail.com
  ********************************************************************************/
 
+/* C++ Includes */
+#include <string>
+
 /* Chimera Includes */
 #include <Chimera/gpio.hpp>
 #include <Chimera/spi.hpp>
@@ -23,9 +26,14 @@
 /* FRAM Includes */
 #include <mb85rs64v.hpp>
 
+/* Logging Includes */
+#include <Chimera/modules/ulog/serial_sink.hpp>
+#include <uLog/ulog.hpp>
+
 void startup_sequence( Chimera::GPIO::GPIOClass *const led );
 void background_thread( void *arguments );
 void radio_thread( void *arguments );
+void logSink_thread( void *arguments );
 
 Chimera::SPI::SPIClass_sPtr spi;
 Chimera::SPI::DriverConfig cfg;
@@ -41,7 +49,8 @@ int main( void )
   memset( &cfg, 0, sizeof( cfg ) );
 
   Chimera::Threading::addThread( background_thread, "background", 1000, nullptr, 3, nullptr );
-  Chimera::Threading::addThread( radio_thread, "radio", 1000, nullptr, 3, nullptr );
+  //Chimera::Threading::addThread( radio_thread, "radio", 1000, nullptr, 3, nullptr );
+  Chimera::Threading::addThread( logSink_thread, "logging", 1000, nullptr, 3, nullptr );
   Chimera::Threading::startScheduler();
   return 0;
 }
@@ -95,6 +104,33 @@ void background_thread( void *arguments )
     Chimera::delayMilliseconds( 150 );
     led.setState( Chimera::GPIO::State::LOW );
     Chimera::delayMilliseconds( 150 );
+  }
+}
+
+void logSink_thread( void *arguments )
+{
+  Chimera::Threading::signalSetupComplete();
+
+  uLog::SinkType sink = std::make_shared<Chimera::Modules::uLog::SerialSink>();
+
+  sink->setLogLevel( uLog::LogLevelType::LOG_LEVEL_DEBUG );
+
+  auto sinkHandle = uLog::registerSink( sink );
+  uLog::enableSink( sinkHandle );
+  uLog::setGlobalLogLevel( uLog::LogLevelType::LOG_LEVEL_DEBUG );
+
+  std::string test;
+  std::array<char, 50> buffer;
+  buffer.fill( 0 );
+
+  while ( 1 ) 
+  {
+    snprintf( buffer.data(), buffer.size(), "Current tick: %d ms\r\n", Chimera::millis() );
+
+    uLog::log( uLog::LogLevelType::LOG_LEVEL_DEBUG, buffer.data(), strlen( buffer.data() ) );
+    uLog::flog( uLog::LogLevelType::LOG_LEVEL_DEBUG, "Nom nom nom\r\n" );
+
+    Chimera::delayMilliseconds( 500 );
   }
 }
 
@@ -256,4 +292,19 @@ void radio_thread( void *arguments )
 
     Chimera::delayMilliseconds( 25 );
   }
+}
+
+
+namespace Chimera::Modules::uLog
+{
+  Chimera::Serial::IOPins SerialPins = {
+    /* RX Pin */
+    { Chimera::GPIO::Pull::NO_PULL, Chimera::GPIO::Port::PORTC, Chimera::GPIO::Drive::ALTERNATE_PUSH_PULL,
+      Chimera::GPIO::State::HI, 7, Thor::Driver::GPIO::AF8_USART6, Chimera::Hardware::AccessMode::THREADED, true },
+
+    /* TX Pin */
+    { Chimera::GPIO::Pull::NO_PULL, Chimera::GPIO::Port::PORTC, Chimera::GPIO::Drive::ALTERNATE_PUSH_PULL,
+      Chimera::GPIO::State::HI, 6, Thor::Driver::GPIO::AF8_USART6, Chimera::Hardware::AccessMode::THREADED, true
+    } 
+  };
 }
