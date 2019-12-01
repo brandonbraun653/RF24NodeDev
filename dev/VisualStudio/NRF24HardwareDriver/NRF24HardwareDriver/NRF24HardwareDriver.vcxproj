@@ -68,7 +68,7 @@
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);DEBUG=1;_EMBEDDED;STM32F446xx;USING_FREERTOS;USE_FREERTOS;BOOST_NO_EXCEPTIONS;CHIMERA_LITTLE_ENDIAN;THOR_CUSTOM_DRIVERS=1;;RF24_TEST_CHILD;;CHIMERA_MODULES_SERIAL_SINK_CUSTOM_CONFIG;FMT_EXCEPTIONS=0;</PreprocessorDefinitions>
       <Optimization>O1</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../RF24Node/debug;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/uLog;$(ProjectDir)../../../../lib/MB85RS64V;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../RF24Node/debug;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/uLog;$(ProjectDir)../../../../lib/MB85RS64V;</AdditionalIncludeDirectories>
       <CLanguageStandard>C11</CLanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -77,7 +77,7 @@
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
       <PreprocessorDefinitions>DEBUG=1;_EMBEDDED;STM32F446xx;USING_FREERTOS;USE_FREERTOS;BOOST_NO_EXCEPTIONS;CHIMERA_LITTLE_ENDIAN;THOR_CUSTOM_DRIVERS=1;RF24_TEST_CHILD;;%(ClCompile.PreprocessorDefinitions);CHIMERA_MODULES_SERIAL_SINK_CUSTOM_CONFIG;FMT_EXCEPTIONS=0;</PreprocessorDefinitions>
       <Optimization>Og</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../RF24Node/debug;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/uLog;$(ProjectDir)../../../../lib/MB85RS64V;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../RF24Node/debug;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/uLog;$(ProjectDir)../../../../lib/MB85RS64V;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CLanguageStandard>C11</CLanguageStandard>
     </ClCompile>
     <Link>
@@ -91,8 +91,8 @@
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
       <PreprocessorDefinitions>DEBUG=1;_EMBEDDED;STM32F446xx;USING_FREERTOS;USE_FREERTOS;BOOST_NO_EXCEPTIONS;CHIMERA_LITTLE_ENDIAN;THOR_CUSTOM_DRIVERS=1;RF24_TEST_PARENT;;%(ClCompile.PreprocessorDefinitions);CHIMERA_MODULES_SERIAL_SINK_CUSTOM_CONFIG;FMT_EXCEPTIONS=0;</PreprocessorDefinitions>
-      <Optimization>Og</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../RF24Node/debug;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/uLog;$(ProjectDir)../../../../lib/MB85RS64V;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>O0</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../RF24Node/debug;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/uLog;$(ProjectDir)../../../../lib/MB85RS64V;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CLanguageStandard>C11</CLanguageStandard>
     </ClCompile>
     <Link>
@@ -107,7 +107,7 @@
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);NDEBUG=1;RELEASE=1;_EMBEDDED;STM32F446xx;USING_FREERTOS;USE_FREERTOS;BOOST_NO_EXCEPTIONS;CHIMERA_LITTLE_ENDIAN;THOR_CUSTOM_DRIVERS=1;;RF24_TEST_CHILD;;CHIMERA_MODULES_SERIAL_SINK_CUSTOM_CONFIG;FMT_EXCEPTIONS=0;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../RF24Node/debug;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/uLog;$(ProjectDir)../../../../lib/MB85RS64V;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../RF24Node/debug;$(ProjectDir)../../../../;$(ProjectDir)../../../../lib/Thor;$(ProjectDir)../../../../lib/Thor/Thor/config/chimera;$(ProjectDir)../../../../lib/Thor/Thor/config/freertos;$(ProjectDir)../../../../lib/Chimera;$(ProjectDir)../../../../lib/FreeRTOS;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(ProjectDir)../../../../lib/uLog;$(ProjectDir)../../../../lib/MB85RS64V;</AdditionalIncludeDirectories>
       <CLanguageStandard>C11</CLanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -121,6 +121,7 @@
     <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink.cpp" />
     <ClCompile Include="..\..\..\..\lib\MB85RS64V\mb85rs64v.cpp" />
     <ClCompile Include="..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp" />
+    <ClCompile Include="..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp" />
     <ClCompile Include="..\..\..\..\lib\uLog\uLog\ulog.cpp" />
     <ClCompile Include="..\..\..\..\RF24Node\hardware\driver.cpp" />
     <ClCompile Include="..\..\..\..\RF24Node\network\frame\frame.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="..\..\..\..\lib\uLog\uLog\config.hpp" />
     <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_cout.hpp" />
     <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_intf.hpp" />
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.hpp" />
     <ClInclude Include="..\..\..\..\lib\uLog\uLog\types.hpp" />
     <ClInclude Include="..\..\..\..\lib\uLog\uLog\ulog.hpp" />
     <ClInclude Include="..\..\..\..\RF24Node\debug\cm_serial_sink_config.hpp" />
@@ -148,9 +150,13 @@
     <ClInclude Include="..\..\..\..\RF24Node\network\header\header_definitions.hpp" />
     <ClInclude Include="..\..\..\..\RF24Node\network\header\header_types.hpp" />
     <ClInclude Include="..\..\..\..\RF24Node\network\network.hpp" />
+    <ClInclude Include="..\..\..\..\RF24Node\network\network_types.hpp" />
     <ClInclude Include="..\..\..\..\RF24Node\network\node\node.hpp" />
     <ClInclude Include="..\..\..\..\RF24Node\network\path\path.hpp" />
     <ClInclude Include="..\..\..\..\RF24Node\physical\physical.hpp" />
+    <ClInclude Include="..\..\..\..\RF24Node\simulator\sim_definitions.hpp" />
+    <ClInclude Include="..\..\..\..\RF24Node\simulator\sim_network.hpp" />
+    <ClInclude Include="..\..\cm_serial_sink_config.hpp" />
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\definitions.hpp" />
     <ClInclude Include="..\..\..\..\RF24Node\hardware\driver.hpp" />
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\register.hpp" />

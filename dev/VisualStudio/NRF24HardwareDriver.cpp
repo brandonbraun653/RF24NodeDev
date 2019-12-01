@@ -29,6 +29,7 @@
 /* Logging Includes */
 #include <Chimera/modules/ulog/serial_sink.hpp>
 #include <uLog/ulog.hpp>
+#include <uLog/sinks/sink_vgdb_semihosting.hpp>
 
 void startup_sequence( Chimera::GPIO::GPIOClass *const led );
 void background_thread( void *arguments );
@@ -49,8 +50,8 @@ int main( void )
   memset( &cfg, 0, sizeof( cfg ) );
 
   Chimera::Threading::addThread( background_thread, "background", 1000, nullptr, 3, nullptr );
-  //Chimera::Threading::addThread( radio_thread, "radio", 1000, nullptr, 3, nullptr );
-  Chimera::Threading::addThread( logSink_thread, "logging", 1000, nullptr, 3, nullptr );
+  Chimera::Threading::addThread( radio_thread, "radio", 1000, nullptr, 3, nullptr );
+  //Chimera::Threading::addThread( logSink_thread, "logging", 1000, nullptr, 3, nullptr );
   Chimera::Threading::startScheduler();
   return 0;
 }
@@ -111,13 +112,13 @@ void logSink_thread( void *arguments )
 {
   Chimera::Threading::signalSetupComplete();
 
-  uLog::SinkType sink = std::make_shared<Chimera::Modules::uLog::SerialSink>();
+  uLog::SinkType sink = std::make_shared<uLog::VGDBSemihostingSink>();
 
-  sink->setLogLevel( uLog::LogLevelType::LOG_LEVEL_DEBUG );
+  sink->setLogLevel( uLog::Level::LVL_DEBUG );
 
   auto sinkHandle = uLog::registerSink( sink );
   uLog::enableSink( sinkHandle );
-  uLog::setGlobalLogLevel( uLog::LogLevelType::LOG_LEVEL_DEBUG );
+  uLog::setGlobalLogLevel( uLog::Level::LVL_DEBUG );
 
   std::string test;
   std::array<char, 50> buffer;
@@ -127,8 +128,9 @@ void logSink_thread( void *arguments )
   {
     snprintf( buffer.data(), buffer.size(), "Current tick: %d ms\r\n", Chimera::millis() );
 
-    uLog::log( uLog::LogLevelType::LOG_LEVEL_DEBUG, buffer.data(), strlen( buffer.data() ) );
-    uLog::flog( uLog::LogLevelType::LOG_LEVEL_DEBUG, "Nom nom nom\r\n" );
+    uLog::log( uLog::Level::LVL_DEBUG, buffer.data(), strlen( buffer.data() ) );
+    uLog::flog( uLog::Level::LVL_DEBUG, "Nom nom nom\r\n" );
+    printf( "Yep this works!\r\n" );
 
     Chimera::delayMilliseconds( 500 );
   }
@@ -235,7 +237,7 @@ void radio_thread( void *arguments )
   uint16_t nodeAddress = 0;
   uint32_t testPayload = 0xDEADBEEF;
   
-  RF24::Network::Header testHeader;
+  RF24::Network::HeaderHelper testHeader;
 
 #if defined( RF24_TEST_CHILD )
   nodeAddress = CHILD_NODE_ADDRESS;
@@ -285,7 +287,7 @@ void radio_thread( void *arguments )
       if ( copiedBytes == sizeof( uint32_t ) )
       {
         memcpy( &copiedPayload, msgSink.data(), copiedBytes );
-        printf( "\tReceived: 0x%04X\r\n\r\n", copiedPayload );
+        uLog::flog( uLog::Level::LVL_INFO, "\tReceived: 0x%04X\r\n\r\n", copiedPayload );
       }
     }
 #endif
@@ -299,12 +301,12 @@ namespace Chimera::Modules::uLog
 {
   Chimera::Serial::IOPins SerialPins = {
     /* RX Pin */
-    { Chimera::GPIO::Pull::NO_PULL, Chimera::GPIO::Port::PORTC, Chimera::GPIO::Drive::ALTERNATE_PUSH_PULL,
-      Chimera::GPIO::State::HI, 7, Thor::Driver::GPIO::AF8_USART6, Chimera::Hardware::AccessMode::THREADED, true },
+    { Chimera::GPIO::Pull::NO_PULL, Chimera::GPIO::Port::PORTA, Chimera::GPIO::Drive::ALTERNATE_PUSH_PULL,
+      Chimera::GPIO::State::HI, 3, Thor::Driver::GPIO::AF7_USART2, Chimera::Hardware::AccessMode::THREADED, true },
 
     /* TX Pin */
-    { Chimera::GPIO::Pull::NO_PULL, Chimera::GPIO::Port::PORTC, Chimera::GPIO::Drive::ALTERNATE_PUSH_PULL,
-      Chimera::GPIO::State::HI, 6, Thor::Driver::GPIO::AF8_USART6, Chimera::Hardware::AccessMode::THREADED, true
+    { Chimera::GPIO::Pull::NO_PULL, Chimera::GPIO::Port::PORTA, Chimera::GPIO::Drive::ALTERNATE_PUSH_PULL,
+      Chimera::GPIO::State::HI, 2, Thor::Driver::GPIO::AF7_USART2, Chimera::Hardware::AccessMode::THREADED, true
     } 
   };
 }

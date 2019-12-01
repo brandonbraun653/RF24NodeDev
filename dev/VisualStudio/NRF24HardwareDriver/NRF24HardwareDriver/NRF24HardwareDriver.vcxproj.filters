@@ -229,6 +229,9 @@
     <Filter Include="RF24Node\debug">
       <UniqueIdentifier>{8c70fc91-3e39-4a9e-9c43-13f415707300}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RF24Node\simulator">
+      <UniqueIdentifier>{8e3ee65d-cc47-4f4a-aba4-c47658d1e3b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="stm32.props">
@@ -1334,6 +1337,21 @@
     <ClInclude Include="..\..\..\..\RF24Node\debug\cm_serial_sink_config.hpp">
       <Filter>RF24Node\debug</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\cm_serial_sink_config.hpp">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.hpp">
+      <Filter>uLog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\network_types.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\simulator\sim_network.hpp">
+      <Filter>RF24Node\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\simulator\sim_definitions.hpp">
+      <Filter>RF24Node\simulator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\NRF24HardwareDriver.cpp">
@@ -1347,6 +1365,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink.cpp">
       <Filter>Chimera\modules\ulog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp">
+      <Filter>uLog\sinks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

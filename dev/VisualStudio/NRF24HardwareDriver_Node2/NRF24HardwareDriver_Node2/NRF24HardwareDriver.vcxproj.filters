@@ -217,6 +217,12 @@
     <Filter Include="RF24Node\network\path">
       <UniqueIdentifier>{89e58774-d9a9-4102-ac2b-ac8aec1cb26c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="uLog">
+      <UniqueIdentifier>{628ca548-79c3-4012-bb14-80c8d4667f39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uLog\sinks">
+      <UniqueIdentifier>{034a6d89-94c1-4994-9c12-7dcab1bcb9e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="stm32.props">
@@ -1298,10 +1304,37 @@
     <ClInclude Include="..\..\..\..\RF24Node\network\header\header_types.hpp">
       <Filter>RF24Node\network\header</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\config.hpp">
+      <Filter>uLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\types.hpp">
+      <Filter>uLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\ulog.hpp">
+      <Filter>uLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_cout.hpp">
+      <Filter>uLog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_intf.hpp">
+      <Filter>uLog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.hpp">
+      <Filter>uLog\sinks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\NRF24HardwareDriver.cpp">
       <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\uLog\uLog\ulog.cpp">
+      <Filter>uLog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp">
+      <Filter>uLog\sinks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp">
+      <Filter>uLog\sinks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

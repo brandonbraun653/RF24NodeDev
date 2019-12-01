@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="uLog">
+      <UniqueIdentifier>{606732ba-f965-43c8-97f8-39d16d25098c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uLog\sinks">
+      <UniqueIdentifier>{a00053c4-d3d8-4f39-aba0-ac3d40f2657c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node">
+      <UniqueIdentifier>{79b74ad3-35de-4258-8ed3-b9129d2d9c29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\hardware">
+      <UniqueIdentifier>{27da70f5-a606-4a29-94a4-6f4fefd5d116}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\mesh">
+      <UniqueIdentifier>{f75c2ead-ba8e-4f80-983e-cc7a52d12084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network">
+      <UniqueIdentifier>{145c30b0-772a-42f3-9cf0-0332378b726e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\physical">
+      <UniqueIdentifier>{36950329-85d7-497c-b919-498dc202d06d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\simulator">
+      <UniqueIdentifier>{8c83c440-40d4-49b9-b324-75c34e418187}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_definitions.hpp">
+      <Filter>RF24Node\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_network.hpp">
+      <Filter>RF24Node\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\hardware\definitions.hpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\hardware\driver.hpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\hardware\register.hpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\hardware\types.hpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\mesh\definitions.hpp">
+      <Filter>RF24Node\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\mesh\mesh.hpp">
+      <Filter>RF24Node\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\definitions.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\network.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\network_types.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\frame\frame.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\frame\frame_definitions.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\frame\frame_types.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\header\header.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\header\header_definitions.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\header\header_types.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\node\node.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\path\path.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\physical\physical.hpp">
+      <Filter>RF24Node\physical</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\mesh\mesh.cpp">
+      <Filter>RF24Node\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\network.cpp">
+      <Filter>RF24Node\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\frame\frame.cpp">
+      <Filter>RF24Node\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\header\header.cpp">
+      <Filter>RF24Node\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\node\node.cpp">
+      <Filter>RF24Node\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\path\path.cpp">
+      <Filter>RF24Node\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\physical\physical.cpp">
+      <Filter>RF24Node\physical</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\RF24Node\hardware\about.md">
+      <Filter>RF24Node\hardware</Filter>
+    </None>
+    <None Include="..\..\..\..\..\RF24Node\mesh\about.md">
+      <Filter>RF24Node\mesh</Filter>
+    </None>
+    <None Include="..\..\..\..\..\RF24Node\network\about.md">
+      <Filter>RF24Node\network</Filter>
+    </None>
+    <None Include="..\..\..\..\..\RF24Node\physical\about.md">
+      <Filter>RF24Node\physical</Filter>
+    </None>
+  </ItemGroup>
+</Project>
