@@ -91,11 +91,12 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>26812</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -110,11 +111,12 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN64;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN64;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>26812</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -131,11 +133,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>26812</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -154,11 +157,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN64;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN64;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>26812</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -201,7 +205,7 @@
     <ClCompile Include="..\..\..\..\..\RF24Node\network\node\node.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\path\path.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\physical.cpp" />
-    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\simulator\sim_network.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\RF24Node\hardware\about.md" />
