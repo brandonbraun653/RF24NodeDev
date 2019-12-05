@@ -37,6 +37,9 @@
     <Filter Include="RF24Node\network\node">
       <UniqueIdentifier>{7462989b-6744-4d27-ac78-5c19afb21fb6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RF24Node\interfaces">
+      <UniqueIdentifier>{0f996ff8-026d-4293-a43f-800306c7ce97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_definitions.hpp">
@@ -99,6 +102,15 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\network\header\header_types.hpp">
       <Filter>RF24Node\network\header</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\header\sim_header.hpp">
+      <Filter>RF24Node\network\header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint.hpp">
+      <Filter>RF24Node</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\endpoint.hpp">
+      <Filter>RF24Node\interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp">
@@ -127,6 +139,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\RF24Node\network\frame\frame.cpp">
       <Filter>RF24Node\network\frame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\header\sim_header.cpp">
+      <Filter>RF24Node\network\header</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint.cpp">
+      <Filter>RF24Node</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

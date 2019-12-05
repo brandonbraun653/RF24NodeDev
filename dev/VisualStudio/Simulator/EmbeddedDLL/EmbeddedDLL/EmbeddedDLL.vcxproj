@@ -125,6 +125,9 @@
       <AdditionalDependencies>$(OutputPath)ChimeraStaticLibrary.lib;$(OutputPath)FreeRTOSStaticLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_ROOT)/boost_1_70_0/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /d /y $(SolutionDir)x64\Debug\*.dll $(SolutionDir)NetworkExplorer\bin\Debug\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -175,10 +178,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\definitions.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\driver.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\register.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\types.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\endpoint.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\mesh\definitions.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\mesh\mesh.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\definitions.hpp" />
@@ -188,6 +193,7 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\network\header\header.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\header\header_definitions.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\header\header_types.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\header\sim_header.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\network.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\network_types.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\node\node.hpp" />
@@ -197,10 +203,12 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_network.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\mesh\mesh.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\frame\frame.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\header\header.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\header\sim_header.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\network.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\node\node.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\path\path.cpp" />
