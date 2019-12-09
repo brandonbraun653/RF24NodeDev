@@ -3,6 +3,7 @@
         {
             "name": "Embedded",
             "includePath": [
+                "${workspaceFolder}",
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/.vscode/",
                 "${workspaceFolder}/lib/**",
@@ -32,6 +33,7 @@
         {
             "name": "Simulator",
             "includePath": [
+                "${workspaceFolder}",
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/.vscode/",
                 "${workspaceFolder}/lib/**",

@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace NetworkExplorer
@@ -23,10 +22,6 @@ namespace NetworkExplorer
         public MainWindow()
         {
             InitializeComponent();
-
-            HeaderHelper test = new HeaderHelper();
-
-            test = null;
         }
     }
 }

@@ -23,6 +23,9 @@
     "sstream": "cpp",
     "regex": "cpp",
     "valarray": "cpp",
-    "*.ipp": "cpp"
+    "*.ipp": "cpp",
+    "atomic": "cpp",
+    "streambuf": "cpp",
+    "complex": "cpp"
   }
 }

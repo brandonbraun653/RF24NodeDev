@@ -178,12 +178,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\common\definitions.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\common\types.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\endpoint.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\definitions.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\driver.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\register.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\types.hpp" />
-    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\endpoint.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\endpoint_intf.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\network_intf.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\physical_intf.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\mesh\definitions.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\mesh\mesh.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\definitions.hpp" />
@@ -194,26 +198,31 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\network\header\header_definitions.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\header\header_types.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\header\sim_header.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\memory\heap.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\network.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\network_types.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\node\node.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\path\path.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\queue\queue.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\physical.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\sim_physical.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_definitions.hpp" />
-    <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_network.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\endpoint.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\interfaces\endpoint_intf.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\mesh\mesh.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\frame\frame.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\header\header.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\header\sim_header.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\memory\heap.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\network.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\node\node.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\path\path.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\queue\queue.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\physical.cpp" />
-    <ClCompile Include="..\..\..\..\..\RF24Node\simulator\sim_network.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\sim_physical.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\RF24Node\hardware\about.md" />

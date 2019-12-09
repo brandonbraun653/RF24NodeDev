@@ -40,12 +40,24 @@
     <Filter Include="RF24Node\interfaces">
       <UniqueIdentifier>{0f996ff8-026d-4293-a43f-800306c7ce97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RF24Node\network\memory">
+      <UniqueIdentifier>{f94b97c1-63bf-4e08-b355-34b150b2b50a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network\queue">
+      <UniqueIdentifier>{ed47b606-777c-4afe-bd8b-c09b5fcf1ae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\common">
+      <UniqueIdentifier>{0b8ef4c5-b76a-4ece-886c-b791bbd4a3ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\endpoint">
+      <UniqueIdentifier>{894ab449-d270-4763-a7a9-b19631d92781}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\physical\simulator">
+      <UniqueIdentifier>{394d7f34-f5b7-424c-9a2a-f6cc0cdfb98a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_definitions.hpp">
-      <Filter>RF24Node\simulator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_network.hpp">
       <Filter>RF24Node\simulator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\definitions.hpp">
@@ -105,10 +117,31 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\network\header\sim_header.hpp">
       <Filter>RF24Node\network\header</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint.hpp">
-      <Filter>RF24Node</Filter>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\memory\heap.hpp">
+      <Filter>RF24Node\network\memory</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\endpoint.hpp">
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\queue\queue.hpp">
+      <Filter>RF24Node\network\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\endpoint_intf.hpp">
+      <Filter>RF24Node\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\common\definitions.hpp">
+      <Filter>RF24Node\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\common\types.hpp">
+      <Filter>RF24Node\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\endpoint.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\network_intf.hpp">
+      <Filter>RF24Node\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\sim_physical.hpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\physical_intf.hpp">
       <Filter>RF24Node\interfaces</Filter>
     </ClInclude>
   </ItemGroup>
@@ -125,9 +158,6 @@
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\physical.cpp">
       <Filter>RF24Node\physical</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\RF24Node\simulator\sim_network.cpp">
-      <Filter>RF24Node\simulator</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\RF24Node\network\path\path.cpp">
       <Filter>RF24Node\network\path</Filter>
     </ClCompile>
@@ -143,8 +173,20 @@
     <ClCompile Include="..\..\..\..\..\RF24Node\network\header\sim_header.cpp">
       <Filter>RF24Node\network\header</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint.cpp">
-      <Filter>RF24Node</Filter>
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\memory\heap.cpp">
+      <Filter>RF24Node\network\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\network\queue\queue.cpp">
+      <Filter>RF24Node\network\queue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\endpoint.cpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\interfaces\endpoint_intf.cpp">
+      <Filter>RF24Node\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\sim_physical.cpp">
+      <Filter>RF24Node\physical\simulator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
