@@ -84,9 +84,6 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\network\network.hpp">
       <Filter>RF24Node\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\RF24Node\network\network_types.hpp">
-      <Filter>RF24Node\network</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\physical.hpp">
       <Filter>RF24Node\physical</Filter>
     </ClInclude>
@@ -143,6 +140,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\RF24Node\interfaces\physical_intf.hpp">
       <Filter>RF24Node\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\types.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\network\types.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\physical\types.hpp">
+      <Filter>RF24Node\physical</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
