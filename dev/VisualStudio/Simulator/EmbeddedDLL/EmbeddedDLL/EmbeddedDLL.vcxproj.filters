@@ -150,6 +150,12 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\types.hpp">
       <Filter>RF24Node\physical</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\pipe.hpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.hpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp">
@@ -192,6 +198,12 @@
       <Filter>RF24Node\interfaces</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\sim_physical.cpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\pipe.cpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.cpp">
       <Filter>RF24Node\physical\simulator</Filter>
     </ClCompile>
   </ItemGroup>

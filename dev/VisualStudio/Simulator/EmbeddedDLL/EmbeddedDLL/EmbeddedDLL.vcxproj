@@ -206,6 +206,8 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\network\path\path.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\queue\queue.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\physical.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\pipe.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\sim_physical.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\types.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_definitions.hpp" />
@@ -224,6 +226,8 @@
     <ClCompile Include="..\..\..\..\..\RF24Node\network\path\path.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\queue\queue.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\physical.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\pipe.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\sim_physical.cpp" />
   </ItemGroup>
   <ItemGroup>
