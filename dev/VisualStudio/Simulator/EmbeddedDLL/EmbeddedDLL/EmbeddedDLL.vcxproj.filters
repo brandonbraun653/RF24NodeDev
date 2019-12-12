@@ -55,6 +55,9 @@
     <Filter Include="RF24Node\physical\simulator">
       <UniqueIdentifier>{394d7f34-f5b7-424c-9a2a-f6cc0cdfb98a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="fmt">
+      <UniqueIdentifier>{b2a5fb5f-dd6a-4c2f-b51d-ac5a9fd9c42c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_definitions.hpp">
@@ -156,6 +159,39 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.hpp">
       <Filter>RF24Node\physical\simulator</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\chrono.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\color.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\compile.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\core.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\format.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\format-inl.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\locale.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\ostream.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\posix.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\printf.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\ranges.h">
+      <Filter>fmt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp">
@@ -205,6 +241,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.cpp">
       <Filter>RF24Node\physical\simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\lib\fmt\src\format.cc">
+      <Filter>fmt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
