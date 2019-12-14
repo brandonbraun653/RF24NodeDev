@@ -55,9 +55,6 @@
     <Filter Include="RF24Node\physical\simulator">
       <UniqueIdentifier>{394d7f34-f5b7-424c-9a2a-f6cc0cdfb98a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="fmt">
-      <UniqueIdentifier>{b2a5fb5f-dd6a-4c2f-b51d-ac5a9fd9c42c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_definitions.hpp">
@@ -159,38 +156,24 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.hpp">
       <Filter>RF24Node\physical\simulator</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\chrono.h">
-      <Filter>fmt</Filter>
+    <ClInclude Include="exported_test_functions.hpp" />
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\config.hpp">
+      <Filter>uLog</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\color.h">
-      <Filter>fmt</Filter>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\types.hpp">
+      <Filter>uLog</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\compile.h">
-      <Filter>fmt</Filter>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\ulog.hpp">
+      <Filter>uLog</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\core.h">
-      <Filter>fmt</Filter>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.hpp">
+      <Filter>uLog\sinks</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\format.h">
-      <Filter>fmt</Filter>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.hpp">
+      <Filter>uLog\sinks</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\format-inl.h">
-      <Filter>fmt</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\locale.h">
-      <Filter>fmt</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\ostream.h">
-      <Filter>fmt</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\posix.h">
-      <Filter>fmt</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\printf.h">
-      <Filter>fmt</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\lib\fmt\include\fmt\ranges.h">
-      <Filter>fmt</Filter>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_intf.hpp">
+      <Filter>uLog\sinks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -242,8 +225,15 @@
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.cpp">
       <Filter>RF24Node\physical\simulator</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\lib\fmt\src\format.cc">
-      <Filter>fmt</Filter>
+    <ClCompile Include="exported_test_functions.cpp" />
+    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\ulog.cpp">
+      <Filter>uLog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp">
+      <Filter>uLog\sinks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp">
+      <Filter>uLog\sinks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
