@@ -46,5 +46,5 @@ namespace NetworkExplorer.RF24Node
     }
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void EventFuncPtr_t();
+    public delegate void EventFunctionPtr();
 }

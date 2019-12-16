@@ -4,6 +4,6 @@
 
 #include <RF24Node/simulator/sim_definitions.hpp>
 
-extern "C" void test_PipeCommunication();
+extern "C" RF24API void test_PipeCommunication();
 
 #endif // !EXPORTED_TEST_FUNCTIONS_HPP

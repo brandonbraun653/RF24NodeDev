@@ -15,7 +15,7 @@ namespace NetworkExplorer.RF24Node
 
     sealed class Endpoint
     {
-        private sealed class NativeMethods
+        private static class NativeMethods
         {
             private const string RF24DLL = @"EmbeddedDLL.dll";
 
@@ -60,7 +60,7 @@ namespace NetworkExplorer.RF24Node
 
             /* Asynchronous Processing */
             [DllImport(RF24DLL, CallingConvention = CallingConvention.Cdecl)]
-            public static extern UInt16 EP_onEvent(IntPtr obj, int evnt, EventFuncPtr_t callback);
+            public static extern UInt16 EP_onEvent(IntPtr obj, int evnt, EventFunctionPtr callback);
 
             [DllImport(RF24DLL, CallingConvention = CallingConvention.Cdecl)]
             public static extern UInt16 EP_processMessageBuffers(IntPtr obj);
@@ -97,11 +97,11 @@ namespace NetworkExplorer.RF24Node
 
         private readonly IntPtr Instance;
 
-        public static readonly LogicalAddress RootNode0 = 0000;
-        public static readonly LogicalAddress RootNode1 = 1000;
-        public static readonly LogicalAddress RootNode2 = 2000;
-        public static readonly LogicalAddress RootNode3 = 3000;
-        public static readonly LogicalAddress RootNode4 = 4000;
+        public const LogicalAddress RootNode0 = 0000;
+        public const LogicalAddress RootNode1 = 1000;
+        public const LogicalAddress RootNode2 = 2000;
+        public const LogicalAddress RootNode3 = 3000;
+        public const LogicalAddress RootNode4 = 4000;
 
 
         public Endpoint()
@@ -159,7 +159,7 @@ namespace NetworkExplorer.RF24Node
             return NativeMethods.EP_reconnect(Instance);
         }
 
-        public UInt16 OnEvent(Event evt, EventFuncPtr_t function)
+        public UInt16 OnEvent(Event evt, EventFunctionPtr function)
         {
             return NativeMethods.EP_onEvent(Instance, (int)evt, function);
         }

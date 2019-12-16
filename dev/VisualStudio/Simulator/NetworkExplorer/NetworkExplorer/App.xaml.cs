@@ -21,7 +21,7 @@ namespace NetworkExplorer
 
     public partial class App : Application
     {
-        private sealed class NativeMethods
+        private static class NativeMethods
         {
             private const string RF24DLL = @"EmbeddedDLL.dll";
 
@@ -31,7 +31,7 @@ namespace NetworkExplorer
 
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
