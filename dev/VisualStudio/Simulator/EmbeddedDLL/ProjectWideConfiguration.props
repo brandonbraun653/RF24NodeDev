@@ -1,56 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ImportGroup Label="PropertySheets" />
-  <PropertyGroup Label="UserMacros">
-    <ChimeraIncDir>$(SolutionDir)../../../../lib/Chimera</ChimeraIncDir>
-    <ChimeraPortDir>$(SolutionDir)../../../../lib/Chimera/Chimera/sim/config/chimera</ChimeraPortDir>
-    <ChimeraCfgDir>$(SolutionDir)../../../../lib/Chimera/Chimera/sim/config/chimera</ChimeraCfgDir>
-    <ChimeraCompilerDefines>CHIMERA_LITTLE_ENDIAN;</ChimeraCompilerDefines>
-    <FreeRTOSIncDir>$(SolutionDir)../../../../lib/FreeRTOS/include</FreeRTOSIncDir>
-    <FreeRTOSCfgDir>$(SolutionDir)../../../../lib/Chimera/Chimera/sim/config/freertos</FreeRTOSCfgDir>
-    <FreeRTOSPortDir>$(SolutionDir)../../../../lib/FreeRTOS/portable/MSVC-mingW</FreeRTOSPortDir>
-    <FreeRTOSCompilerDefines>FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_MSVC=1;</FreeRTOSCompilerDefines>
-    <BoostCompilerDefines>
-    </BoostCompilerDefines>
-  </PropertyGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(SolutionDir)ProjectWideConfiguration.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
   <ItemDefinitionGroup />
-  <ItemGroup>
-    <BuildMacro Include="ChimeraIncDir">
-      <Value>$(ChimeraIncDir)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="ChimeraPortDir">
-      <Value>$(ChimeraPortDir)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="ChimeraCfgDir">
-      <Value>$(ChimeraCfgDir)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="ChimeraCompilerDefines">
-      <Value>$(ChimeraCompilerDefines)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="FreeRTOSIncDir">
-      <Value>$(FreeRTOSIncDir)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="FreeRTOSCfgDir">
-      <Value>$(FreeRTOSCfgDir)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="FreeRTOSPortDir">
-      <Value>$(FreeRTOSPortDir)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="FreeRTOSCompilerDefines">
-      <Value>$(FreeRTOSCompilerDefines)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="BoostCompilerDefines">
-      <Value>$(BoostCompilerDefines)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-  </ItemGroup>
+  <ItemGroup />
 </Project>

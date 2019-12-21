@@ -181,8 +181,8 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\pipe_types.hpp">
       <Filter>RF24Node\physical\simulator</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\conversion.hpp">
-      <Filter>RF24Node\physical\simulator</Filter>
+    <ClInclude Include="..\..\..\..\..\RF24Node\common\conversion.hpp">
+      <Filter>RF24Node\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -244,8 +244,11 @@
     <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp">
       <Filter>uLog\sinks</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\conversion.cpp">
-      <Filter>RF24Node\physical\simulator</Filter>
+    <ClCompile Include="..\..\..\..\..\RF24Node\common\conversion.cpp">
+      <Filter>RF24Node\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\endpoint_connection.cpp">
+      <Filter>RF24Node\endpoint</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

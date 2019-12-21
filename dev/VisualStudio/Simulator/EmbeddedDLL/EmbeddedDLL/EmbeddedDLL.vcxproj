@@ -91,7 +91,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;DEBUG;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/fmt/include;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
@@ -111,7 +111,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN64;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN64;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;DEBUG;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/fmt/include;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
@@ -184,6 +184,7 @@
     <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.hpp" />
     <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\types.hpp" />
     <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\ulog.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\common\conversion.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\common\definitions.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\common\types.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\endpoint.hpp" />
@@ -212,7 +213,6 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\network\path\path.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\network\queue\queue.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\physical.hpp" />
-    <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\conversion.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\pipe.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\pipe_types.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.hpp" />
@@ -226,7 +226,9 @@
     <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp" />
     <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp" />
     <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\ulog.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\common\conversion.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\endpoint.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\endpoint_connection.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\interfaces\endpoint_intf.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\mesh\mesh.cpp" />
@@ -239,7 +241,6 @@
     <ClCompile Include="..\..\..\..\..\RF24Node\network\path\path.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\network\queue\queue.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\physical.cpp" />
-    <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\conversion.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\pipe.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\shockburst.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\physical\simulator\sim_physical.cpp" />

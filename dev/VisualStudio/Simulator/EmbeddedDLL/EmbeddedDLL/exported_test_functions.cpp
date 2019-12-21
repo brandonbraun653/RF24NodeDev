@@ -7,10 +7,10 @@
 #include "exported_test_functions.hpp"
 
 /* RF24 Includes */
+#include <RF24Node/common/conversion.hpp>
 #include <RF24Node/common/definitions.hpp>
 #include <RF24Node/endpoint/endpoint.hpp>
 #include <RF24Node/endpoint/types.hpp>
-#include <RF24Node/physical/simulator/conversion.hpp>
 #include <RF24Node/physical/simulator/pipe.hpp>
 #include <RF24Node/physical/simulator/shockburst.hpp>
 #include <RF24Node/physical/simulator/shockburst_types.hpp>
@@ -27,13 +27,21 @@ void test_PipeCommunication()
   using namespace RF24::Network;
 
 
-  uLog::SinkType consoleSink = std::make_shared<uLog::CoutSink>();
-  consoleSink->setLogLevel( uLog::Level::LVL_DEBUG );
+  uLog::SinkHandle masterSink = std::make_shared<uLog::CoutSink>();
+  masterSink->setLogLevel( uLog::Level::LVL_DEBUG );
+  masterSink->setName( "Master" );
+
+  uLog::SinkHandle slaveSink = std::make_shared<uLog::CoutSink>();
+  slaveSink->setLogLevel( uLog::Level::LVL_DEBUG );
+  slaveSink->setName( "Slave" );
 
   uLog::initialize();
-  uLog::enableSink( uLog::registerSink( consoleSink ) );
+  uLog::registerSink( masterSink );
+  uLog::registerSink( slaveSink );
+
+  masterSink->enable();
+  slaveSink->enable();
   uLog::setGlobalLogLevel( uLog::Level::LVL_DEBUG );
-  uLog::flog( uLog::Level::LVL_DEBUG, "Program start\r\n" );
 
   /*------------------------------------------------
   Create a master node
@@ -53,6 +61,7 @@ void test_PipeCommunication()
   cfg.physical.powerAmplitude = RF24::Hardware::PowerAmplitude::PA_HIGH;
   cfg.physical.rfChannel = 96;
 
+  master.attachLogger( masterSink );
   master.configure( cfg );
 
   /*------------------------------------------------
@@ -62,12 +71,14 @@ void test_PipeCommunication()
 
   cfg.network.nodeStaticAddress = 0001;
 
+  slave.attachLogger( slaveSink );
   slave.configure( cfg );
-  slave.connect();
+  slave.connect( 1000 );
+
 
   while (!slave.isConnected())
   {
-    uLog::flog(uLog::Level::LVL_INFO, "Still waiting for slave to connect...\n" );
+    masterSink->flog(uLog::Level::LVL_INFO, "Still waiting for slave to connect...\n" );
     boost::this_thread::sleep_for( boost::chrono::milliseconds( 1000 ) );
   }
 

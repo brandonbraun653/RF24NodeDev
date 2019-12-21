@@ -12,6 +12,8 @@
     <FreeRTOSCompilerDefines>FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_MSVC=1;</FreeRTOSCompilerDefines>
     <BoostCompilerDefines>
     </BoostCompilerDefines>
+    <CommonCompilerDefinesx64>WIN64</CommonCompilerDefinesx64>
+    <CommonCompilerDefinesx86>WIN32</CommonCompilerDefinesx86>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -50,6 +52,14 @@
     </BuildMacro>
     <BuildMacro Include="BoostCompilerDefines">
       <Value>$(BoostCompilerDefines)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="CommonCompilerDefinesx64">
+      <Value>$(CommonCompilerDefinesx64)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="CommonCompilerDefinesx86">
+      <Value>$(CommonCompilerDefinesx86)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>
