@@ -184,6 +184,9 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\common\conversion.hpp">
       <Filter>RF24Node\common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\common\utility.hpp">
+      <Filter>RF24Node\common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp">
@@ -249,6 +252,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\endpoint_connection.cpp">
       <Filter>RF24Node\endpoint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\common\utility.cpp">
+      <Filter>RF24Node\common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

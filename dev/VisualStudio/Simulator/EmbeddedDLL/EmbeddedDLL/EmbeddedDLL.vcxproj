@@ -187,6 +187,7 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\common\conversion.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\common\definitions.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\common\types.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\common\utility.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\endpoint.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\types.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\definitions.hpp" />
@@ -227,6 +228,7 @@
     <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp" />
     <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\ulog.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\common\conversion.cpp" />
+    <ClCompile Include="..\..\..\..\..\RF24Node\common\utility.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\endpoint.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\endpoint_connection.cpp" />
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp" />
