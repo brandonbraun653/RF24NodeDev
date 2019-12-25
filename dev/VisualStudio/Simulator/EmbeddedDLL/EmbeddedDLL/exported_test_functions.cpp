@@ -26,7 +26,6 @@ void test_PipeCommunication()
 {
   using namespace RF24::Network;
 
-
   uLog::SinkHandle masterSink = std::make_shared<uLog::CoutSink>();
   masterSink->setLogLevel( uLog::Level::LVL_DEBUG );
   masterSink->setName( "Master" );

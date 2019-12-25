@@ -55,6 +55,9 @@
     <Filter Include="RF24Node\physical\simulator">
       <UniqueIdentifier>{394d7f34-f5b7-424c-9a2a-f6cc0cdfb98a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CRCpp">
+      <UniqueIdentifier>{14a47f3f-b87a-4a73-ad02-43c1b75d8778}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\RF24Node\simulator\sim_definitions.hpp">
@@ -186,6 +189,8 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\RF24Node\common\utility.hpp">
       <Filter>RF24Node\common</Filter>
+    <ClInclude Include="..\..\..\..\..\lib\CRCpp\inc\CRC.h">
+      <Filter>CRCpp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

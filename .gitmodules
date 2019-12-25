@@ -19,3 +19,6 @@
 [submodule "lib/uLog"]
 	path = lib/uLog
 	url = https://github.com/brandonbraun653/uLog.git
+[submodule "lib/CRCpp"]
+	path = lib/CRCpp
+	url = https://github.com/d-bahr/CRCpp.git
