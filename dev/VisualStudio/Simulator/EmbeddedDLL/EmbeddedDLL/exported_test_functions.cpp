@@ -50,7 +50,7 @@ void test_PipeCommunication()
   RF24::EndpointConfig cfg;
   cfg.network.mode = Mode::NET_MODE_STATIC;
   cfg.network.nodeStaticAddress = RF24::RootNode0;
-  cfg.network.parentStaticAddress = RF24::InvalidLogicalAddress;
+  cfg.network.parentStaticAddress = RF24::Network::RSVD_ADDR_INVALID;
   cfg.network.rxQueueBuffer = nullptr;
   cfg.network.rxQueueSize = 5 * RF24::Hardware::PACKET_WIDTH;
   cfg.network.txQueueBuffer = nullptr;

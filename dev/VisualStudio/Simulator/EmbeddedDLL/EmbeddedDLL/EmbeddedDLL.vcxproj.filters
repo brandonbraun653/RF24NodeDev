@@ -189,6 +189,7 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\RF24Node\common\utility.hpp">
       <Filter>RF24Node\common</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\..\lib\CRCpp\inc\CRC.h">
       <Filter>CRCpp</Filter>
     </ClInclude>

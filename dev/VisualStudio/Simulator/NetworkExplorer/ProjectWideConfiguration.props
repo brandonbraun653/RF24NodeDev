@@ -14,6 +14,7 @@
     </BoostCompilerDefines>
     <CommonCompilerDefinesx64>WIN64</CommonCompilerDefinesx64>
     <CommonCompilerDefinesx86>WIN32</CommonCompilerDefinesx86>
+    <RF24NodeIncDir>$(SolutionDir)../../../../</RF24NodeIncDir>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -60,6 +61,10 @@
     </BuildMacro>
     <BuildMacro Include="CommonCompilerDefinesx86">
       <Value>$(CommonCompilerDefinesx86)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="RF24NodeIncDir">
+      <Value>$(RF24NodeIncDir)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>

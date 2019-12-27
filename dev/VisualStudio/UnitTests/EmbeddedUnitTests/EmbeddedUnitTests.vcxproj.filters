@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\RF24Node\common\conversion.cpp">
+      <Filter>RF24Node\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\common\utility.cpp">
+      <Filter>RF24Node\common</Filter>
+    </ClCompile>
+    <ClCompile Include="test_conversion.cpp" />
+    <ClCompile Include="test_utility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="RF24Node">
+      <UniqueIdentifier>{ce890d8a-63f8-4bb4-8385-07accfbfce68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\common">
+      <UniqueIdentifier>{36384134-2406-4524-8a0a-b4cbad1f0f31}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

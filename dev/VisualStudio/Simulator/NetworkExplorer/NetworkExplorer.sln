@@ -21,6 +21,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EmbeddedDLL", "..\EmbeddedD
 		{84551AF0-447D-4ED5-8DDA-3933C47A95F8} = {84551AF0-447D-4ED5-8DDA-3933C47A95F8}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EmbeddedUnitTests", "..\..\UnitTests\EmbeddedUnitTests\EmbeddedUnitTests.vcxproj", "{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67D62E15-ADD2-46FB-98AA-F39CE34D9E1A} = {67D62E15-ADD2-46FB-98AA-F39CE34D9E1A}
+		{D95812B7-4F73-4952-BEBA-9BDC2DC96FE0} = {D95812B7-4F73-4952-BEBA-9BDC2DC96FE0}
+		{84551AF0-447D-4ED5-8DDA-3933C47A95F8} = {84551AF0-447D-4ED5-8DDA-3933C47A95F8}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +80,16 @@ Global
 		{D95812B7-4F73-4952-BEBA-9BDC2DC96FE0}.Release|x64.Build.0 = Release|x64
 		{D95812B7-4F73-4952-BEBA-9BDC2DC96FE0}.Release|x86.ActiveCfg = Release|Win32
 		{D95812B7-4F73-4952-BEBA-9BDC2DC96FE0}.Release|x86.Build.0 = Release|Win32
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Debug|x64.ActiveCfg = Debug|x64
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Debug|x64.Build.0 = Debug|x64
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Debug|x86.ActiveCfg = Debug|Win32
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Debug|x86.Build.0 = Debug|Win32
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Release|Any CPU.ActiveCfg = Release|Win32
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Release|x64.ActiveCfg = Release|x64
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Release|x64.Build.0 = Release|x64
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Release|x86.ActiveCfg = Release|Win32
+		{9EED9BAD-FD71-4E74-BDDB-F8A1E5B9681E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

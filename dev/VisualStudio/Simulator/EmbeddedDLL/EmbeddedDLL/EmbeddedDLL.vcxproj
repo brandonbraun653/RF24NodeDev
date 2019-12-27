@@ -94,7 +94,7 @@
       <PreprocessorDefinitions>WIN32;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;DEBUG;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/CRCpp/inc;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(RF24NodeIncDir);$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/CRCpp/inc;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
     </ClCompile>
@@ -114,7 +114,7 @@
       <PreprocessorDefinitions>WIN64;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;DEBUG;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/CRCpp/inc;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(RF24NodeIncDir);$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/CRCpp/inc;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
     </ClCompile>
@@ -139,7 +139,7 @@
       <PreprocessorDefinitions>WIN32;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/CRCpp/inc;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(RF24NodeIncDir);$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/CRCpp/inc;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
     </ClCompile>
@@ -163,7 +163,7 @@
       <PreprocessorDefinitions>WIN64;$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);%(PreprocessorDefinitions);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../../;$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/CRCpp/inc;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)../../../;$(ProjectDir);$(BOOST_ROOT)/boost_1_70_0;$(RF24NodeIncDir);$(ChimeraIncDir);$(ChimeraCfgDir);$(FreeRTOSIncDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(ProjectDir)../../../../../lib/CRCpp/inc;$(ProjectDir)../../../../../lib/uLog</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
     </ClCompile>
