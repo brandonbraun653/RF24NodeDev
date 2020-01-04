@@ -69,6 +69,7 @@ void test_PipeCommunication()
   RF24::Endpoint slave;
 
   cfg.network.nodeStaticAddress = 0001;
+  cfg.network.parentStaticAddress = RF24::RootNode0;
 
   slave.attachLogger( slaveSink );
   slave.configure( cfg );
