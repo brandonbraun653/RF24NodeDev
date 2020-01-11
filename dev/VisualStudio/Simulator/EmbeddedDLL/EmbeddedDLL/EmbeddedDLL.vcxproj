@@ -189,6 +189,7 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\common\definitions.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\common\types.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\common\utility.hpp" />
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\config.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\endpoint.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\types.hpp" />
     <ClInclude Include="..\..\..\..\..\RF24Node\hardware\definitions.hpp" />

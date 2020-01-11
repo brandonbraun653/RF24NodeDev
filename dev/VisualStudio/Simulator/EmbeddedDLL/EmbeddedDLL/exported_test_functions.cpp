@@ -73,8 +73,8 @@ void MasterNodeThread()
   masterSink->enable();
   uLog::registerSink( masterSink );
 
-  RF24::Endpoint master;
-  RF24::EndpointConfig cfg;
+  RF24::Endpoint::Device master;
+  RF24::Endpoint::Config cfg;
   cfg.network.mode = RF24::Network::Mode::NET_MODE_STATIC;
   cfg.network.nodeStaticAddress = RF24::RootNode0;
   cfg.network.parentStaticAddress = RF24::Network::RSVD_ADDR_INVALID;
@@ -89,13 +89,13 @@ void MasterNodeThread()
 
   master.attachLogger( masterSink );
   master.configure( cfg );
+  master.setName( "Master" );
 
 
   while ( true )
   {
-    master.processNetworking();
-
-    Chimera::delayMilliseconds( 25 );
+    master.doAsyncProcessing();
+    boost::this_thread::sleep_for( boost::chrono::milliseconds( 25 ) );
   }
 }
 
@@ -109,8 +109,8 @@ void SlaveNodeThread()
   slaveSink->enable();
   uLog::registerSink( slaveSink );
 
-  RF24::Endpoint slave;
-  RF24::EndpointConfig cfg;
+  RF24::Endpoint::Device slave;
+  RF24::Endpoint::Config cfg;
   cfg.network.mode = RF24::Network::Mode::NET_MODE_STATIC;
   cfg.network.nodeStaticAddress = 0001;
   cfg.network.parentStaticAddress = RF24::RootNode0;
@@ -126,11 +126,16 @@ void SlaveNodeThread()
 
   slave.attachLogger( slaveSink );
   slave.configure( cfg );
-  slave.connect( 1000 );
+  slave.setName( "Slave" );
+  
+  if ( slave.connect( 1000 ) )
+  {
+    slaveSink->flog( uLog::Level::LVL_INFO, "Holy crap it worked?!\n");
+  }
 
   while ( true )
   {
-
-    Chimera::delayMilliseconds( 25 );
+    slave.doAsyncProcessing();
+    boost::this_thread::sleep_for( boost::chrono::milliseconds( 25 ) );
   }
 }

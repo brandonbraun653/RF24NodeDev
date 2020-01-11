@@ -178,6 +178,9 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\network\frame\types.hpp">
       <Filter>RF24Node\network\frame</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\config.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp">
