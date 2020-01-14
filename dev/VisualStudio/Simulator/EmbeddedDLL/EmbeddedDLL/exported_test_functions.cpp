@@ -60,7 +60,7 @@ void test_PipeCommunication()
 
   while ( true )
   {
-    boost::this_thread::sleep_for( boost::chrono::milliseconds( 100 ) );
+    Chimera::delayMilliseconds( 100 );
   }
 
 }
@@ -86,23 +86,21 @@ void MasterNodeThread()
   cfg.physical.dataRate = RF24::Hardware::DataRate::DR_1MBPS;
   cfg.physical.powerAmplitude = RF24::Hardware::PowerAmplitude::PA_HIGH;
   cfg.physical.rfChannel = 96;
+  cfg.physical.deviceName = "Master";
 
   master.attachLogger( masterSink );
   master.configure( cfg );
-  master.setName( "Master" );
-
+  master.setName( cfg.physical.deviceName );
 
   while ( true )
   {
     master.doAsyncProcessing();
-    boost::this_thread::sleep_for( boost::chrono::milliseconds( 25 ) );
+    Chimera::delayMilliseconds( 25 );
   }
 }
 
 void SlaveNodeThread()
 {
-  Chimera::delayMilliseconds( 150 );
-
   uLog::SinkHandle slaveSink = std::make_shared<uLog::CoutSink>();
   slaveSink->setLogLevel( uLog::Level::LVL_DEBUG );
   slaveSink->setName( "Slave" );
@@ -122,20 +120,24 @@ void SlaveNodeThread()
   cfg.physical.dataRate = RF24::Hardware::DataRate::DR_1MBPS;
   cfg.physical.powerAmplitude = RF24::Hardware::PowerAmplitude::PA_HIGH;
   cfg.physical.rfChannel = 96;
-
+  cfg.physical.deviceName = "Slave";
 
   slave.attachLogger( slaveSink );
   slave.configure( cfg );
-  slave.setName( "Slave" );
+  slave.setName( cfg.physical.deviceName );
   
   if ( slave.connect( 1000 ) )
   {
     slaveSink->flog( uLog::Level::LVL_INFO, "Holy crap it worked?!\n");
   }
+  else
+  {
+    slaveSink->flog( uLog::Level::LVL_INFO, "Did not connect for some reason\n" );
+  }
 
   while ( true )
   {
     slave.doAsyncProcessing();
-    boost::this_thread::sleep_for( boost::chrono::milliseconds( 25 ) );
+    Chimera::delayMilliseconds( 25 );
   }
 }

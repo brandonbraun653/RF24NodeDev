@@ -31,9 +31,6 @@
     <Filter Include="RF24Node\network\path">
       <UniqueIdentifier>{dfa5b146-776e-4bdb-973c-e5a1640d7345}</UniqueIdentifier>
     </Filter>
-    <Filter Include="RF24Node\network\node">
-      <UniqueIdentifier>{7462989b-6744-4d27-ac78-5c19afb21fb6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="RF24Node\interfaces">
       <UniqueIdentifier>{0f996ff8-026d-4293-a43f-800306c7ce97}</UniqueIdentifier>
     </Filter>
@@ -89,9 +86,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\RF24Node\network\path\path.hpp">
       <Filter>RF24Node\network\path</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\RF24Node\network\node\node.hpp">
-      <Filter>RF24Node\network\node</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\RF24Node\network\frame\frame.hpp">
       <Filter>RF24Node\network\frame</Filter>
@@ -181,6 +175,15 @@
     <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\config.hpp">
       <Filter>RF24Node\endpoint</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\connection.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\registration.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\RF24Node\endpoint\fwd.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\RF24Node\hardware\driver.cpp">
@@ -197,9 +200,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\RF24Node\network\path\path.cpp">
       <Filter>RF24Node\network\path</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\RF24Node\network\node\node.cpp">
-      <Filter>RF24Node\network\node</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\RF24Node\network\frame\frame.cpp">
       <Filter>RF24Node\network\frame</Filter>
@@ -238,11 +238,14 @@
     <ClCompile Include="..\..\..\..\..\RF24Node\common\conversion.cpp">
       <Filter>RF24Node\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\endpoint_connection.cpp">
-      <Filter>RF24Node\endpoint</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\RF24Node\common\utility.cpp">
       <Filter>RF24Node\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\registration.cpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\RF24Node\endpoint\connection.cpp">
+      <Filter>RF24Node\endpoint</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
