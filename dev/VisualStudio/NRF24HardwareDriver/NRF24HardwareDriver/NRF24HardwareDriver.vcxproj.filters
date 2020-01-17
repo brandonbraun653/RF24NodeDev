@@ -28,39 +28,6 @@
     <Filter Include="Header files\Device-specific files\Semihosting/Profiler">
       <UniqueIdentifier>{d97ee32b-0dc5-4feb-b5e5-362d29f43a0b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chimera">
-      <UniqueIdentifier>{eaef22fa-224b-422a-9926-bcfb0062ea27}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\base">
-      <UniqueIdentifier>{2a47c30a-242f-4b64-a3a1-949568050115}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\constants">
-      <UniqueIdentifier>{c60bfd72-8d0e-4c2a-9237-e872c780d1c4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\extensions">
-      <UniqueIdentifier>{c113ec36-38b4-442a-a697-02669566e3a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\interface">
-      <UniqueIdentifier>{bcb69494-bf76-403f-a48a-407669c8673e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\modules">
-      <UniqueIdentifier>{18b3a23e-3926-4338-9060-61da8e9d0688}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\modules\freertos">
-      <UniqueIdentifier>{3dd265bd-2185-45f6-be33-6b700ff79c7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\modules\memory">
-      <UniqueIdentifier>{3463888a-9afb-4bd6-902f-8dd151e6f048}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\modules\sensors">
-      <UniqueIdentifier>{e8ea5ffc-d6f1-45ba-aeec-7f0821422e5e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\modules\sensors\imu">
-      <UniqueIdentifier>{86e81dee-67c9-458d-a8ae-a0d88659ab33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Chimera\types">
-      <UniqueIdentifier>{0bdaeaa2-3ed7-4fba-a03f-840cebe05475}</UniqueIdentifier>
-    </Filter>
     <Filter Include="FreeRTOS">
       <UniqueIdentifier>{86eaaa2e-5c04-4774-b4d4-e6dbcc6d97af}</UniqueIdentifier>
     </Filter>
@@ -78,12 +45,6 @@
     </Filter>
     <Filter Include="FreeRTOS\portable\MemMang">
       <UniqueIdentifier>{c780e86a-63b9-4f1b-b1a4-21fc548d2674}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="RF24Node">
-      <UniqueIdentifier>{ae40fb1d-d236-4f0d-9611-1339a08d066f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="RF24Node\hardware">
-      <UniqueIdentifier>{0e2ec35e-828c-4fa7-ac21-f438cc74c818}</UniqueIdentifier>
     </Filter>
     <Filter Include="Thor">
       <UniqueIdentifier>{d497ee0a-f21b-4501-9f14-d73531d7c41e}</UniqueIdentifier>
@@ -193,29 +154,8 @@
     <Filter Include="Thor\types">
       <UniqueIdentifier>{7b8ca525-1bcd-488f-9028-5fc923e5a12f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chimera\algorithm">
-      <UniqueIdentifier>{2888046d-3eb0-4e09-b095-641950af62c1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MB85RS64V">
       <UniqueIdentifier>{10dafe36-12c5-4ae0-8f7d-689e7badd6cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="RF24Node\physical">
-      <UniqueIdentifier>{d8a44094-00f6-4f99-9c3f-4b189ac7f1a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="RF24Node\network">
-      <UniqueIdentifier>{954c83cc-6716-4a01-b42b-574207f8852c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="RF24Node\network\frame">
-      <UniqueIdentifier>{6e86bae1-5779-4a03-b0b8-bf6a841c834d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="RF24Node\network\header">
-      <UniqueIdentifier>{24a0628b-8515-4ccc-bc53-127a48ac4bdb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="RF24Node\network\node">
-      <UniqueIdentifier>{3bb1fac3-961b-4b0e-9842-635b23fac974}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="RF24Node\network\path">
-      <UniqueIdentifier>{89e58774-d9a9-4102-ac2b-ac8aec1cb26c}</UniqueIdentifier>
     </Filter>
     <Filter Include="uLog">
       <UniqueIdentifier>{eae1beb4-de78-4594-b5b5-ac7fd26aa032}</UniqueIdentifier>
@@ -223,14 +163,101 @@
     <Filter Include="uLog\sinks">
       <UniqueIdentifier>{2138668e-bc9c-4e79-9901-34f9c5f5cd02}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chimera\modules\ulog">
-      <UniqueIdentifier>{fdf33887-f132-401c-8301-145f307a267b}</UniqueIdentifier>
+    <Filter Include="RF24Node">
+      <UniqueIdentifier>{f553a42b-2c69-488b-b4fd-8a746d03dedf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="RF24Node\debug">
-      <UniqueIdentifier>{8c70fc91-3e39-4a9e-9c43-13f415707300}</UniqueIdentifier>
+    <Filter Include="RF24Node\common">
+      <UniqueIdentifier>{a28dda4a-7cb1-41a2-9461-501e998f61dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\endpoint">
+      <UniqueIdentifier>{dc19b495-7d6a-471f-a07c-c3d59b97b610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\hardware">
+      <UniqueIdentifier>{1a3ef7d7-e112-40cf-bb8b-32ebe20650ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\interfaces">
+      <UniqueIdentifier>{fd10bac2-8426-4ecb-907d-bbb49da9b428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\mesh">
+      <UniqueIdentifier>{3d12a5be-53a1-4b51-9285-aed1705e9000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network">
+      <UniqueIdentifier>{1a9bf15d-13d1-4a65-a5e8-a4a8f9bcfeb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network\frame">
+      <UniqueIdentifier>{dc8ddd27-180a-4886-817d-4dd9996b6034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network\memory">
+      <UniqueIdentifier>{015ea962-db29-446b-a4e8-073cc5cd202e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network\path">
+      <UniqueIdentifier>{fae33fb0-6a45-4d8a-b633-68c8fba4c9ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\network\queue">
+      <UniqueIdentifier>{cf9e7eef-a3af-4d8d-9159-cf950469c8a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\physical">
+      <UniqueIdentifier>{6311c579-ed92-4825-8e00-86b173e01b05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF24Node\physical\simulator">
+      <UniqueIdentifier>{1463c40a-a3fb-43fa-a10f-3536567cd8ff}</UniqueIdentifier>
     </Filter>
     <Filter Include="RF24Node\simulator">
-      <UniqueIdentifier>{8e3ee65d-cc47-4f4a-aba4-c47658d1e3b4}</UniqueIdentifier>
+      <UniqueIdentifier>{7d7a76ef-8add-4932-bb85-06660fb2b8b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera">
+      <UniqueIdentifier>{110c6a63-cdcf-41eb-b734-709659204b2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\algorithm">
+      <UniqueIdentifier>{038ee1d0-e80f-4430-bb6c-015a363ca765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\base">
+      <UniqueIdentifier>{6d0cd748-0db1-4d85-a799-a38d066cbc3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\constants">
+      <UniqueIdentifier>{518eb6f1-67f4-4f4c-8909-e2564501d9bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\extensions">
+      <UniqueIdentifier>{7c5f26f1-d92f-4cf5-a523-64591649fe5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\interface">
+      <UniqueIdentifier>{beaf4285-8aeb-4833-8239-00b939181b20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\modules">
+      <UniqueIdentifier>{9235f832-037c-41c4-830f-4ec604b53193}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\modules\freertos">
+      <UniqueIdentifier>{f899c24b-ac19-46d7-b7d0-43e44bac4346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\modules\memory">
+      <UniqueIdentifier>{65f616b6-5a25-4463-9cf7-29d77bdb9b64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\modules\sensors">
+      <UniqueIdentifier>{8646a333-03d1-4e4e-b17a-ff5a026eb469}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\modules\sensors\imu">
+      <UniqueIdentifier>{bdd60799-8dec-4152-bdec-15160c8b04b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\modules\threading">
+      <UniqueIdentifier>{5b72a86a-d057-4782-b3e3-5957a9635aee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\modules\ulog">
+      <UniqueIdentifier>{65eebe3f-e24a-4f37-be10-4e86ae2040d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\sim">
+      <UniqueIdentifier>{6a8f4b95-88ab-45da-b170-0a73ef72ec57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\sim\config">
+      <UniqueIdentifier>{a203a27a-db44-4721-8a52-1f3f7f3d3a01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\sim\config\chimera">
+      <UniqueIdentifier>{673e225e-9aa0-47d2-bc84-a6f49156b568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\sim\config\freertos">
+      <UniqueIdentifier>{23f417ce-36d8-4398-9c31-cb2529c72114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chimera\types">
+      <UniqueIdentifier>{a5f910c5-273a-459b-89f5-bea53243a73d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -275,255 +302,6 @@
     </ClInclude>
     <ClInclude Include="$(EFP_BASE)\Profiler\DebuggerChecker.h">
       <Filter>Header files\Device-specific files\Semihosting/Profiler</Filter>
-    </ClInclude>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera_allocator.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera_buffer.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera_container.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera_crc.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera_exception.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera_logging.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera_system.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera_threading.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera_watchdog.cpp">
-      <Filter>Chimera</Filter>
-    </ClCompile>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\allocator.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\assert.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\buffer.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\chimera.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\container.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\crc.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\dma.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\event.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\exception.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\gpio.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\logging.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\memory.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\power.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\preprocessor.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\serial.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\spi.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\system.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\threading.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\utilities.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\watchdog.hpp">
-      <Filter>Chimera</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\base\buffer_base.hpp">
-      <Filter>Chimera\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\base\crc_base.hpp">
-      <Filter>Chimera\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\base\dma_base.hpp">
-      <Filter>Chimera\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\base\event_base.hpp">
-      <Filter>Chimera\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\base\gpio_base.hpp">
-      <Filter>Chimera\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\base\serial_base.hpp">
-      <Filter>Chimera\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\base\spi_base.hpp">
-      <Filter>Chimera\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\base\threading_base.hpp">
-      <Filter>Chimera\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\base\watchdog_base.hpp">
-      <Filter>Chimera\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\constants\common.hpp">
-      <Filter>Chimera\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\constants\physics.hpp">
-      <Filter>Chimera\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\constants\units.hpp">
-      <Filter>Chimera\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\extensions\common.hpp">
-      <Filter>Chimera\extensions</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\extensions\spi_ext.hpp">
-      <Filter>Chimera\extensions</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\buffer_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\callback_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\clock_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\compiler_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\crc_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\dma_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\ethernet_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\event_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\gpio_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\memory_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\power_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\serial_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\spi_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\system_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\threading_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\interface\watchdog_intf.hpp">
-      <Filter>Chimera\interface</Filter>
-    </ClInclude>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\modules\freertos\freertos_hooks.cpp">
-      <Filter>Chimera\modules\freertos</Filter>
-    </ClCompile>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\modules\freertos\freertos_hooks.hpp">
-      <Filter>Chimera\modules\freertos</Filter>
-    </ClInclude>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\modules\memory\chimera_memory_device.cpp">
-      <Filter>Chimera\modules\memory</Filter>
-    </ClCompile>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\modules\memory\blockDevice.hpp">
-      <Filter>Chimera\modules\memory</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\modules\memory\device.hpp">
-      <Filter>Chimera\modules\memory</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\modules\sensors\imu\imu_intf.hpp">
-      <Filter>Chimera\modules\sensors\imu</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\modules\sensors\imu\imu_types.hpp">
-      <Filter>Chimera\modules\sensors\imu</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\callback_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\clock_types_fwd.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\common_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\crc_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\dma_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\event_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\gpio_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\memory_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\peripheral_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\power_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\power_types_fwd.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\serial_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\spi_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\system_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\threading_types.hpp">
-      <Filter>Chimera\types</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\Chimera\Chimera\types\watchdog_types.hpp">
-      <Filter>Chimera\types</Filter>
     </ClInclude>
     <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\FreeRTOS\croutine.c">
       <Filter>FreeRTOS</Filter>
@@ -597,9 +375,6 @@
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\FreeRTOS\include\timers.h">
       <Filter>FreeRTOS\include</Filter>
     </ClInclude>
-    <ClCompile Include="D:\git\GitHub\RF24NodeDev\lib\FreeRTOS\portable\GCC\ARM_CM4F\port.c">
-      <Filter>FreeRTOS\portable\GCC\ARM_CM4F</Filter>
-    </ClCompile>
     <ClInclude Include="D:\git\GitHub\RF24NodeDev\lib\FreeRTOS\portable\GCC\ARM_CM4F\portmacro.h">
       <Filter>FreeRTOS\portable\GCC\ARM_CM4F</Filter>
     </ClInclude>
@@ -756,9 +531,6 @@
     <ClInclude Include="..\..\..\..\lib\Thor\Thor\config\chimera\chimeraPort.hpp">
       <Filter>Thor\config\chimera</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\..\..\lib\Thor\Thor\config\freertos\freertos_hooks_prj.cpp">
-      <Filter>Thor\config\freertos</Filter>
-    </ClCompile>
     <ClInclude Include="..\..\..\..\lib\Thor\Thor\config\freertos\FreeRTOSConfig.h">
       <Filter>Thor\config\freertos</Filter>
     </ClInclude>
@@ -1233,85 +1005,307 @@
     <ClInclude Include="..\..\..\..\lib\Thor\Thor\types\usart_types.hpp">
       <Filter>Thor\types</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\algorithm\register_optimizer.cpp">
-      <Filter>Chimera\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\RF24Node\hardware\driver.cpp">
-      <Filter>RF24Node\hardware</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\lib\MB85RS64V\mb85rs64v.cpp">
       <Filter>MB85RS64V</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\RF24Node\physical\physical.cpp">
-      <Filter>RF24Node\physical</Filter>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera.cpp">
+      <Filter>Chimera</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\RF24Node\network\network.cpp">
-      <Filter>RF24Node\network</Filter>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera_allocator.cpp">
+      <Filter>Chimera</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\RF24Node\network\node\node.cpp">
-      <Filter>RF24Node\network\node</Filter>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera_buffer.cpp">
+      <Filter>Chimera</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\RF24Node\network\path\path.cpp">
-      <Filter>RF24Node\network\path</Filter>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera_container.cpp">
+      <Filter>Chimera</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\RF24Node\network\frame\frame.cpp">
-      <Filter>RF24Node\network\frame</Filter>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera_crc.cpp">
+      <Filter>Chimera</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\RF24Node\network\header\header.cpp">
-      <Filter>RF24Node\network\header</Filter>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera_exception.cpp">
+      <Filter>Chimera</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\definitions.hpp">
-      <Filter>RF24Node\hardware</Filter>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera_logging.cpp">
+      <Filter>Chimera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera_system.cpp">
+      <Filter>Chimera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera_threading.cpp">
+      <Filter>Chimera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\chimera_watchdog.cpp">
+      <Filter>Chimera</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\allocator.hpp">
+      <Filter>Chimera</Filter>
     </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\register.hpp">
-      <Filter>RF24Node\hardware</Filter>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\assert.hpp">
+      <Filter>Chimera</Filter>
     </ClInclude>
-    <ClInclude Include="D:\git\GitHub\RF24NodeDev\RF24Node\hardware\types.hpp">
-      <Filter>RF24Node\hardware</Filter>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\buffer.hpp">
+      <Filter>Chimera</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\chimera.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\container.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\crc.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\dma.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\event.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\exception.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\gpio.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\logging.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\memory.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\power.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\preprocessor.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\serial.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\spi.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\system.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\threading.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\utilities.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\watchdog.hpp">
+      <Filter>Chimera</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\algorithm\register_optimizer.cpp">
+      <Filter>Chimera\algorithm</Filter>
+    </ClCompile>
     <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\algorithm\register_optimizer.hpp">
       <Filter>Chimera\algorithm</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\hardware\driver.hpp">
-      <Filter>RF24Node\hardware</Filter>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\base\buffer_base.hpp">
+      <Filter>Chimera\base</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\base\crc_base.hpp">
+      <Filter>Chimera\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\base\dma_base.hpp">
+      <Filter>Chimera\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\base\event_base.hpp">
+      <Filter>Chimera\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\base\gpio_base.hpp">
+      <Filter>Chimera\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\base\serial_base.hpp">
+      <Filter>Chimera\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\base\spi_base.hpp">
+      <Filter>Chimera\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\base\threading_base.hpp">
+      <Filter>Chimera\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\base\watchdog_base.hpp">
+      <Filter>Chimera\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\constants\common.hpp">
+      <Filter>Chimera\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\constants\physics.hpp">
+      <Filter>Chimera\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\constants\units.hpp">
+      <Filter>Chimera\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\extensions\common.hpp">
+      <Filter>Chimera\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\extensions\spi_ext.hpp">
+      <Filter>Chimera\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\buffer_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\callback_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\clock_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\compiler_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\crc_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\dma_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\ethernet_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\event_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\gpio_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\memory_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\power_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\pwm_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\serial_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\spi_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\system_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\threading_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\interface\watchdog_intf.hpp">
+      <Filter>Chimera\interface</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\modules\freertos\freertos_hooks.cpp">
+      <Filter>Chimera\modules\freertos</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\freertos\freertos_hooks.hpp">
+      <Filter>Chimera\modules\freertos</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\modules\memory\chimera_memory_device.cpp">
+      <Filter>Chimera\modules\memory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\memory\blockDevice.hpp">
+      <Filter>Chimera\modules\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\memory\device.hpp">
+      <Filter>Chimera\modules\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\sensors\imu\imu_intf.hpp">
+      <Filter>Chimera\modules\sensors\imu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\sensors\imu\imu_types.hpp">
+      <Filter>Chimera\modules\sensors\imu</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\modules\threading\chimera_threading_freertos.cpp">
+      <Filter>Chimera\modules\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\modules\threading\chimera_threading_stl.cpp">
+      <Filter>Chimera\modules\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink.cpp">
+      <Filter>Chimera\modules\ulog</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink.hpp">
+      <Filter>Chimera\modules\ulog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink_config.hpp">
+      <Filter>Chimera\modules\ulog</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\sim\sim_chimera.cpp">
+      <Filter>Chimera\sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\sim\sim_chimera_system.cpp">
+      <Filter>Chimera\sim</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\sim\sim_chimera.hpp">
+      <Filter>Chimera\sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\sim\config\chimera\chimeraConfig.hpp">
+      <Filter>Chimera\sim\config\chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\sim\config\chimera\chimeraPort.hpp">
+      <Filter>Chimera\sim\config\chimera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\sim\config\freertos\FreeRTOSConfig.h">
+      <Filter>Chimera\sim\config\freertos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\callback_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\clock_types_fwd.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\common_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\crc_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\dma_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\event_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\gpio_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\memory_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\peripheral_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\power_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\power_types_fwd.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\pwm_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\serial_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\spi_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\system_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\threading_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\types\watchdog_types.hpp">
+      <Filter>Chimera\types</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="..\..\..\..\lib\MB85RS64V\mb85rs64v.hpp">
       <Filter>MB85RS64V</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\physical\physical.hpp">
-      <Filter>RF24Node\physical</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\definitions.hpp">
-      <Filter>RF24Node\network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\network.hpp">
-      <Filter>RF24Node\network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\node\node.hpp">
-      <Filter>RF24Node\network\node</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\path\path.hpp">
-      <Filter>RF24Node\network\path</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\frame\frame.hpp">
-      <Filter>RF24Node\network\frame</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\frame\frame_definitions.hpp">
-      <Filter>RF24Node\network\frame</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\frame\frame_types.hpp">
-      <Filter>RF24Node\network\frame</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\header\header.hpp">
-      <Filter>RF24Node\network\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\header\header_definitions.hpp">
-      <Filter>RF24Node\network\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\header\header_types.hpp">
-      <Filter>RF24Node\network\header</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\lib\uLog\uLog\config.hpp">
       <Filter>uLog</Filter>
@@ -1328,29 +1322,122 @@
     <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_cout.hpp">
       <Filter>uLog\sinks</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink.hpp">
-      <Filter>Chimera\modules\ulog</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink_config.hpp">
-      <Filter>Chimera\modules\ulog</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\debug\cm_serial_sink_config.hpp">
-      <Filter>RF24Node\debug</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\cm_serial_sink_config.hpp">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.hpp">
       <Filter>uLog\sinks</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\network\network_types.hpp">
+    <ClInclude Include="..\..\..\..\RF24Node\common\conversion.hpp">
+      <Filter>RF24Node\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\common\definitions.hpp">
+      <Filter>RF24Node\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\common\types.hpp">
+      <Filter>RF24Node\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\common\utility.hpp">
+      <Filter>RF24Node\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\endpoint\config.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\endpoint\connection.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\endpoint\endpoint.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\endpoint\fwd.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\endpoint\registration.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\endpoint\types.hpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\hardware\definitions.hpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\hardware\driver.hpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\hardware\register.hpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\hardware\types.hpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\interfaces\endpoint_intf.hpp">
+      <Filter>RF24Node\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\interfaces\network_intf.hpp">
+      <Filter>RF24Node\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\interfaces\physical_intf.hpp">
+      <Filter>RF24Node\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\mesh\definitions.hpp">
+      <Filter>RF24Node\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\mesh\mesh.hpp">
+      <Filter>RF24Node\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\definitions.hpp">
       <Filter>RF24Node\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\RF24Node\simulator\sim_network.hpp">
-      <Filter>RF24Node\simulator</Filter>
+    <ClInclude Include="..\..\..\..\RF24Node\network\network.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\types.hpp">
+      <Filter>RF24Node\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\frame\definitions.hpp">
+      <Filter>RF24Node\network\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\frame\frame.hpp">
+      <Filter>RF24Node\network\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\frame\types.hpp">
+      <Filter>RF24Node\network\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\memory\heap.hpp">
+      <Filter>RF24Node\network\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\path\path.hpp">
+      <Filter>RF24Node\network\path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\network\queue\queue.hpp">
+      <Filter>RF24Node\network\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\physical\physical.hpp">
+      <Filter>RF24Node\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\physical\types.hpp">
+      <Filter>RF24Node\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\physical\simulator\pipe.hpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\physical\simulator\pipe_types.hpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\physical\simulator\shockburst.hpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\physical\simulator\shockburst_types.hpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\RF24Node\physical\simulator\sim_physical.hpp">
+      <Filter>RF24Node\physical\simulator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\RF24Node\simulator\sim_definitions.hpp">
       <Filter>RF24Node\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="chimeraConfig.hpp">
+      <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1363,11 +1450,68 @@
     <ClCompile Include="..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp">
       <Filter>uLog\sinks</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\modules\ulog\serial_sink.cpp">
-      <Filter>Chimera\modules\ulog</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp">
       <Filter>uLog\sinks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\common\conversion.cpp">
+      <Filter>RF24Node\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\common\utility.cpp">
+      <Filter>RF24Node\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\endpoint\connection.cpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\endpoint\endpoint.cpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\endpoint\registration.cpp">
+      <Filter>RF24Node\endpoint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\hardware\driver.cpp">
+      <Filter>RF24Node\hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\interfaces\endpoint_intf.cpp">
+      <Filter>RF24Node\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\mesh\mesh.cpp">
+      <Filter>RF24Node\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\network.cpp">
+      <Filter>RF24Node\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\frame\frame.cpp">
+      <Filter>RF24Node\network\frame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\memory\heap.cpp">
+      <Filter>RF24Node\network\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\physical\physical.cpp">
+      <Filter>RF24Node\physical</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\physical\simulator\pipe.cpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\physical\simulator\shockburst.cpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\physical\simulator\sim_physical.cpp">
+      <Filter>RF24Node\physical\simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\queue\net_queue.cpp">
+      <Filter>RF24Node\network\queue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\RF24Node\network\path\net_path.cpp">
+      <Filter>RF24Node\network\path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\portable\GCC\ARM_CM4F\arm_cm4f_port.c">
+      <Filter>FreeRTOS\portable\GCC\ARM_CM4F</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\Chimera\Chimera\sim\chimera_freertos_hooks_prj.cpp">
+      <Filter>Chimera\sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\lib\Thor\Thor\config\freertos\thor_freertos_hooks_prj.cpp">
+      <Filter>Thor\config\freertos</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
