@@ -1,9 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|STM32F446RE">
+      <Configuration>Debug</Configuration>
+      <Platform>STM32F446RE</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|VisualGDB">
       <Configuration>Debug</Configuration>
       <Platform>VisualGDB</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|STM32F446RE">
+      <Configuration>Release</Configuration>
+      <Platform>STM32F446RE</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|VisualGDB">
       <Configuration>Release</Configuration>
@@ -21,7 +29,13 @@
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
     <MCUPropertyListFile>$(ProjectDir)stm32.props</MCUPropertyListFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'" Label="Configuration">
+    <MCUPropertyListFile>$(ProjectDir)stm32.props</MCUPropertyListFile>
+  </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <MCUPropertyListFile>$(ProjectDir)stm32.props</MCUPropertyListFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'" Label="Configuration">
     <MCUPropertyListFile>$(ProjectDir)stm32.props</MCUPropertyListFile>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -30,7 +44,13 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
     <Import Project="ProjectProperties.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'" Label="PropertySheets">
+    <Import Project="ProjectProperties.props" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <Import Project="ProjectProperties.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
@@ -41,21 +61,91 @@
     <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
     <ToolchainVersion>9.2.1/8.3.0/r1</ToolchainVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'">
+    <GNUConfigurationType>Debug</GNUConfigurationType>
+    <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
+    <ToolchainVersion>9.2.1/8.3.0/r1</ToolchainVersion>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
+    <ToolchainVersion>9.2.1/8.3.0/r1</ToolchainVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'">
     <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
     <ToolchainVersion>9.2.1/8.3.0/r1</ToolchainVersion>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <AdditionalIncludeDirectories>$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalLinkerInputs>
+      </AdditionalLinkerInputs>
+    </Link>
+    <Link>
+      <LibrarySearchDirectories>$(OutDir)$(TargetName)$(TargetExt)</LibrarySearchDirectories>
+      <AdditionalLibraryNames>ThorStaticLibrary;ChimeraStaticLibrary;FreeRTOSStaticLibrary;</AdditionalLibraryNames>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'">
+    <ClCompile>
+      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <AdditionalIncludeDirectories>$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLinkerInputs>$(OutDir)ThorStaticLibrary.a;$(OutDir)ChimeraStaticLibrary.a;$(OutDir)FreeRTOSStaticLibrary.a</AdditionalLinkerInputs>
+    </Link>
+    <Link>
+      <LibrarySearchDirectories>
+      </LibrarySearchDirectories>
+      <AdditionalLibraryNames>
+      </AdditionalLibraryNames>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <AdditionalIncludeDirectories>$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);NDEBUG=1;RELEASE=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalLinkerInputs>
+      </AdditionalLinkerInputs>
+    </Link>
+    <Link>
+      <LibrarySearchDirectories>$(OutDir)$(TargetName)$(TargetExt)</LibrarySearchDirectories>
+      <AdditionalLibraryNames>ThorStaticLibrary;ChimeraStaticLibrary;FreeRTOSStaticLibrary;</AdditionalLibraryNames>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'">
+    <ClCompile>
+      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <AdditionalIncludeDirectories>$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);NDEBUG=1;RELEASE=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLinkerInputs>$(OutDir)ThorStaticLibrary.a;$(OutDir)ChimeraStaticLibrary.a;$(OutDir)FreeRTOSStaticLibrary.a</AdditionalLinkerInputs>
+    </Link>
+    <Link>
+      <LibrarySearchDirectories>
+      </LibrarySearchDirectories>
+      <AdditionalLibraryNames>
+      </AdditionalLibraryNames>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\lib\Chimera\vs\ChimeraStaticLibrary\ChimeraStaticLibrary\ChimeraStaticLibrary.vcxproj">
+      <Project>{be922011-485d-4be4-a907-336c69f155e4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\lib\FreeRTOS\vs\FreeRTOSStaticLibrary\FreeRTOSStaticLibrary\FreeRTOSStaticLibrary.vcxproj">
+      <Project>{84551af0-447d-4ed5-8dda-3933c47a95f8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\lib\Thor\vs\ThorStaticLibrary\ThorStaticLibrary\ThorStaticLibrary.vcxproj">
+      <Project>{d04a89da-cd1b-41ec-9acd-f31b0e675f14}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

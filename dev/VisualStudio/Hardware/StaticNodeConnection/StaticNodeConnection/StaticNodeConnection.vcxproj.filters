@@ -5,20 +5,6 @@
       <UniqueIdentifier>{c626528d-660d-46ea-8d1f-1fbe7dc86d8d}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header files">
-      <UniqueIdentifier>{40097e1e-e08c-4c48-870d-f9b85b42215f}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource files">
-      <UniqueIdentifier>{3f21da3f-6546-4cf5-a54b-605b727c0c04}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
-    </Filter>
-    <Filter Include="Source files\Device-specific files">
-      <UniqueIdentifier>{d2ccdc38-dfab-451f-8566-564767300717}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files\Device-specific files">
-      <UniqueIdentifier>{33dbaa44-8ea3-4e88-b584-6b6e0424d13f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="VisualGDB settings">
       <UniqueIdentifier>{79ac2f94-dda2-46ef-9040-7164cf48b6e1}</UniqueIdentifier>
     </Filter>
@@ -27,9 +13,6 @@
     <ClCompile Include="StaticNodeConnection.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
-    <None Include="stm32.props">
-      <Filter>Source files\Device-specific files</Filter>
-    </None>
     <None Include="StaticNodeConnection-Debug.vgdbsettings">
       <Filter>VisualGDB settings</Filter>
     </None>
@@ -37,6 +20,11 @@
       <Filter>VisualGDB settings</Filter>
     </None>
     <None Include="stm32.xml">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="stm32.props">
       <Filter>VisualGDB settings</Filter>
     </None>
   </ItemGroup>
