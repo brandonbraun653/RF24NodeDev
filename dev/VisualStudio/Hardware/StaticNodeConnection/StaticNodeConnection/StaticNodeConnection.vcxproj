@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{5910B2B6-5355-4DB0-AD93-CE1AB31664D0}</ProjectGuid>
     <BSP_ID>com.sysprogs.arm.stm32</BSP_ID>
-    <BSP_VERSION>2019.12</BSP_VERSION>
+    <BSP_VERSION>2020.01</BSP_VERSION>
     <InPlaceBSPSubdir />
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -92,7 +92,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -103,6 +103,12 @@
       </LibrarySearchDirectories>
       <AdditionalLibraryNames>
       </AdditionalLibraryNames>
+      <ProduceRelocationRecords>true</ProduceRelocationRecords>
+      <RemoveUnusedSections>true</RemoveUnusedSections>
+      <VerboseMode>false</VerboseMode>
+      <PrintMemoryUsage>false</PrintMemoryUsage>
+      <UseLinkerGroups>true</UseLinkerGroups>
+      <GenerateMapFile>false</GenerateMapFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
@@ -123,7 +129,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);NDEBUG=1;RELEASE=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
     <Link>

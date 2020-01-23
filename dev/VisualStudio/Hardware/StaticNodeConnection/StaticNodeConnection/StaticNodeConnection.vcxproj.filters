@@ -8,6 +8,9 @@
     <Filter Include="VisualGDB settings">
       <UniqueIdentifier>{79ac2f94-dda2-46ef-9040-7164cf48b6e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source files\Device-specific files">
+      <UniqueIdentifier>{8825bd18-69e9-4146-a2eb-eb941790ed93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StaticNodeConnection.cpp">
