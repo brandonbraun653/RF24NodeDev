@@ -92,7 +92,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -130,7 +130,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);NDEBUG=1;RELEASE=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -167,5 +167,15 @@
     <None Include="StaticNodeConnection-Debug.vgdbsettings" />
     <None Include="StaticNodeConnection-Release.vgdbsettings" />
     <None Include="stm32.xml" />
+    <ClCompile Include="$(EFP_BASE)\Profiler\FastSemihosting.cpp" />
+    <ClCompile Include="$(EFP_BASE)\Profiler\SamplingProfiler.cpp" />
+    <ClCompile Include="$(EFP_BASE)\Profiler\InstrumentingProfiler.cpp" />
+    <ClCompile Include="$(EFP_BASE)\Profiler\ProfilerRTOS_FreeRTOS.c" />
+    <ClInclude Include="$(EFP_BASE)\Profiler\SysprogsProfiler.h" />
+    <ClInclude Include="$(EFP_BASE)\Profiler\SmallNumberCoder.h" />
+    <ClInclude Include="$(EFP_BASE)\Profiler\SysprogsProfilerInterface.h" />
+    <ClInclude Include="$(EFP_BASE)\Profiler\ProfilerFreeRTOSHooks.h" />
+    <ClInclude Include="$(EFP_BASE)\Profiler\CustomRealTimeWatches.h" />
+    <ClInclude Include="$(EFP_BASE)\Profiler\DebuggerChecker.h" />
   </ItemGroup>
 </Project>
