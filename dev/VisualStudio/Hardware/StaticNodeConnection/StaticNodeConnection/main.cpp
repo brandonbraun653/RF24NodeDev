@@ -1,6 +1,6 @@
 /********************************************************************************
 *   File Name:
-*       StaticNodeConnection.cpp
+*       main.cpp
 *       
 *   Description:
 *       Entry for hardware development and tests

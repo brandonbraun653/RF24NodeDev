@@ -2,11 +2,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
+    <CRCIncDir>$(SolutionDir)../../../../lib/CRCpp/inc</CRCIncDir>
+    <uLogIncDir>$(SolutionDir)../../../../lib/uLog</uLogIncDir>
+
     <ChimeraIncDir>$(SolutionDir)../../../../lib/Chimera;</ChimeraIncDir>
     <ChimeraPortDir>$(SolutionDir)../../../../lib/Thor/Thor/config/chimera</ChimeraPortDir>
     <ChimeraCfgDir>$(SolutionDir)</ChimeraCfgDir>
     <ChimeraBackendIncDirs>$(SolutionDir)../../../../lib/FreeRTOS/include;$(SolutionDir)../../../../lib/Thor/Thor/config/freertos;$(SolutionDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(SolutionDir)../../../../lib/Thor;$(BOOST_ROOT)/boost_1_70_0;</ChimeraBackendIncDirs>
-    <ChimeraCompilerDefines>CHIMERA_LITTLE_ENDIAN;</ChimeraCompilerDefines>
+    <ChimeraCompilerDefines>CHIMERA_LITTLE_ENDIAN;USING_FREERTOS_THREADS;</ChimeraCompilerDefines>
     <ChimeraBackendCompilerDefines>FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_ARM_CM4F=1;</ChimeraBackendCompilerDefines>
     <FreeRTOSIncDir>$(SolutionDir)../../../../lib/FreeRTOS/include</FreeRTOSIncDir>
     <FreeRTOSCfgDir>$(SolutionDir)../../../../lib/Thor/Thor/config/freertos</FreeRTOSCfgDir>

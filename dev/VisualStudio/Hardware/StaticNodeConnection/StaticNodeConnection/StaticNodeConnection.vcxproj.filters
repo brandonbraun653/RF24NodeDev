@@ -1,21 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source files">
-      <UniqueIdentifier>{c626528d-660d-46ea-8d1f-1fbe7dc86d8d}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="VisualGDB settings">
       <UniqueIdentifier>{79ac2f94-dda2-46ef-9040-7164cf48b6e1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source files\Device-specific files">
-      <UniqueIdentifier>{8825bd18-69e9-4146-a2eb-eb941790ed93}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="StaticNodeConnection.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
     <None Include="StaticNodeConnection-Debug.vgdbsettings">
       <Filter>VisualGDB settings</Filter>
     </None>
@@ -30,5 +20,8 @@
     <None Include="stm32.props">
       <Filter>VisualGDB settings</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
 </Project>

@@ -96,7 +96,8 @@
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLinkerInputs>$(OutDir)ThorStaticLibrary.a;$(OutDir)ChimeraStaticLibrary.a;$(OutDir)FreeRTOSStaticLibrary.a</AdditionalLinkerInputs>
+      <AdditionalLinkerInputs>
+      </AdditionalLinkerInputs>
     </Link>
     <Link>
       <LibrarySearchDirectories>
@@ -133,7 +134,8 @@
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);NDEBUG=1;RELEASE=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLinkerInputs>$(OutDir)ThorStaticLibrary.a;$(OutDir)ChimeraStaticLibrary.a;$(OutDir)FreeRTOSStaticLibrary.a</AdditionalLinkerInputs>
+      <AdditionalLinkerInputs>
+      </AdditionalLinkerInputs>
     </Link>
     <Link>
       <LibrarySearchDirectories>
@@ -152,12 +154,15 @@
     <ProjectReference Include="..\..\..\..\..\lib\Thor\vs\ThorStaticLibrary\ThorStaticLibrary\ThorStaticLibrary.vcxproj">
       <Project>{d04a89da-cd1b-41ec-9acd-f31b0e675f14}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\RF24Node\vs\RF24NodeStaticLibrary\RF24NodeStaticLibrary\RF24NodeStaticLibrary.vcxproj">
+      <Project>{1a3b3195-ec38-4c2c-818c-808e5dd42c6e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ItemGroup>
-    <ClCompile Include="StaticNodeConnection.cpp" />
+    <ClCompile Include="main.cpp" />
     <None Include="stm32.props" />
     <None Include="StaticNodeConnection-Debug.vgdbsettings" />
     <None Include="StaticNodeConnection-Release.vgdbsettings" />
