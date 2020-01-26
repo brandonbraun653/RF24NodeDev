@@ -10,6 +10,12 @@
     <Filter Include="Device-specific files\Semihosting/Profiler">
       <UniqueIdentifier>{f8b24d8b-c08b-4330-9d21-2bf432baf128}</UniqueIdentifier>
     </Filter>
+    <Filter Include="uLog">
+      <UniqueIdentifier>{bf747eca-7c41-42be-85ba-3b64dbfd502f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uLog\sinks">
+      <UniqueIdentifier>{39ac0ca5-19f0-4f12-9ed8-bbeb281bed85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="StaticNodeConnection-Debug.vgdbsettings">
@@ -77,5 +83,34 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\ulog.cpp">
+      <Filter>uLog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp">
+      <Filter>uLog\sinks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp">
+      <Filter>uLog\sinks</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\config.hpp">
+      <Filter>uLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\types.hpp">
+      <Filter>uLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\ulog.hpp">
+      <Filter>uLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.hpp">
+      <Filter>uLog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_intf.hpp">
+      <Filter>uLog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.hpp">
+      <Filter>uLog\sinks</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

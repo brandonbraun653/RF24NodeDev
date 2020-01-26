@@ -94,6 +94,7 @@
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
       <AdditionalIncludeDirectories>$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
+      <Optimization>Og</Optimization>
     </ClCompile>
     <Link>
       <AdditionalLinkerInputs>
@@ -162,7 +163,16 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp" />
+    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp" />
+    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\ulog.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\config.hpp" />
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.hpp" />
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_intf.hpp" />
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.hpp" />
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\types.hpp" />
+    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\ulog.hpp" />
     <None Include="stm32.props" />
     <None Include="StaticNodeConnection-Debug.vgdbsettings" />
     <None Include="StaticNodeConnection-Release.vgdbsettings" />
