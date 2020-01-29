@@ -1,12 +1,12 @@
 /********************************************************************************
-*   File Name:
-*       main.cpp
-*       
-*   Description:
-*       Entry for hardware development and tests
-*   
-*   2020 | Brandon Braun | brandonbraun653@gmail.com
-********************************************************************************/
+ *   File Name:
+ *       main.cpp
+ *
+ *   Description:
+ *       Entry for hardware development and tests
+ *
+ *   2020 | Brandon Braun | brandonbraun653@gmail.com
+ ********************************************************************************/
 
 /* C++ Includes */
 #include <string>
@@ -40,8 +40,12 @@ using namespace Chimera::Threading;
 
 static void background_thread( void *arg );
 static void startup_blinky_sequence( Chimera::GPIO::GPIOClass *const led );
+static void initialize_rf24_config();
 static void MasterNodeThread( void *arg );
 static void SlaveNodeThread( void *arg );
+
+
+static RF24::Endpoint::Config cfg;
 
 int main( void )
 {
@@ -73,14 +77,17 @@ int main( void )
   blinkyThread.initialize( background_thread, nullptr, Priority::LEVEL_3, 500, "blinky" );
   blinkyThread.start();
 
+  #if defined( RF24_DEVICE_1 )
   Thread masterThread;
   masterThread.initialize( MasterNodeThread, nullptr, Priority::LEVEL_3, 2000, "master" );
   masterThread.start();
+  #endif 
 
+  #if defined( RF24_DEVICE_2 )
   Thread slaveThread;
   slaveThread.initialize( SlaveNodeThread, nullptr, Priority::LEVEL_3, 2000, "slave" );
-  //slaveThread.start();
-
+  slaveThread.start();
+  #endif 
 
   startScheduler();
 }
@@ -98,69 +105,14 @@ void startup_blinky_sequence( Chimera::GPIO::GPIOClass *const led )
   Chimera::delayMilliseconds( 350 );
 }
 
-void background_thread( void *arguments )
+void initialize_rf24_config()
 {
-  /*------------------------------------------------
-  Initialize the LED gpio
-  ------------------------------------------------*/
-  Chimera::GPIO::PinInit ledInit;
-  ledInit.accessMode = Chimera::Hardware::AccessMode::THREADED;
-  ledInit.drive      = Chimera::GPIO::Drive::OUTPUT_PUSH_PULL;
-  ledInit.port       = Chimera::GPIO::Port::PORTA;
-  ledInit.pull       = Chimera::GPIO::Pull::NO_PULL;
-  ledInit.pin        = 5;
-
-  auto led = Chimera::GPIO::GPIOClass();
-  led.init( ledInit );
-  led.setState( Chimera::GPIO::State::HIGH );
-
-  startup_blinky_sequence( &led );
-
-  auto watchdog = Chimera::Watchdog::WatchdogClass();
-  watchdog.initialize( 500, 100 );
-  watchdog.start();
-
-  while ( 1 )
-  {
-    watchdog.kick();
-    led.setState( Chimera::GPIO::State::HIGH );
-    Chimera::delayMilliseconds( 150 );
-    led.setState( Chimera::GPIO::State::LOW );
-    Chimera::delayMilliseconds( 150 );
-  }
-}
-
-void MasterNodeThread( void *arg )
-{
-  /*------------------------------------------------
-  Configure the log sink for this thread
-  ------------------------------------------------*/
-  uLog::SinkHandle masterSink = std::make_shared<uLog::VGDBSemihostingSink>();
-  masterSink->setLogLevel( uLog::Level::LVL_DEBUG );
-  masterSink->setName( "Master" );
-  masterSink->enable();
-  uLog::registerSink( masterSink );
-
   /*------------------------------------------------
   Configure the NRF24 radio
   ------------------------------------------------*/
-  RF24::Endpoint::Device master;
-  RF24::Endpoint::Config cfg;
-
   cfg.physical.dataRate       = RF24::Hardware::DataRate::DR_1MBPS;
   cfg.physical.powerAmplitude = RF24::Hardware::PowerAmplitude::PA_HIGH;
   cfg.physical.rfChannel      = 96;
-
-  /*------------------------------------------------
-  Network Parameter Configuration
-  ------------------------------------------------*/
-  cfg.network.mode                = RF24::Network::Mode::NET_MODE_STATIC;
-  cfg.network.nodeStaticAddress   = RF24::RootNode0;
-  cfg.network.parentStaticAddress = RF24::Network::RSVD_ADDR_INVALID;
-  cfg.network.rxQueueBuffer       = nullptr;
-  cfg.network.rxQueueSize         = 5 * RF24::Hardware::PACKET_WIDTH;
-  cfg.network.txQueueBuffer       = nullptr;
-  cfg.network.txQueueSize         = 5 * RF24::Hardware::PACKET_WIDTH;
 
   /*------------------------------------------------
   GPIO Initialization
@@ -211,15 +163,78 @@ void MasterNodeThread( void *arg )
   /*------------------------------------------------
   SPI Parameter Initialization
   ------------------------------------------------*/
-  cfg.physical.spiConfig.HWInit.bitOrder           = Chimera::SPI::BitOrder::MSB_FIRST;
-  cfg.physical.spiConfig.HWInit.clockFreq          = 8000000;
-  cfg.physical.spiConfig.HWInit.clockMode          = Chimera::SPI::ClockMode::MODE0;
-  cfg.physical.spiConfig.HWInit.controlMode        = Chimera::SPI::ControlMode::MASTER;
-  cfg.physical.spiConfig.HWInit.csMode             = Chimera::SPI::CSMode::MANUAL;
-  cfg.physical.spiConfig.HWInit.dataSize           = Chimera::SPI::DataSize::SZ_8BIT;
-  cfg.physical.spiConfig.HWInit.hwChannel          = 3;
-  cfg.physical.spiConfig.HWInit.txfrMode           = Chimera::SPI::TransferMode::INTERRUPT;
+  cfg.physical.spiConfig.HWInit.validity    = true;
+  cfg.physical.spiConfig.HWInit.bitOrder    = Chimera::SPI::BitOrder::MSB_FIRST;
+  cfg.physical.spiConfig.HWInit.clockFreq   = 8000000;
+  cfg.physical.spiConfig.HWInit.clockMode   = Chimera::SPI::ClockMode::MODE0;
+  cfg.physical.spiConfig.HWInit.controlMode = Chimera::SPI::ControlMode::MASTER;
+  cfg.physical.spiConfig.HWInit.csMode      = Chimera::SPI::CSMode::MANUAL;
+  cfg.physical.spiConfig.HWInit.dataSize    = Chimera::SPI::DataSize::SZ_8BIT;
+  cfg.physical.spiConfig.HWInit.hwChannel   = 3;
+  cfg.physical.spiConfig.HWInit.txfrMode    = Chimera::SPI::TransferMode::INTERRUPT;
+}
 
+void background_thread( void *arguments )
+{
+  /*------------------------------------------------
+  Initialize the LED gpio
+  ------------------------------------------------*/
+  Chimera::GPIO::PinInit ledInit;
+  ledInit.accessMode = Chimera::Hardware::AccessMode::THREADED;
+  ledInit.drive      = Chimera::GPIO::Drive::OUTPUT_PUSH_PULL;
+  ledInit.port       = Chimera::GPIO::Port::PORTA;
+  ledInit.pull       = Chimera::GPIO::Pull::NO_PULL;
+  ledInit.pin        = 5;
+
+  auto led = Chimera::GPIO::GPIOClass();
+  led.init( ledInit );
+  led.setState( Chimera::GPIO::State::HIGH );
+
+  startup_blinky_sequence( &led );
+
+  auto watchdog = Chimera::Watchdog::WatchdogClass();
+  watchdog.initialize( 500, 100 );
+  watchdog.start();
+
+  while ( 1 )
+  {
+    watchdog.kick();
+    led.setState( Chimera::GPIO::State::HIGH );
+    Chimera::delayMilliseconds( 150 );
+    led.setState( Chimera::GPIO::State::LOW );
+    Chimera::delayMilliseconds( 150 );
+  }
+}
+
+#if defined( RF24_DEVICE_1 )
+void MasterNodeThread( void *arg )
+{
+  /*------------------------------------------------
+  Configure the log sink for this thread
+  ------------------------------------------------*/
+  uLog::SinkHandle masterSink = std::make_shared<uLog::VGDBSemihostingSink>();
+  masterSink->setLogLevel( uLog::Level::LVL_DEBUG );
+  masterSink->setName( "Master" );
+  masterSink->enable();
+  uLog::registerSink( masterSink );
+
+  /*------------------------------------------------
+  Initialize the master config
+  ------------------------------------------------*/
+  initialize_rf24_config();
+
+  cfg.network.mode                = RF24::Network::Mode::NET_MODE_STATIC;
+  cfg.network.nodeStaticAddress   = RF24::RootNode0;
+  cfg.network.parentStaticAddress = RF24::Network::RSVD_ADDR_INVALID;
+  cfg.network.rxQueueBuffer       = nullptr;
+  cfg.network.rxQueueSize         = 5 * RF24::Hardware::PACKET_WIDTH;
+  cfg.network.txQueueBuffer       = nullptr;
+  cfg.network.txQueueSize         = 5 * RF24::Hardware::PACKET_WIDTH;
+
+  /*------------------------------------------------
+  Create the radio
+  ------------------------------------------------*/
+  RF24::Endpoint::Device master;
   master.attachLogger( masterSink );
   master.configure( cfg );
   master.setName( "Master" );
@@ -230,7 +245,9 @@ void MasterNodeThread( void *arg )
     Chimera::delayMilliseconds( 25 );
   }
 }
+#endif /* RF24_DEVICE_1 */
 
+#if defined( RF24_DEVICE_2 )
 void SlaveNodeThread( void *arg )
 {
   uLog::SinkHandle slaveSink = std::make_shared<uLog::VGDBSemihostingSink>();
@@ -239,8 +256,10 @@ void SlaveNodeThread( void *arg )
   slaveSink->enable();
   uLog::registerSink( slaveSink );
 
-  RF24::Endpoint::Device slave;
-  RF24::Endpoint::Config cfg;
+  /*------------------------------------------------
+  Initialize the slave config
+  ------------------------------------------------*/
+  initialize_rf24_config();
   cfg.network.mode                = RF24::Network::Mode::NET_MODE_STATIC;
   cfg.network.nodeStaticAddress   = 0001;
   cfg.network.parentStaticAddress = RF24::RootNode0;
@@ -249,10 +268,10 @@ void SlaveNodeThread( void *arg )
   cfg.network.txQueueBuffer       = nullptr;
   cfg.network.txQueueSize         = 5 * RF24::Hardware::PACKET_WIDTH;
 
-  cfg.physical.dataRate       = RF24::Hardware::DataRate::DR_1MBPS;
-  cfg.physical.powerAmplitude = RF24::Hardware::PowerAmplitude::PA_HIGH;
-  cfg.physical.rfChannel      = 96;
-
+  /*------------------------------------------------
+  Create the radio
+  ------------------------------------------------*/
+  RF24::Endpoint::Device slave;
   slave.attachLogger( slaveSink );
   slave.configure( cfg );
   slave.setName( "Slave" );
@@ -272,3 +291,4 @@ void SlaveNodeThread( void *arg )
     Chimera::delayMilliseconds( 25 );
   }
 }
+#endif /* RF24_DEVICE_2 */
