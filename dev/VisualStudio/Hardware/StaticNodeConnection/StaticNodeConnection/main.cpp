@@ -278,11 +278,11 @@ void SlaveNodeThread( void *arg )
 
   if ( slave.connect( 1000 ) )
   {
-    slaveSink->flog( uLog::Level::LVL_INFO, "Holy crap it worked?!\n" );
+    slaveSink->flog( uLog::Level::LVL_INFO, "%d-APP: Holy crap it worked?!\n", Chimera::millis() );
   }
   else
   {
-    slaveSink->flog( uLog::Level::LVL_INFO, "Did not connect for some reason\n" );
+    slaveSink->flog( uLog::Level::LVL_INFO, "%d-APP: Did not connect for some reason\n", Chimera::millis() );
   }
 
   while ( true )
