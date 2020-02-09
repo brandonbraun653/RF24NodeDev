@@ -71,27 +71,35 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
     <Import Project="ProjectProperties.props" />
+    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RF24_2|VisualGDB'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
+    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RF24_1|VisualGDB'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
+    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
+    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RF24_2|STM32F446RE'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
+    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RF24_1|STM32F446RE'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
+    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
     <Import Project="ProjectProperties.props" />
+    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
+    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -182,7 +190,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(AuroraIncDir);$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
       <Optimization>Og</Optimization>
     </ClCompile>
@@ -206,7 +214,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RF24_2|STM32F446RE'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(AuroraIncDir);$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);RF24_DEVICE_2;</PreprocessorDefinitions>
       <Optimization>Og</Optimization>
     </ClCompile>
@@ -230,7 +238,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RF24_1|STM32F446RE'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(AuroraIncDir);$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);RF24_DEVICE_1;</PreprocessorDefinitions>
       <Optimization>Og</Optimization>
     </ClCompile>
@@ -269,7 +277,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'">
     <ClCompile>
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(AuroraIncDir);$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);NDEBUG=1;RELEASE=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -284,8 +292,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\lib\Chimera\vs\ChimeraStaticLibrary\ChimeraStaticLibrary\ChimeraStaticLibrary.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\lib\Aurora\Chimera\vs\ChimeraStaticLibrary\ChimeraStaticLibrary\ChimeraStaticLibrary.vcxproj">
       <Project>{be922011-485d-4be4-a907-336c69f155e4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\lib\Aurora\vs\AuroraStaticLibraryEmbedded\AuroraStaticLibraryEmbedded\AuroraStaticLibraryEmbedded.vcxproj">
+      <Project>{f59ff162-111a-4c11-a390-4aad01141a42}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\lib\FreeRTOS\vs\FreeRTOSStaticLibrary\FreeRTOSStaticLibrary\FreeRTOSStaticLibrary.vcxproj">
       <Project>{84551af0-447d-4ed5-8dda-3933c47a95f8}</Project>
@@ -301,16 +312,7 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.cpp" />
-    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.cpp" />
-    <ClCompile Include="..\..\..\..\..\lib\uLog\uLog\ulog.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\config.hpp" />
-    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_cout.hpp" />
-    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_intf.hpp" />
-    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\sinks\sink_vgdb_semihosting.hpp" />
-    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\types.hpp" />
-    <ClInclude Include="..\..\..\..\..\lib\uLog\uLog\ulog.hpp" />
     <None Include="stm32.props" />
     <None Include="StaticNodeConnection-Debug.vgdbsettings" />
     <None Include="StaticNodeConnection-Release.vgdbsettings" />

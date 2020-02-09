@@ -1,9 +1,6 @@
 [submodule "RF24Node"]
 	path = RF24Node
 	url = https://github.com/brandonbraun653/RF24Node.git
-[submodule "lib/Chimera"]
-	path = lib/Chimera
-	url = https://github.com/brandonbraun653/Chimera.git
 [submodule "lib/CommonTools"]
 	path = lib/CommonTools
 	url = https://github.com/brandonbraun653/CommonTools.git
@@ -16,9 +13,6 @@
 [submodule "lib/MB85RS64V"]
 	path = lib/MB85RS64V
 	url = https://github.com/brandonbraun653/MB85RS64V.git
-[submodule "lib/uLog"]
-	path = lib/uLog
-	url = https://github.com/brandonbraun653/uLog.git
-[submodule "lib/CRCpp"]
-	path = lib/CRCpp
-	url = https://github.com/d-bahr/CRCpp.git
+[submodule "lib/Aurora"]
+	path = lib/Aurora
+	url = https://github.com/brandonbraun653/Aurora.git

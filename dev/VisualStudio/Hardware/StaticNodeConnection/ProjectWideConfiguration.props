@@ -2,10 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <CRCIncDir>$(SolutionDir)../../../../lib/CRCpp/inc</CRCIncDir>
-    <uLogIncDir>$(SolutionDir)../../../../lib/uLog</uLogIncDir>
-
-    <ChimeraIncDir>$(SolutionDir)../../../../lib/Chimera;</ChimeraIncDir>
+    <AuroraIncDir>$(SolutionDir)../../../../lib/Aurora</AuroraIncDir>
+    <BoostIncDir>$(BOOST_ROOT)/boost_1_70_0</BoostIncDir>
+    <BoostCompilerDefines>BOOST_NO_EXCEPTIONS;</BoostCompilerDefines>
+    <CommonCompilerDefinesx64>WIN64</CommonCompilerDefinesx64>
+    <CommonCompilerDefinesx86>WIN32</CommonCompilerDefinesx86>
+    <CRCIncDir>$(SolutionDir)../../../../lib/Aurora/lib/CRCpp/inc</CRCIncDir>
+    <ChimeraIncDir>$(SolutionDir)../../../../lib/Aurora/Chimera;</ChimeraIncDir>
     <ChimeraPortDir>$(SolutionDir)../../../../lib/Thor/Thor/config/chimera</ChimeraPortDir>
     <ChimeraCfgDir>$(SolutionDir)</ChimeraCfgDir>
     <ChimeraBackendIncDirs>$(SolutionDir)../../../../lib/FreeRTOS/include;$(SolutionDir)../../../../lib/Thor/Thor/config/freertos;$(SolutionDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F;$(SolutionDir)../../../../lib/Thor;$(BOOST_ROOT)/boost_1_70_0;</ChimeraBackendIncDirs>
@@ -15,13 +18,10 @@
     <FreeRTOSCfgDir>$(SolutionDir)../../../../lib/Thor/Thor/config/freertos</FreeRTOSCfgDir>
     <FreeRTOSPortDir>$(SolutionDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F</FreeRTOSPortDir>
     <FreeRTOSCompilerDefines>FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_ARM_CM4F=1;</FreeRTOSCompilerDefines>
-    <ThorIncDir>$(SolutionDir)../../../../lib/Thor</ThorIncDir>
-    <BoostIncDir>$(BOOST_ROOT)/boost_1_70_0</BoostIncDir>
-    <BoostCompilerDefines>BOOST_NO_EXCEPTIONS;</BoostCompilerDefines>
-    <CommonCompilerDefinesx64>WIN64</CommonCompilerDefinesx64>
-    <CommonCompilerDefinesx86>WIN32</CommonCompilerDefinesx86>
+    <ProjectCompilerDefines>USING_VISUAL_GDB;USING_FREERTOS;_EMBEDDED;STM32F446xx;THOR_CUSTOM_DRIVERS=1;BOOST_NO_EXCEPTIONS;FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_ARM_CM4F=1;</ProjectCompilerDefines>
     <RF24NodeIncDir>$(SolutionDir)../../../../</RF24NodeIncDir>
-    <ProjectCompilerDefines>USING_FREERTOS;_EMBEDDED;STM32F446xx;THOR_CUSTOM_DRIVERS=1;BOOST_NO_EXCEPTIONS;FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_ARM_CM4F=1;</ProjectCompilerDefines>
+    <ThorIncDir>$(SolutionDir)../../../../lib/Thor</ThorIncDir>
+    <uLogIncDir>$(SolutionDir)../../../../lib/Aurora/lib/uLog</uLogIncDir>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
