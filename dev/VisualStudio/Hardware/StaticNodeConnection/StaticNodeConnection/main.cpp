@@ -12,11 +12,14 @@
 #include <string>
 
 /* Chimera Includes */
-#include <Chimera/gpio.hpp>
-#include <Chimera/spi.hpp>
-#include <Chimera/system.hpp>
-#include <Chimera/threading.hpp>
-#include <Chimera/watchdog.hpp>
+#include <Chimera/gpio>
+#include <Chimera/spi>
+#include <Chimera/system>
+#include <Chimera/thread>
+#include <Chimera/watchdog>
+
+/* Thor Includes */
+#include <Thor/drivers/gpio.hpp>
 
 /* RF24 Includes */
 #include <RF24Node/common/conversion.hpp>
@@ -39,7 +42,7 @@
 using namespace Chimera::Threading;
 
 static void background_thread( void *arg );
-static void startup_blinky_sequence( Chimera::GPIO::GPIOClass *const led );
+static void startup_blinky_sequence( const Chimera::GPIO::GPIO_sPtr &led );
 static void initialize_rf24_config();
 static void MasterNodeThread( void *arg );
 static void SlaveNodeThread( void *arg );
@@ -92,13 +95,13 @@ int main( void )
   startScheduler();
 }
 
-void startup_blinky_sequence( Chimera::GPIO::GPIOClass *const led )
+void startup_blinky_sequence( const Chimera::GPIO::GPIO_sPtr &led )
 {
   for ( uint8_t i = 0; i < 5; i++ )
   {
-    led->setState( Chimera::GPIO::State::HIGH );
+    led->setState( Chimera::GPIO::State::HIGH, 100 );
     Chimera::delayMilliseconds( 65 );
-    led->setState( Chimera::GPIO::State::LOW );
+    led->setState( Chimera::GPIO::State::LOW, 100 );
     Chimera::delayMilliseconds( 25 );
   }
 
@@ -186,22 +189,22 @@ void background_thread( void *arguments )
   ledInit.pull       = Chimera::GPIO::Pull::NO_PULL;
   ledInit.pin        = 5;
 
-  auto led = Chimera::GPIO::GPIOClass();
-  led.init( ledInit );
-  led.setState( Chimera::GPIO::State::HIGH );
+  auto led = Chimera::GPIO::create_shared_ptr();
+  led->init( ledInit, 100 );
+  led->setState( Chimera::GPIO::State::HIGH, 100 );
 
-  startup_blinky_sequence( &led );
+  startup_blinky_sequence( led );
 
-  auto watchdog = Chimera::Watchdog::WatchdogClass();
-  watchdog.initialize( 500, 100 );
-  watchdog.start();
+  auto watchdog = Chimera::Watchdog::create_shared_ptr();
+  watchdog->initialize( 500, 100 );
+  watchdog->start();
 
   while ( 1 )
   {
-    watchdog.kick();
-    led.setState( Chimera::GPIO::State::HIGH );
+    watchdog->kick();
+    led->setState( Chimera::GPIO::State::HIGH, 100 );
     Chimera::delayMilliseconds( 150 );
-    led.setState( Chimera::GPIO::State::LOW );
+    led->setState( Chimera::GPIO::State::LOW, 100 );
     Chimera::delayMilliseconds( 150 );
   }
 }
