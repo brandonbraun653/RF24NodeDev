@@ -2,19 +2,23 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <ChimeraIncDir>$(SolutionDir)../../../../lib/Chimera</ChimeraIncDir>
-    <ChimeraPortDir>$(SolutionDir)../../../../lib/Chimera/Chimera/sim/config/chimera</ChimeraPortDir>
-    <ChimeraCfgDir>$(SolutionDir)../../../../lib/Chimera/Chimera/sim/config/chimera</ChimeraCfgDir>
-    <ChimeraCompilerDefines>CHIMERA_LITTLE_ENDIAN;</ChimeraCompilerDefines>
-    <FreeRTOSIncDir>$(SolutionDir)../../../../lib/FreeRTOS/include</FreeRTOSIncDir>
-    <FreeRTOSCfgDir>$(SolutionDir)../../../../lib/Chimera/Chimera/sim/config/freertos</FreeRTOSCfgDir>
-    <FreeRTOSPortDir>$(SolutionDir)../../../../lib/FreeRTOS/portable/MSVC-mingW</FreeRTOSPortDir>
-    <FreeRTOSCompilerDefines>FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_MSVC=1;</FreeRTOSCompilerDefines>
-    <BoostCompilerDefines>
-    </BoostCompilerDefines>
+    <AuroraIncDir>$(SolutionDir)../../../../lib/Aurora</AuroraIncDir>
+    <BoostCompilerDefines></BoostCompilerDefines>
+    <BoostIncDir>$(BOOST_ROOT)/boost_1_70_0</BoostIncDir>
     <CommonCompilerDefinesx64>WIN64</CommonCompilerDefinesx64>
     <CommonCompilerDefinesx86>WIN32</CommonCompilerDefinesx86>
+    <ChimeraIncDir>$(SolutionDir)../../../../lib/Aurora/Chimera</ChimeraIncDir>
+    <ChimeraPortDir>$(SolutionDir)../../../../lib/Aurora/Chimera/Chimera/sim/config/chimera</ChimeraPortDir>
+    <ChimeraCfgDir>$(SolutionDir)../../../../lib/Aurora/Chimera/Chimera/sim/config/chimera</ChimeraCfgDir>
+    <ChimeraCompilerDefines>CHIMERA_LITTLE_ENDIAN;USING_STL_THREADS;CHIMERA_SIMULATOR;</ChimeraCompilerDefines>
+    <CRCIncDir>$(SolutionDir)../../../../lib/Aurora/lib/CRCpp/inc</CRCIncDir>
+    <FreeRTOSIncDir>$(SolutionDir)../../../../lib/FreeRTOS/include</FreeRTOSIncDir>
+    <FreeRTOSCfgDir>$(SolutionDir)../../../../lib/Aurora/Chimera/Chimera/sim/config/freertos</FreeRTOSCfgDir>
+    <FreeRTOSPortDir>$(SolutionDir)../../../../lib/FreeRTOS/portable/MSVC-mingW</FreeRTOSPortDir>
+    <FreeRTOSCompilerDefines>USING_FREERTOS;NOMINMAX;FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_MSVC=1;</FreeRTOSCompilerDefines>
+    <ProjectCompilerDefines></ProjectCompilerDefines>
     <RF24NodeIncDir>$(SolutionDir)../../../../</RF24NodeIncDir>
+    <uLogIncDir>$(SolutionDir)../../../../lib/Aurora/lib/uLog</uLogIncDir>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />

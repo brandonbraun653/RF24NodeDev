@@ -19,7 +19,7 @@
 #include "exported_test_functions.hpp"
 
 /* Chimera Includes */
-#include <Chimera/chimera.hpp>
+#include <Chimera/common>
 
 /* RF24 Includes */
 #include <RF24Node/common/conversion.hpp>
