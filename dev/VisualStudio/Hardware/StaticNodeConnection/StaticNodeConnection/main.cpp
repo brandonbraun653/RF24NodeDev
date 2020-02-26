@@ -19,7 +19,7 @@
 #include <Chimera/watchdog>
 
 /* Thor Includes */
-#include <Thor/drivers/gpio.hpp>
+#include <Thor/gpio>
 
 /* RF24 Includes */
 #include <RF24Node/common/conversion.hpp>
@@ -124,7 +124,7 @@ void initialize_rf24_config()
   cfg.physical.spiConfig.externalCS = true;
 
   cfg.physical.spiConfig.SCKInit.accessMode = Chimera::Hardware::AccessMode::THREADED;
-  cfg.physical.spiConfig.SCKInit.alternate  = Thor::Driver::GPIO::AF6_SPI3;
+  cfg.physical.spiConfig.SCKInit.alternate  = Thor::LLD::GPIO::AF6_SPI3;
   cfg.physical.spiConfig.SCKInit.drive      = Chimera::GPIO::Drive::ALTERNATE_PUSH_PULL;
   cfg.physical.spiConfig.SCKInit.pin        = 10;
   cfg.physical.spiConfig.SCKInit.port       = Chimera::GPIO::Port::PORTC;
@@ -132,7 +132,7 @@ void initialize_rf24_config()
   cfg.physical.spiConfig.SCKInit.validity   = true;
 
   cfg.physical.spiConfig.MISOInit.accessMode = Chimera::Hardware::AccessMode::THREADED;
-  cfg.physical.spiConfig.MISOInit.alternate  = Thor::Driver::GPIO::AF6_SPI3;
+  cfg.physical.spiConfig.MISOInit.alternate  = Thor::LLD::GPIO::AF6_SPI3;
   cfg.physical.spiConfig.MISOInit.drive      = Chimera::GPIO::Drive::ALTERNATE_PUSH_PULL;
   cfg.physical.spiConfig.MISOInit.pin        = 11;
   cfg.physical.spiConfig.MISOInit.port       = Chimera::GPIO::Port::PORTC;
@@ -140,7 +140,7 @@ void initialize_rf24_config()
   cfg.physical.spiConfig.MISOInit.validity   = true;
 
   cfg.physical.spiConfig.MOSIInit.accessMode = Chimera::Hardware::AccessMode::THREADED;
-  cfg.physical.spiConfig.MOSIInit.alternate  = Thor::Driver::GPIO::AF6_SPI3;
+  cfg.physical.spiConfig.MOSIInit.alternate  = Thor::LLD::GPIO::AF6_SPI3;
   cfg.physical.spiConfig.MOSIInit.drive      = Chimera::GPIO::Drive::ALTERNATE_PUSH_PULL;
   cfg.physical.spiConfig.MOSIInit.pin        = 12;
   cfg.physical.spiConfig.MOSIInit.port       = Chimera::GPIO::Port::PORTC;
@@ -148,7 +148,7 @@ void initialize_rf24_config()
   cfg.physical.spiConfig.MOSIInit.validity   = true;
 
   cfg.physical.spiConfig.CSInit.accessMode = Chimera::Hardware::AccessMode::THREADED;
-  cfg.physical.spiConfig.CSInit.alternate  = Thor::Driver::GPIO::AF_NONE;
+  cfg.physical.spiConfig.CSInit.alternate  = Thor::LLD::GPIO::AF_NONE;
   cfg.physical.spiConfig.CSInit.drive      = Chimera::GPIO::Drive::OUTPUT_PUSH_PULL;
   cfg.physical.spiConfig.CSInit.pin        = 2;
   cfg.physical.spiConfig.CSInit.port       = Chimera::GPIO::Port::PORTC;
@@ -156,7 +156,7 @@ void initialize_rf24_config()
   cfg.physical.spiConfig.CSInit.validity   = true;
 
   cfg.physical.chipEnableConfig.accessMode = Chimera::Hardware::AccessMode::THREADED;
-  cfg.physical.chipEnableConfig.alternate  = Thor::Driver::GPIO::AF_NONE;
+  cfg.physical.chipEnableConfig.alternate  = Thor::LLD::GPIO::AF_NONE;
   cfg.physical.chipEnableConfig.drive      = Chimera::GPIO::Drive::OUTPUT_PUSH_PULL;
   cfg.physical.chipEnableConfig.pin        = 3;
   cfg.physical.chipEnableConfig.port       = Chimera::GPIO::Port::PORTC;

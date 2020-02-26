@@ -71,35 +71,27 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
     <Import Project="ProjectProperties.props" />
-    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RF24_2|VisualGDB'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
-    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RF24_1|VisualGDB'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
-    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
-    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RF24_2|STM32F446RE'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
-    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RF24_1|STM32F446RE'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
-    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
     <Import Project="ProjectProperties.props" />
-    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'" Label="PropertySheets">
     <Import Project="ProjectProperties.props" />
-    <Import Project="..\ProjectWideConfiguration.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>

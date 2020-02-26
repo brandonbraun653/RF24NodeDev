@@ -26,6 +26,7 @@
     "*.ipp": "cpp",
     "atomic": "cpp",
     "streambuf": "cpp",
-    "complex": "cpp"
+    "complex": "cpp",
+    "timer": "cpp"
   }
 }

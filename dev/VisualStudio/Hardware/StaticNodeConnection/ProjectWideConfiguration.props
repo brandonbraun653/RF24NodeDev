@@ -18,7 +18,7 @@
     <FreeRTOSCfgDir>$(SolutionDir)../../../../lib/Thor/Thor/config/freertos</FreeRTOSCfgDir>
     <FreeRTOSPortDir>$(SolutionDir)../../../../lib/FreeRTOS/portable/GCC/ARM_CM4F</FreeRTOSPortDir>
     <FreeRTOSCompilerDefines>FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_ARM_CM4F=1;</FreeRTOSCompilerDefines>
-    <ProjectCompilerDefines>USING_VISUAL_GDB;USING_FREERTOS;_EMBEDDED;STM32F446xx;THOR_CUSTOM_DRIVERS=1;BOOST_NO_EXCEPTIONS;FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_ARM_CM4F=1;</ProjectCompilerDefines>
+    <ProjectCompilerDefines>USING_VISUAL_GDB;USING_FREERTOS;EMBEDDED;TARGET_STM32F4;STM32F446xx;THOR_CUSTOM_DRIVERS=1;BOOST_NO_EXCEPTIONS;FREERTOS_CFG_MEM_MANG_HEAP4=1;FREERTOS_CFG_PORT_ARM_CM4F=1;</ProjectCompilerDefines>
     <RF24NodeIncDir>$(SolutionDir)../../../../</RF24NodeIncDir>
     <ThorIncDir>$(SolutionDir)../../../../lib/Thor</ThorIncDir>
     <uLogIncDir>$(SolutionDir)../../../../lib/Aurora/lib/uLog</uLogIncDir>
