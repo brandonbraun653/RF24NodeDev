@@ -77,6 +77,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -103,9 +105,12 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>$(OutputPath)ChimeraStaticLibrary.lib;$(OutputPath)FreeRTOSStaticLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_ROOT)/boost_1_70_0/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /d /y $(OutDir)*.dll $(SolutionDir)NetworkExplorer\bin\Debug\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -123,11 +128,11 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>$(OutputPath)ChimeraStaticLibrary.lib;$(OutputPath)FreeRTOSStaticLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_ROOT)/boost_1_70_0/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y $(SolutionDir)x64\Debug\*.dll $(SolutionDir)NetworkExplorer\bin\Debug\</Command>
+      <Command>xcopy /d /y $(OutDir)*.dll $(SolutionDir)NetworkExplorer\bin\Debug\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,7 +155,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>$(OutputPath)ChimeraStaticLibrary.lib;$(OutputPath)FreeRTOSStaticLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_ROOT)/boost_1_70_0/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -174,7 +179,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>$(OutputPath)ChimeraStaticLibrary.lib;$(OutputPath)FreeRTOSStaticLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_ROOT)/boost_1_70_0/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -190,9 +195,6 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\lib\Aurora\vs\AuroraStaticLibrary\AuroraStaticLibrary\AuroraStaticLibrary.vcxproj">
       <Project>{603e057a-0d7f-4369-8268-4312e56afa59}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\lib\FreeRTOS\vs\FreeRTOSStaticLibrary\FreeRTOSStaticLibrary\FreeRTOSStaticLibrary.vcxproj">
-      <Project>{84551af0-447d-4ed5-8dda-3933c47a95f8}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\RF24Node\vs\RF24NodeStaticLibraryMSVC\RF24NodeStaticLibraryMSVC\RF24NodeStaticLibraryMSVC.vcxproj">
       <Project>{10eb526d-6d5d-4630-a801-eee36d06fd74}</Project>
