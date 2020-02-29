@@ -185,7 +185,7 @@
     <AutoDetectRTOS>true</AutoDetectRTOS>
     <SemihostingSupport>Enabled</SemihostingSupport>
     <SemihostingPollingDelay>0</SemihostingPollingDelay>
-    <StepIntoEntryPoint>false</StepIntoEntryPoint>
+    <StepIntoEntryPoint>true</StepIntoEntryPoint>
     <ReloadFirmwareOnReset>false</ReloadFirmwareOnReset>
     <ValidateEndOfStackAddress>true</ValidateEndOfStackAddress>
     <StopAtEntryPoint>false</StopAtEntryPoint>
