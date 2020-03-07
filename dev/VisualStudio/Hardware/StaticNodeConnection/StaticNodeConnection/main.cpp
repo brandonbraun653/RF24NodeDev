@@ -22,13 +22,13 @@
 #include <Thor/gpio>
 
 /* RF24 Includes */
-#include <RF24Node/common/conversion.hpp>
-#include <RF24Node/common/definitions.hpp>
-#include <RF24Node/endpoint/endpoint.hpp>
-#include <RF24Node/endpoint/types.hpp>
-#include <RF24Node/physical/simulator/pipe.hpp>
-#include <RF24Node/physical/simulator/shockburst.hpp>
-#include <RF24Node/physical/simulator/shockburst_types.hpp>
+#include <RF24Node/src/common/conversion.hpp>
+#include <RF24Node/src/common/definitions.hpp>
+#include <RF24Node/src/endpoint/endpoint.hpp>
+#include <RF24Node/src/endpoint/types.hpp>
+#include <RF24Node/src/physical/simulator/pipe.hpp>
+#include <RF24Node/src/physical/simulator/shockburst.hpp>
+#include <RF24Node/src/physical/simulator/shockburst_types.hpp>
 
 /* Logger Includes */
 #include <uLog/ulog.hpp>

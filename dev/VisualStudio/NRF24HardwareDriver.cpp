@@ -19,9 +19,9 @@
 #include <Chimera/watchdog.hpp>
 
 /* Radio Includes */
-#include <RF24Node/hardware/driver.hpp>
-#include <RF24Node/physical/physical.hpp>
-#include <RF24Node/network/network.hpp>
+#include <RF24Node/src/hardware/driver.hpp>
+#include <RF24Node/src/physical/physical.hpp>
+#include <RF24Node/src/network/network.hpp>
 
 /* FRAM Includes */
 #include <mb85rs64v.hpp>

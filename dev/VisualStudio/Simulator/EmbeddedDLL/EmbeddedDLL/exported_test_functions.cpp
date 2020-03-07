@@ -22,13 +22,13 @@
 #include <Chimera/common>
 
 /* RF24 Includes */
-#include <RF24Node/common/conversion.hpp>
-#include <RF24Node/common/definitions.hpp>
-#include <RF24Node/endpoint/endpoint.hpp>
-#include <RF24Node/endpoint/types.hpp>
-#include <RF24Node/physical/simulator/pipe.hpp>
-#include <RF24Node/physical/simulator/shockburst.hpp>
-#include <RF24Node/physical/simulator/shockburst_types.hpp>
+#include <RF24Node/src/common/conversion.hpp>
+#include <RF24Node/src/common/definitions.hpp>
+#include <RF24Node/src/endpoint/endpoint.hpp>
+#include <RF24Node/src/endpoint/types.hpp>
+#include <RF24Node/src/physical/simulator/pipe.hpp>
+#include <RF24Node/src/physical/simulator/shockburst.hpp>
+#include <RF24Node/src/physical/simulator/shockburst_types.hpp>
 
 /* Logger Includes */
 #include <uLog/ulog.hpp>
@@ -36,6 +36,9 @@
 
 static void MasterNodeThread();
 static void SlaveNodeThread();
+
+static constexpr size_t AsyncUpdateRate = 50;
+static constexpr size_t ThreadUpdateRate = 15;
 
 void test_PipeCommunication()
 {
@@ -92,10 +95,34 @@ void MasterNodeThread()
   master.configure( cfg );
   master.setName( cfg.physical.deviceName );
 
+  /*------------------------------------------------
+  Main processing loop for the slave node 
+  ------------------------------------------------*/
+  const size_t start_time = Chimera::millis();
+  size_t asyncUpdateProcessTime = start_time;
+  size_t testCodeProcessTime = start_time;
+
   while ( true )
   {
-    master.doAsyncProcessing();
-    Chimera::delayMilliseconds( 25 );
+    /*------------------------------------------------
+    Handle the incoming RF data
+    ------------------------------------------------*/
+    if ( ( asyncUpdateProcessTime - Chimera::millis() ) > AsyncUpdateRate )
+    {
+      master.doAsyncProcessing();
+      asyncUpdateProcessTime = Chimera::millis();
+    }
+
+    /*------------------------------------------------
+    Process any test code used for development
+    ------------------------------------------------*/
+    if ( ( testCodeProcessTime - Chimera::millis() ) > 1000 )
+    {
+      ;
+    }
+
+
+    Chimera::delayMilliseconds( ThreadUpdateRate );
   }
 }
 
@@ -135,9 +162,35 @@ void SlaveNodeThread()
     slaveSink->flog( uLog::Level::LVL_INFO, "Did not connect for some reason\n" );
   }
 
+  /*------------------------------------------------
+  Main processing loop for the slave node 
+  ------------------------------------------------*/
+  const size_t start_time = Chimera::millis();
+  size_t asyncUpdateProcessTime = start_time;
+  size_t testCodeProcessTime = start_time;
+
+  std::string_view hello_world = "hello world!";
+
   while ( true )
   {
-    slave.doAsyncProcessing();
-    Chimera::delayMilliseconds( 25 );
+    /*------------------------------------------------
+    Handle the incoming RF data
+    ------------------------------------------------*/
+    if ( ( asyncUpdateProcessTime - Chimera::millis() ) > AsyncUpdateRate )
+    {
+      slave.doAsyncProcessing();
+      asyncUpdateProcessTime = Chimera::millis();
+    }
+
+    /*------------------------------------------------
+    Process any test code used for development
+    ------------------------------------------------*/
+    if ( ( testCodeProcessTime - Chimera::millis() ) > 1000 )
+    {
+      slave.write( RF24::RootNode0, hello_world.data(), hello_world.size() );
+    }
+
+
+    Chimera::delayMilliseconds( ThreadUpdateRate );
   }
 }

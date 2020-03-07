@@ -12,7 +12,7 @@
 #include "gtest/gtest.h"
 
 /* RF24 Includes */
-#include <RF24Node/common/conversion.hpp>
+#include <RF24Node/src/common/conversion.hpp>
 
 using namespace RF24::Physical::Conversion;
 

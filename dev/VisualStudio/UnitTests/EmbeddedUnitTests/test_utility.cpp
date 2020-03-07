@@ -15,10 +15,10 @@
 #include <vector>
 
 /* RF24 Includes */
-#include <RF24Node/common/definitions.hpp>
-#include <RF24Node/common/types.hpp>
-#include <RF24Node/common/utility.hpp>
-#include <RF24Node/network/definitions.hpp>
+#include <RF24Node/src/common/definitions.hpp>
+#include <RF24Node/src/common/types.hpp>
+#include <RF24Node/src/common/utility.hpp>
+#include <RF24Node/src/network/definitions.hpp>
 
 using namespace RF24;
 
