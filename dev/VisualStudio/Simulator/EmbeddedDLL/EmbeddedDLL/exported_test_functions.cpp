@@ -77,7 +77,7 @@ void MasterNodeThread()
   uLog::registerSink( masterSink );
 
   RF24::Endpoint::Device master;
-  RF24::Endpoint::Config cfg;
+  RF24::Endpoint::SystemInit cfg;
   cfg.network.mode = RF24::Network::Mode::NET_MODE_STATIC;
   cfg.network.nodeStaticAddress = RF24::RootNode0;
   cfg.network.parentStaticAddress = RF24::Network::RSVD_ADDR_INVALID;
@@ -107,7 +107,7 @@ void MasterNodeThread()
     /*------------------------------------------------
     Handle the incoming RF data
     ------------------------------------------------*/
-    if ( ( asyncUpdateProcessTime - Chimera::millis() ) > AsyncUpdateRate )
+    if ( ( Chimera::millis() - asyncUpdateProcessTime ) > AsyncUpdateRate )
     {
       master.doAsyncProcessing();
       asyncUpdateProcessTime = Chimera::millis();
@@ -116,7 +116,7 @@ void MasterNodeThread()
     /*------------------------------------------------
     Process any test code used for development
     ------------------------------------------------*/
-    if ( ( testCodeProcessTime - Chimera::millis() ) > 1000 )
+    if ( ( Chimera::millis() - testCodeProcessTime ) > 1000 )
     {
       ;
     }
@@ -135,7 +135,7 @@ void SlaveNodeThread()
   uLog::registerSink( slaveSink );
 
   RF24::Endpoint::Device slave;
-  RF24::Endpoint::Config cfg;
+  RF24::Endpoint::SystemInit cfg;
   cfg.network.mode = RF24::Network::Mode::NET_MODE_STATIC;
   cfg.network.nodeStaticAddress = 0001;
   cfg.network.parentStaticAddress = RF24::RootNode0;
@@ -176,7 +176,7 @@ void SlaveNodeThread()
     /*------------------------------------------------
     Handle the incoming RF data
     ------------------------------------------------*/
-    if ( ( asyncUpdateProcessTime - Chimera::millis() ) > AsyncUpdateRate )
+    if ( ( Chimera::millis() - asyncUpdateProcessTime ) > AsyncUpdateRate )
     {
       slave.doAsyncProcessing();
       asyncUpdateProcessTime = Chimera::millis();
@@ -185,9 +185,11 @@ void SlaveNodeThread()
     /*------------------------------------------------
     Process any test code used for development
     ------------------------------------------------*/
-    if ( ( testCodeProcessTime - Chimera::millis() ) > 1000 )
+    if ( ( Chimera::millis() - testCodeProcessTime ) > 1000 )
     {
-      slave.write( RF24::RootNode0, hello_world.data(), hello_world.size() );
+      //slave.write( RF24::RootNode0, hello_world.data(), hello_world.size() );
+      //slave.ping( RF24::RootNode0, 150 );
+      testCodeProcessTime = Chimera::millis();
     }
 
 

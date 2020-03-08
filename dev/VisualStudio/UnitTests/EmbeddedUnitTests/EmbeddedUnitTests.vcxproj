@@ -44,8 +44,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\RF24Node\common\conversion.cpp" />
-    <ClCompile Include="..\..\..\..\RF24Node\common\utility.cpp" />
+    <ClCompile Include="..\..\..\..\RF24Node\src\common\conversion.cpp" />
+    <ClCompile Include="..\..\..\..\RF24Node\src\common\utility.cpp" />
     <ClCompile Include="test_conversion.cpp" />
     <ClCompile Include="test_utility.cpp" />
   </ItemGroup>
