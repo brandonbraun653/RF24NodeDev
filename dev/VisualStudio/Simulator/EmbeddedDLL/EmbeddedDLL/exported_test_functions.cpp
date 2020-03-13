@@ -3,17 +3,15 @@
 *    exported_test_functions.cpp
 *
 *  Description:
-*    
+*
 *
 *  2020 | Brandon Braun | brandonbraun653@gmail.com
 ********************************************************************************/
 
 /* C++ Includes */
+#include <atomic>
 #include <thread>
-
-/* Boost Includes */
-#include <boost/asio.hpp>
-#include <boost/chrono.hpp>
+#include <vector>
 
 /* Project Includes */
 #include "exported_test_functions.hpp"
@@ -36,9 +34,30 @@
 
 static void MasterNodeThread();
 static void SlaveNodeThread();
+static void RootNodeThread();
+static void ChildNodeThread_001();
+static void ChildNodeThread_002();
+static void ChildNodeThread_012();
+static void ChildNodeThread_003();
+static void ChildNodeThread_013();
 
 static constexpr size_t AsyncUpdateRate = 50;
 static constexpr size_t ThreadUpdateRate = 15;
+
+static RF24::Endpoint::Device_sPtr rootNode;
+static RF24::Endpoint::Device_sPtr childNode_001;
+static RF24::Endpoint::Device_sPtr childNode_002;
+static RF24::Endpoint::Device_sPtr childNode_012;
+static RF24::Endpoint::Device_sPtr childNode_003;
+static RF24::Endpoint::Device_sPtr childNode_013;
+
+
+struct EndpointInitializer
+{
+  RF24::Endpoint::Device_sPtr device;
+  std::thread idleThread;
+  std::atomic<bool> initialized;
+};
 
 void test_PipeCommunication()
 {
@@ -50,7 +69,7 @@ void test_PipeCommunication()
   rootSink->setLogLevel( uLog::Level::LVL_DEBUG );
   rootSink->setName( "Root" );
   rootSink->enable();
-  
+
   uLog::registerSink( rootSink );
   uLog::setGlobalLogLevel( uLog::Level::LVL_DEBUG );
   uLog::setRootSink( rootSink );
@@ -61,12 +80,27 @@ void test_PipeCommunication()
   std::thread masterThread = std::thread( MasterNodeThread );
   std::thread slaveThread = std::thread( SlaveNodeThread );
 
+  std::thread rootNodeThread = std::thread( RootNodeThread );
+  std::thread childNodeThread_001 = std::thread( ChildNodeThread_001 );
+  std::thread childNodeThread_002 = std::thread( ChildNodeThread_002 );
+  std::thread childNodeThread_012 = std::thread( ChildNodeThread_012 );
+  std::thread childNodeThread_003 = std::thread( ChildNodeThread_003 );
+  std::thread childNodeThread_013 = std::thread( ChildNodeThread_013 );
+
   while ( true )
   {
     Chimera::delayMilliseconds( 100 );
   }
 
 }
+
+
+void SandboxThread()
+{
+
+}
+
+
 
 void MasterNodeThread()
 {
@@ -96,7 +130,7 @@ void MasterNodeThread()
   master.setName( cfg.physical.deviceName );
 
   /*------------------------------------------------
-  Main processing loop for the slave node 
+  Main processing loop for the slave node
   ------------------------------------------------*/
   const size_t start_time = Chimera::millis();
   size_t asyncUpdateProcessTime = start_time;
@@ -152,10 +186,10 @@ void SlaveNodeThread()
   slave.attachLogger( slaveSink );
   slave.configure( cfg );
   slave.setName( cfg.physical.deviceName );
-  
+
   if ( slave.connect( 1000 ) )
   {
-    slaveSink->flog( uLog::Level::LVL_INFO, "Holy crap it worked?!\n");
+    slaveSink->flog( uLog::Level::LVL_INFO, "Holy crap it worked?!\n" );
   }
   else
   {
@@ -163,7 +197,7 @@ void SlaveNodeThread()
   }
 
   /*------------------------------------------------
-  Main processing loop for the slave node 
+  Main processing loop for the slave node
   ------------------------------------------------*/
   const size_t start_time = Chimera::millis();
   size_t asyncUpdateProcessTime = start_time;
@@ -188,11 +222,51 @@ void SlaveNodeThread()
     if ( ( Chimera::millis() - testCodeProcessTime ) > 1000 )
     {
       //slave.write( RF24::RootNode0, hello_world.data(), hello_world.size() );
-      //slave.ping( RF24::RootNode0, 150 );
+      slaveSink->flog( uLog::Level::LVL_INFO, "%d-Pinging the root node\n", Chimera::millis() );
+      if ( slave.ping( RF24::RootNode0, 150 ) )
+      {
+        slaveSink->flog( uLog::Level::LVL_INFO, "%d-Success!\n", Chimera::millis() );
+      }
+      else
+      {
+        slaveSink->flog( uLog::Level::LVL_INFO, "%d-Failure :(\n", Chimera::millis() );
+
+      }
+
       testCodeProcessTime = Chimera::millis();
     }
 
 
     Chimera::delayMilliseconds( ThreadUpdateRate );
   }
+}
+
+static void RootNodeThread()
+{
+
+}
+
+static void ChildNodeThread_001()
+{
+
+}
+
+static void ChildNodeThread_002()
+{
+
+}
+
+static void ChildNodeThread_012()
+{
+
+}
+
+static void ChildNodeThread_003()
+{
+
+}
+
+static void ChildNodeThread_013()
+{
+
 }
