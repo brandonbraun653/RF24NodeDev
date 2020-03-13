@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <ChimeraCompilerDefines>CHIMERA_LITTLE_ENDIAN;</ChimeraCompilerDefines>
+    <FreeRTOSCompilerDefines>USING_FREERTOS;USE_FREERTOS;</FreeRTOSCompilerDefines>
+    <BoostCompilerDefines>BOOST_NO_EXCEPTIONS;</BoostCompilerDefines>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="ChimeraCompilerDefines">
+      <Value>$(ChimeraCompilerDefines)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="FreeRTOSCompilerDefines">
+      <Value>$(FreeRTOSCompilerDefines)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="BoostCompilerDefines">
+      <Value>$(BoostCompilerDefines)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

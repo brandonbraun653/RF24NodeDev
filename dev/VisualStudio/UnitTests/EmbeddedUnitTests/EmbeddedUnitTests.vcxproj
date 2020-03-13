@@ -44,13 +44,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\RF24Node\src\common\conversion.cpp" />
-    <ClCompile Include="..\..\..\..\RF24Node\src\common\utility.cpp" />
     <ClCompile Include="test_conversion.cpp" />
     <ClCompile Include="test_utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\lib\Aurora\Chimera\vs\ChimeraStaticLibraryMSVC\ChimeraStaticLibraryMSVC\ChimeraStaticLibraryMSVC.vcxproj">
+      <Project>{875e1f34-6708-4c7c-a6ec-74faba6b0bfb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\lib\Aurora\vs\AuroraStaticLibrary\AuroraStaticLibrary\AuroraStaticLibrary.vcxproj">
+      <Project>{603e057a-0d7f-4369-8268-4312e56afa59}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\RF24Node\vs\RF24NodeStaticLibraryMSVC\RF24NodeStaticLibraryMSVC\RF24NodeStaticLibraryMSVC.vcxproj">
+      <Project>{10eb526d-6d5d-4630-a801-eee36d06fd74}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
@@ -62,7 +71,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
@@ -81,7 +90,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
@@ -99,7 +108,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -119,7 +128,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <PreprocessorDefinitions>X64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(ChimeraCompilerDefines);$(BoostCompilerDefines);$(FreeRTOSCompilerDefines);RF24DLL;RF24_SIMULATOR;_WIN32_WINNT=0x0A00;X64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>

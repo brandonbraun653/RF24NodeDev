@@ -3,22 +3,13 @@
   <ItemGroup>
     <ClCompile Include="test_conversion.cpp" />
     <ClCompile Include="test_utility.cpp" />
-    <ClCompile Include="..\..\..\..\RF24Node\src\common\utility.cpp">
-      <Filter>RF24Node\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\RF24Node\src\common\conversion.cpp">
-      <Filter>RF24Node\common</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="RF24Node">
-      <UniqueIdentifier>{ce890d8a-63f8-4bb4-8385-07accfbfce68}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="RF24Node\common">
-      <UniqueIdentifier>{36384134-2406-4524-8a0a-b4cbad1f0f31}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="endpoint">
+      <UniqueIdentifier>{b7b41e12-3deb-42b6-8af2-5ecb089c02b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
