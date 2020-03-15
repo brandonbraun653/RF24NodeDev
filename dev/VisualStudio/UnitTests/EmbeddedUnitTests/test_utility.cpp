@@ -5,7 +5,7 @@
 *  Description:
 *    Tests the utility functions for the RF24Node library
 *
-*  2019 | Brandon Braun | brandonbraun653@gmail.com
+*  2019-2020 | Brandon Braun | brandonbraun653@gmail.com
 ********************************************************************************/
 
 /* GTest Includes */
@@ -52,6 +52,10 @@ struct LevelIDTestSuite
   LogicalID idAtLevel5;
 };
 
+/*------------------------------------------------
+Note: For all the literal addresses below, prepending
+with a zero forces the numbers to be in octal format.
+------------------------------------------------*/
 /* clang-format off */
 static std::vector<AddressTestSuite> PropertyTestCandidates = {
   /*Address                                  Parent                  Level          Child      Root    Validity   Rsvd  */
@@ -70,11 +74,11 @@ static std::vector<AddressTestSuite> PropertyTestCandidates = {
   { 001000,                                           001000,                   0,  false,     true,     true,    false },
   { 000200,                                           000200,                   0,  false,     true,     true,    false },
   { 000030,                                           000030,                   0,  false,     true,     true,    false },
-  { 000001,                        Network::RSVD_ADDR_LOOKUP,                   1,   true,    false,     true,    false },  // Child nodes
-  { 000002,                        Network::RSVD_ADDR_LOOKUP,                   1,   true,    false,     true,    false },
-  { 000003,                        Network::RSVD_ADDR_LOOKUP,                   1,   true,    false,     true,    false },
-  { 000004,                        Network::RSVD_ADDR_LOOKUP,                   1,   true,    false,     true,    false },
-  { 000005,                        Network::RSVD_ADDR_LOOKUP,                   1,   true,    false,     true,    false },
+  { 000001,                                  RF24::RootNode0,                   1,   true,    false,     true,    false },  // Child nodes
+  { 000002,                                  RF24::RootNode0,                   1,   true,    false,     true,    false },
+  { 000003,                                  RF24::RootNode0,                   1,   true,    false,     true,    false },
+  { 000004,                                  RF24::RootNode0,                   1,   true,    false,     true,    false },
+  { 000005,                                  RF24::RootNode0,                   1,   true,    false,     true,    false },
   { 000023,                                           000003,                   2,   true,    false,     true,    false },
   { 000135,                                           000035,                   3,   true,    false,     true,    false },
   { 001234,                                           000234,                   4,   true,    false,     true,    false },
@@ -114,9 +118,8 @@ static std::vector<DescendantTestSuite> DescendantTestCandidates = {
   { Network::RSVD_ADDR_MULTICAST, 000000,    false,    false },  // Reserved nodes
   { Network::RSVD_ADDR_ROUTED,    000000,    false,    false },
   { Network::RSVD_ADDR_INVALID,   000000,    false,    false },
-  { Network::RSVD_ADDR_LOOKUP,    000000,    false,    false },
-  { 000000,                       000001,    false,    false },  // Root nodes
-  { 077770,                       000001,    false,    false },
+  { Network::RSVD_ADDR_LOOKUP,    000000,    false,    false }, 
+  { 077770,                       000001,    false,    false },  // Root nodes
   { 007770,                       000001,    false,    false },
   { 001000,                       000001,    false,    false },
   { 000200,                       000001,    false,    false },
@@ -129,15 +132,15 @@ static std::vector<DescendantTestSuite> DescendantTestCandidates = {
   { 000425,                       002425,     true,     true },
   { 000013,                       000313,     true,     true },
   { 000004,                       000054,     true,     true },
+  { 000000,                       000001,    false,     true }, 
   { 011111,                       011111,    false,    false },  // Identical
   { 001234,                       001234,    false,    false },
   { 000435,                       000435,    false,    false },
   { 000025,                       000025,    false,    false },
   { 000003,                       000003,    false,    false }
 };
-
-
 /* clang-format on */
+
 
 TEST( Addressing, PropertyTests )
 {

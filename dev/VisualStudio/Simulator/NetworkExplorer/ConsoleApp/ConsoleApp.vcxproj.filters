@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ping_tests.cpp" />
+    <ClCompile Include="multi_node_tests.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ping_tests.hpp" />
+    <ClInclude Include="multi_node_tests.hpp" />
+  </ItemGroup>
+</Project>
