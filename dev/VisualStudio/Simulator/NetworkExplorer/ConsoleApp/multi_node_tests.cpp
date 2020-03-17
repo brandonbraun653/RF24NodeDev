@@ -13,6 +13,7 @@
 #include <uLog/ulog.hpp>
 #include <uLog/sinks/sink_cout.hpp>
 
+static constexpr size_t BootDelay        = 500;
 static constexpr size_t ConnectTimeout   = 10000;
 static constexpr size_t AsyncUpdateRate  = 50;
 static constexpr size_t ThreadUpdateRate = 15;
@@ -189,6 +190,7 @@ static void RootNodeThread( EndpointInitializer *init )
   /*------------------------------------------------
   Device Processing Thread
   ------------------------------------------------*/
+  Chimera::delayMilliseconds( BootDelay );
   size_t current_time = Chimera::millis();
   size_t hello_time = Chimera::millis();
 
@@ -250,6 +252,7 @@ static void ChildNodeThread_001( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  Chimera::delayMilliseconds( BootDelay );
   //if ( init->device->connect( ConnectTimeout ) )
   //{
   //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
@@ -314,6 +317,7 @@ static void ChildNodeThread_002( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  Chimera::delayMilliseconds( BootDelay );
   //if ( init->device->connect( ConnectTimeout ) )
   //{
   //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
@@ -378,6 +382,7 @@ static void ChildNodeThread_003( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  Chimera::delayMilliseconds( BootDelay );
   if ( init->device->connect( ConnectTimeout ) )
   {
     logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
@@ -442,6 +447,7 @@ static void ChildNodeThread_012( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  Chimera::delayMilliseconds( BootDelay );
   //if ( init->device->connect( ConnectTimeout ) )
   //{
   //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
@@ -506,6 +512,7 @@ static void ChildNodeThread_013( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  Chimera::delayMilliseconds( BootDelay );
   if ( init->device->connect( ConnectTimeout ) )
   {
     logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
@@ -570,6 +577,7 @@ static void ChildNodeThread_113( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  Chimera::delayMilliseconds( BootDelay );
   if ( init->device->connect( ConnectTimeout ) )
   {
     logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
