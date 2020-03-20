@@ -13,6 +13,10 @@
 #include <uLog/ulog.hpp>
 #include <uLog/sinks/sink_cout.hpp>
 
+/* Windows Includes */
+#include <windows.h>
+#include <processthreadsapi.h>
+
 static constexpr size_t BootDelay        = 500;
 static constexpr size_t ConnectTimeout   = 10000;
 static constexpr size_t AsyncUpdateRate  = 50;
@@ -155,6 +159,8 @@ void RunMultiNodeTests()
 
 static void RootNodeThread( EndpointInitializer *init )
 {
+  SetThreadDescription( GetCurrentThread(), L"RootNodeThread" );
+
   /*------------------------------------------------
   Initialize the device logger
   ------------------------------------------------*/
@@ -215,8 +221,18 @@ static void RootNodeThread( EndpointInitializer *init )
   }
 }
 
+using NetResult = RF24::Connection::Result;
+
+std::atomic<NetResult> isConnected;
+static void ChildNode_001_ConnectCallback( NetResult result )
+{
+  isConnected = result;
+}
+
 static void ChildNodeThread_001( EndpointInitializer *init )
 {
+  SetThreadDescription( GetCurrentThread(), L"ChildNode-001" );
+
   /*------------------------------------------------
   Initialize the device logger
   ------------------------------------------------*/
@@ -252,16 +268,26 @@ static void ChildNodeThread_001( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  isConnected = NetResult::CONNECTION_UNKNOWN;
+
   Chimera::delayMilliseconds( BootDelay );
-  //if ( init->device->connect( ConnectTimeout ) )
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
-  //                 cfg.network.parentStaticAddress );
-  //}
-  //else
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
-  //}
+
+  init->device->connect( ChildNode_001_ConnectCallback, ConnectTimeout );
+  while ( isConnected == NetResult::CONNECTION_UNKNOWN )
+  {
+    init->device->processNetworking();
+    Chimera::delayMilliseconds( 10 );
+  }
+
+  if ( isConnected == NetResult::CONNECTION_SUCCESS )
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+  else
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
+  }
 
   /*------------------------------------------------
   Device Processing Thread
@@ -383,15 +409,15 @@ static void ChildNodeThread_003( EndpointInitializer *init )
   Connect to the configured parent node
   ------------------------------------------------*/
   Chimera::delayMilliseconds( BootDelay );
-  if ( init->device->connect( ConnectTimeout ) )
-  {
-    logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
-                   cfg.network.parentStaticAddress );
-  }
-  else
-  {
-    logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
-  }
+  //if ( init->device->connect( ConnectTimeout ) )
+  //{
+  //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+  //                 cfg.network.parentStaticAddress );
+  //}
+  //else
+  //{
+  //  logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
+  //}
 
   /*------------------------------------------------
   Device Processing Thread
@@ -513,15 +539,15 @@ static void ChildNodeThread_013( EndpointInitializer *init )
   Connect to the configured parent node
   ------------------------------------------------*/
   Chimera::delayMilliseconds( BootDelay );
-  if ( init->device->connect( ConnectTimeout ) )
-  {
-    logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
-                   cfg.network.parentStaticAddress );
-  }
-  else
-  {
-    logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
-  }
+  //if ( init->device->connect( ConnectTimeout ) )
+  //{
+  //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+  //                 cfg.network.parentStaticAddress );
+  //}
+  //else
+  //{
+  //  logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
+  //}
 
   /*------------------------------------------------
   Device Processing Thread
@@ -578,15 +604,15 @@ static void ChildNodeThread_113( EndpointInitializer *init )
   Connect to the configured parent node
   ------------------------------------------------*/
   Chimera::delayMilliseconds( BootDelay );
-  if ( init->device->connect( ConnectTimeout ) )
-  {
-    logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
-                   cfg.network.parentStaticAddress );
-  }
-  else
-  {
-    logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
-  }
+  //if ( init->device->connect( ConnectTimeout ) )
+  //{
+  //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+  //                 cfg.network.parentStaticAddress );
+  //}
+  //else
+  //{
+  //  logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
+  //}
 
   /*------------------------------------------------
   Device Processing Thread

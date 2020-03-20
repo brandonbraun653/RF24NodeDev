@@ -118,14 +118,14 @@ static void SlaveNodePingThread()
   slave->configure( cfg );
   slave->setName( cfg.physical.deviceName );
 
-  if ( slave->connect( 1000 ) )
-  {
-    slaveSink->flog( uLog::Level::LVL_INFO, "Holy crap it worked?!\n" );
-  }
-  else
-  {
-    slaveSink->flog( uLog::Level::LVL_INFO, "Did not connect for some reason\n" );
-  }
+  //if ( slave->connect( 1000 ) )
+  //{
+  //  slaveSink->flog( uLog::Level::LVL_INFO, "Holy crap it worked?!\n" );
+  //}
+  //else
+  //{
+  //  slaveSink->flog( uLog::Level::LVL_INFO, "Did not connect for some reason\n" );
+  //}
 
   /*------------------------------------------------
   Main processing loop for the slave node
