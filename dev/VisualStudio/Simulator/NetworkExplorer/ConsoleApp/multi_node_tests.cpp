@@ -44,7 +44,7 @@ static void ChildNodeThread_002( EndpointInitializer *init );
 static void ChildNodeThread_012( EndpointInitializer *init );
 static void ChildNodeThread_003( EndpointInitializer *init );
 static void ChildNodeThread_013( EndpointInitializer *init );
-static void ChildNodeThread_113( EndpointInitializer *init );
+static void ChildNodeThread_0113( EndpointInitializer *init );
 
 void RunMultiNodeTests()
 {
@@ -72,7 +72,7 @@ void RunMultiNodeTests()
   childNode_001.device             = nullptr;
   childNode_001.idleThreadFunction = ChildNodeThread_001;
 
-  SystemNodes.push_back( childNode_001 );
+  //SystemNodes.push_back( childNode_001 );
 
   /*------------------------------------------------
   Initialize child 2 of the root node
@@ -85,7 +85,7 @@ void RunMultiNodeTests()
   childNode_002.device             = nullptr;
   childNode_002.idleThreadFunction = ChildNodeThread_002;
 
-  SystemNodes.push_back( childNode_002 );
+  //SystemNodes.push_back( childNode_002 );
 
   /*------------------------------------------------
   Initialize child 3 of the root node
@@ -111,7 +111,7 @@ void RunMultiNodeTests()
   childNode_012.device             = nullptr;
   childNode_012.idleThreadFunction = ChildNodeThread_012;
 
-  SystemNodes.push_back( childNode_012 );
+  //SystemNodes.push_back( childNode_012 );
 
   /*------------------------------------------------
   Initialize child 1 of node 003
@@ -127,17 +127,17 @@ void RunMultiNodeTests()
   SystemNodes.push_back( childNode_013 );
 
   /*------------------------------------------------
-  Initialize child 1 of node 003
+  Initialize child 1 of node 013
   ------------------------------------------------*/
-  EndpointInitializer childNode_113;
-  childNode_113.initialized        = false;
-  childNode_113.deviceAddress      = 0113;
-  childNode_113.parentAddress      = 003;
-  childNode_113.deviceName         = "Node-113";
-  childNode_113.device             = nullptr;
-  childNode_113.idleThreadFunction = ChildNodeThread_113;
+  EndpointInitializer childNode_0113;
+  childNode_0113.initialized        = false;
+  childNode_0113.deviceAddress      = 0113;
+  childNode_0113.parentAddress      = 013;
+  childNode_0113.deviceName         = "Node-0113";
+  childNode_0113.device             = nullptr;
+  childNode_0113.idleThreadFunction = ChildNodeThread_0113;
 
-  SystemNodes.push_back( childNode_113 );
+  SystemNodes.push_back( childNode_0113 );
 
 
   /*------------------------------------------------
@@ -222,9 +222,13 @@ static void RootNodeThread( EndpointInitializer *init )
 }
 
 using NetResult = RF24::Connection::Result;
+using NetId = RF24::Connection::BindSite;
 
+/*------------------------------------------------
+Node 001
+------------------------------------------------*/
 std::atomic<NetResult> isConnected;
-static void ChildNode_001_ConnectCallback( NetResult result )
+static void ChildNode_001_ConnectCallback( NetResult result, NetId id )
 {
   isConnected = result;
 }
@@ -281,12 +285,13 @@ static void ChildNodeThread_001( EndpointInitializer *init )
 
   if ( isConnected == NetResult::CONNECTION_SUCCESS )
   {
-    logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+    logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );
   }
   else
   {
-    logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
+    logSink->flog( uLog::Level::LVL_INFO, "FAILED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
   }
 
   /*------------------------------------------------
@@ -304,10 +309,21 @@ static void ChildNodeThread_001( EndpointInitializer *init )
 
     Chimera::delayMilliseconds( ThreadUpdateRate );
   }
+}
+
+/*------------------------------------------------
+Node 002
+------------------------------------------------*/
+std::atomic<NetResult> isConnected_002;
+static void ChildNode_002_ConnectCallback( NetResult result, NetId id )
+{
+  isConnected_002 = result;
 }
 
 static void ChildNodeThread_002( EndpointInitializer *init )
 {
+  SetThreadDescription( GetCurrentThread(), L"ChildNode-002" );
+
   /*------------------------------------------------
   Initialize the device logger
   ------------------------------------------------*/
@@ -343,16 +359,27 @@ static void ChildNodeThread_002( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  isConnected_002 = NetResult::CONNECTION_UNKNOWN;
+
   Chimera::delayMilliseconds( BootDelay );
-  //if ( init->device->connect( ConnectTimeout ) )
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
-  //                 cfg.network.parentStaticAddress );
-  //}
-  //else
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
-  //}
+
+  init->device->connect( ChildNode_002_ConnectCallback, ConnectTimeout );
+  while ( isConnected_002 == NetResult::CONNECTION_UNKNOWN )
+  {
+    init->device->processNetworking();
+    Chimera::delayMilliseconds( 10 );
+  }
+
+  if ( isConnected_002 == NetResult::CONNECTION_SUCCESS )
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+  else
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "FAILED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
 
   /*------------------------------------------------
   Device Processing Thread
@@ -369,10 +396,21 @@ static void ChildNodeThread_002( EndpointInitializer *init )
 
     Chimera::delayMilliseconds( ThreadUpdateRate );
   }
+}
+
+/*------------------------------------------------
+Node 003
+------------------------------------------------*/
+std::atomic<NetResult> isConnected_003;
+static void ChildNode_003_ConnectCallback( NetResult result, NetId id )
+{
+  isConnected_003 = result;
 }
 
 static void ChildNodeThread_003( EndpointInitializer *init )
 {
+  SetThreadDescription( GetCurrentThread(), L"ChildNode-003" );
+
   /*------------------------------------------------
   Initialize the device logger
   ------------------------------------------------*/
@@ -408,16 +446,27 @@ static void ChildNodeThread_003( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  isConnected_003 = NetResult::CONNECTION_UNKNOWN;
+
   Chimera::delayMilliseconds( BootDelay );
-  //if ( init->device->connect( ConnectTimeout ) )
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
-  //                 cfg.network.parentStaticAddress );
-  //}
-  //else
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
-  //}
+
+  init->device->connect( ChildNode_003_ConnectCallback, ConnectTimeout );
+  while ( isConnected_003 == NetResult::CONNECTION_UNKNOWN )
+  {
+    init->device->processNetworking();
+    Chimera::delayMilliseconds( 10 );
+  }
+
+  if ( isConnected_003 == NetResult::CONNECTION_SUCCESS )
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+  else
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "FAILED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
 
   /*------------------------------------------------
   Device Processing Thread
@@ -434,10 +483,21 @@ static void ChildNodeThread_003( EndpointInitializer *init )
 
     Chimera::delayMilliseconds( ThreadUpdateRate );
   }
+}
+
+/*------------------------------------------------
+Node 012
+------------------------------------------------*/
+std::atomic<NetResult> isConnected_012;
+static void ChildNode_012_ConnectCallback( NetResult result, NetId id )
+{
+  isConnected_012 = result;
 }
 
 static void ChildNodeThread_012( EndpointInitializer *init )
 {
+  SetThreadDescription( GetCurrentThread(), L"ChildNode-012" );
+
   /*------------------------------------------------
   Initialize the device logger
   ------------------------------------------------*/
@@ -473,16 +533,27 @@ static void ChildNodeThread_012( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  isConnected_012 = NetResult::CONNECTION_UNKNOWN;
+
   Chimera::delayMilliseconds( BootDelay );
-  //if ( init->device->connect( ConnectTimeout ) )
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
-  //                 cfg.network.parentStaticAddress );
-  //}
-  //else
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
-  //}
+
+  init->device->connect( ChildNode_012_ConnectCallback, ConnectTimeout );
+  while ( isConnected_012 == NetResult::CONNECTION_UNKNOWN )
+  {
+    init->device->processNetworking();
+    Chimera::delayMilliseconds( 10 );
+  }
+
+  if ( isConnected_012 == NetResult::CONNECTION_SUCCESS )
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+  else
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "FAILED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
 
   /*------------------------------------------------
   Device Processing Thread
@@ -499,10 +570,21 @@ static void ChildNodeThread_012( EndpointInitializer *init )
 
     Chimera::delayMilliseconds( ThreadUpdateRate );
   }
+}
+
+/*------------------------------------------------
+Node 013
+------------------------------------------------*/
+std::atomic<NetResult> isConnected_013;
+static void ChildNode_013_ConnectCallback( NetResult result, NetId id )
+{
+  isConnected_013 = result;
 }
 
 static void ChildNodeThread_013( EndpointInitializer *init )
 {
+  SetThreadDescription( GetCurrentThread(), L"ChildNode-013" );
+
   /*------------------------------------------------
   Initialize the device logger
   ------------------------------------------------*/
@@ -538,16 +620,27 @@ static void ChildNodeThread_013( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  isConnected_013 = NetResult::CONNECTION_UNKNOWN;
+
   Chimera::delayMilliseconds( BootDelay );
-  //if ( init->device->connect( ConnectTimeout ) )
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
-  //                 cfg.network.parentStaticAddress );
-  //}
-  //else
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
-  //}
+
+  init->device->connect( ChildNode_013_ConnectCallback, ConnectTimeout );
+  while ( isConnected_013 == NetResult::CONNECTION_UNKNOWN )
+  {
+    init->device->processNetworking();
+    Chimera::delayMilliseconds( 10 );
+  }
+
+  if ( isConnected_013 == NetResult::CONNECTION_SUCCESS )
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+  else
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "FAILED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
 
   /*------------------------------------------------
   Device Processing Thread
@@ -566,8 +659,19 @@ static void ChildNodeThread_013( EndpointInitializer *init )
   }
 }
 
-static void ChildNodeThread_113( EndpointInitializer *init )
+/*------------------------------------------------
+Node 0113
+------------------------------------------------*/
+std::atomic<NetResult> isConnected_0113;
+static void ChildNode_0113_ConnectCallback( NetResult result, NetId id )
 {
+  isConnected_0113 = result;
+}
+
+static void ChildNodeThread_0113( EndpointInitializer *init )
+{
+  SetThreadDescription( GetCurrentThread(), L"ChildNode-0113" );
+
   /*------------------------------------------------
   Initialize the device logger
   ------------------------------------------------*/
@@ -603,16 +707,27 @@ static void ChildNodeThread_113( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
+  isConnected_0113 = NetResult::CONNECTION_UNKNOWN;
+
   Chimera::delayMilliseconds( BootDelay );
-  //if ( init->device->connect( ConnectTimeout ) )
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Connected node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
-  //                 cfg.network.parentStaticAddress );
-  //}
-  //else
-  //{
-  //  logSink->flog( uLog::Level::LVL_INFO, "Did not connect to the network\n" );
-  //}
+
+  init->device->connect( ChildNode_0113_ConnectCallback, ConnectTimeout );
+  while ( isConnected_0113 == NetResult::CONNECTION_UNKNOWN )
+  {
+    init->device->processNetworking();
+    Chimera::delayMilliseconds( 10 );
+  }
+
+  if ( isConnected_0113 == NetResult::CONNECTION_SUCCESS )
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+  else
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "FAILED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
 
   /*------------------------------------------------
   Device Processing Thread
