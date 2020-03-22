@@ -181,7 +181,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|STM32F446RE'">
     <ClCompile>
-      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <CPPLanguageStandard>CPP2A</CPPLanguageStandard>
       <AdditionalIncludeDirectories>$(AuroraIncDir);$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
       <Optimization>Og</Optimization>
@@ -205,7 +205,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RF24_2|STM32F446RE'">
     <ClCompile>
-      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <CPPLanguageStandard>CPP2A</CPPLanguageStandard>
       <AdditionalIncludeDirectories>$(AuroraIncDir);$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);RF24_DEVICE_2;</PreprocessorDefinitions>
       <Optimization>Og</Optimization>
@@ -229,7 +229,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RF24_1|STM32F446RE'">
     <ClCompile>
-      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <CPPLanguageStandard>CPP2A</CPPLanguageStandard>
       <AdditionalIncludeDirectories>$(AuroraIncDir);$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);DEBUG=1;$(ProjectCompilerDefines);RF24_DEVICE_1;</PreprocessorDefinitions>
       <Optimization>Og</Optimization>
@@ -246,7 +246,7 @@
       <ProduceRelocationRecords>true</ProduceRelocationRecords>
       <RemoveUnusedSections>true</RemoveUnusedSections>
       <VerboseMode>false</VerboseMode>
-      <PrintMemoryUsage>false</PrintMemoryUsage>
+      <PrintMemoryUsage>true</PrintMemoryUsage>
       <UseLinkerGroups>true</UseLinkerGroups>
       <GenerateMapFile>false</GenerateMapFile>
     </Link>
@@ -268,7 +268,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|STM32F446RE'">
     <ClCompile>
-      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
+      <CPPLanguageStandard>CPP2A</CPPLanguageStandard>
       <AdditionalIncludeDirectories>$(AuroraIncDir);$(uLogIncDir);$(RF24NodeIncDir);$(BoostIncDir);$(ThorIncDir);$(ChimeraIncDir);$(ChimeraPortDir);$(ChimeraCfgDir);$(FreeRTOSCfgDir);$(FreeRTOSPortDir);$(FreeRTOSIncDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);$(ChimeraCompilerDefines);NDEBUG=1;RELEASE=1;$(ProjectCompilerDefines);</PreprocessorDefinitions>
     </ClCompile>
@@ -281,6 +281,7 @@
       </LibrarySearchDirectories>
       <AdditionalLibraryNames>
       </AdditionalLibraryNames>
+      <RemoveUnusedSections>true</RemoveUnusedSections>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -312,6 +313,7 @@
     <ClCompile Include="$(EFP_BASE)\Profiler\FastSemihosting.cpp" />
     <ClCompile Include="$(EFP_BASE)\Profiler\SamplingProfiler.cpp" />
     <ClCompile Include="$(EFP_BASE)\Profiler\InstrumentingProfiler.cpp" />
+    <ClCompile Include="$(EFP_BASE)\Profiler\TestResourceManager.cpp" />
     <ClCompile Include="$(EFP_BASE)\Profiler\ProfilerRTOS_FreeRTOS.c" />
     <ClInclude Include="$(EFP_BASE)\Profiler\SysprogsProfiler.h" />
     <ClInclude Include="$(EFP_BASE)\Profiler\SmallNumberCoder.h" />

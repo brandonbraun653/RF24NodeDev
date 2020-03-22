@@ -47,7 +47,7 @@
       </KeyValue>
       <KeyValue>
         <Key>com.sysprogs.efp.semihosting.stdio</Key>
-        <Value>1</Value>
+        <Value>0</Value>
       </KeyValue>
       <KeyValue>
         <Key>com.sysprogs.efp.semihosting.blocking_mode</Key>

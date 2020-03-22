@@ -20,10 +20,10 @@
 
 /* Thor Includes */
 #include <Thor/gpio>
+#include <Thor/lld/stm32f4x/gpio/hw_gpio_types.hpp>
 
 /* RF24 Includes */
-#include <RF24Node/src/common/conversion.hpp>
-#include <RF24Node/src/common/definitions.hpp>
+#include <RF24Node/common>
 #include <RF24Node/src/endpoint/endpoint.hpp>
 #include <RF24Node/src/endpoint/types.hpp>
 #include <RF24Node/src/physical/simulator/pipe.hpp>
@@ -36,7 +36,7 @@
 #include <uLog/sinks/sink_vgdb_semihosting.hpp>
 
 /* Visual GDB Includes */
-#include "FastSemihosting.h"
+#include "SysprogsProfiler.h"
 
 
 using namespace Chimera::Threading;
@@ -48,7 +48,7 @@ static void MasterNodeThread( void *arg );
 static void SlaveNodeThread( void *arg );
 
 
-static RF24::Endpoint::Config cfg;
+static RF24::Endpoint::SystemInit cfg;
 
 int main( void )
 {
@@ -56,6 +56,11 @@ int main( void )
   Boot up the device hardware
   ------------------------------------------------*/
   ChimeraInit();
+
+  /*------------------------------------------------
+  Initialize the profiler
+  ------------------------------------------------*/
+  InitializeInstrumentingProfiler();
 
   /*------------------------------------------------
   Initialize the logger system
@@ -80,17 +85,17 @@ int main( void )
   blinkyThread.initialize( background_thread, nullptr, Priority::LEVEL_3, 500, "blinky" );
   blinkyThread.start();
 
-  #if defined( RF24_DEVICE_1 )
+#if defined( RF24_DEVICE_1 )
   Thread masterThread;
   masterThread.initialize( MasterNodeThread, nullptr, Priority::LEVEL_3, 2000, "master" );
   masterThread.start();
-  #endif 
+#endif
 
-  #if defined( RF24_DEVICE_2 )
+#if defined( RF24_DEVICE_2 )
   Thread slaveThread;
   slaveThread.initialize( SlaveNodeThread, nullptr, Priority::LEVEL_3, 2000, "slave" );
   slaveThread.start();
-  #endif 
+#endif
 
   startScheduler();
 }
@@ -237,20 +242,27 @@ void MasterNodeThread( void *arg )
   /*------------------------------------------------
   Create the radio
   ------------------------------------------------*/
-  RF24::Endpoint::Device master;
-  master.attachLogger( masterSink );
-  master.configure( cfg );
-  master.setName( "Master" );
+  auto master = RF24::Endpoint::createShared( cfg );
+  master->attachLogger( masterSink );
+  master->configure( cfg );
+  master->setName( "Master" );
 
   while ( true )
   {
-    master.doAsyncProcessing();
+    master->doAsyncProcessing();
     Chimera::delayMilliseconds( 25 );
   }
 }
 #endif /* RF24_DEVICE_1 */
 
 #if defined( RF24_DEVICE_2 )
+
+static RF24::Connection::Result connectStatus;
+void onConnectCallback( const RF24::Connection::Result result, const RF24::Connection::BindSite id )
+{
+  connectStatus = result;
+}
+
 void SlaveNodeThread( void *arg )
 {
   uLog::SinkHandle slaveSink = std::make_shared<uLog::VGDBSemihostingSink>();
@@ -274,12 +286,22 @@ void SlaveNodeThread( void *arg )
   /*------------------------------------------------
   Create the radio
   ------------------------------------------------*/
-  RF24::Endpoint::Device slave;
-  slave.attachLogger( slaveSink );
-  slave.configure( cfg );
-  slave.setName( "Slave" );
+  connectStatus = RF24::Connection::Result::CONNECTION_UNKNOWN;
 
-  if ( slave.connect( 1000 ) )
+  auto slave = RF24::Endpoint::createShared( cfg );
+  slave->attachLogger( slaveSink );
+  slave->configure( cfg );
+  slave->setName( "Slave" );
+
+  slave->connect( onConnectCallback, 10000 );
+
+  while ( connectStatus == RF24::Connection::Result::CONNECTION_UNKNOWN )
+  {
+    slave->processNetworking();
+    Chimera::delayMilliseconds( 25 );
+  }
+
+  if ( connectStatus == RF24::Connection::Result::CONNECTION_SUCCESS )
   {
     slaveSink->flog( uLog::Level::LVL_INFO, "%d-APP: Holy crap it worked?!\n", Chimera::millis() );
   }
@@ -290,7 +312,7 @@ void SlaveNodeThread( void *arg )
 
   while ( true )
   {
-    slave.doAsyncProcessing();
+    slave->doAsyncProcessing();
     Chimera::delayMilliseconds( 25 );
   }
 }
