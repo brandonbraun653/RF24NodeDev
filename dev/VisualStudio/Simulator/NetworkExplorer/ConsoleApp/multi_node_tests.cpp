@@ -45,6 +45,8 @@ static void ChildNodeThread_012( EndpointInitializer *init );
 static void ChildNodeThread_003( EndpointInitializer *init );
 static void ChildNodeThread_013( EndpointInitializer *init );
 static void ChildNodeThread_0113( EndpointInitializer *init );
+static void ChildNodeThread_02113( EndpointInitializer *init );
+static void ChildNodeThread_042113( EndpointInitializer *init );
 
 void RunMultiNodeTests()
 {
@@ -72,7 +74,7 @@ void RunMultiNodeTests()
   childNode_001.device             = nullptr;
   childNode_001.idleThreadFunction = ChildNodeThread_001;
 
-  //SystemNodes.push_back( childNode_001 );
+  SystemNodes.push_back( childNode_001 );
 
   /*------------------------------------------------
   Initialize child 2 of the root node
@@ -85,7 +87,7 @@ void RunMultiNodeTests()
   childNode_002.device             = nullptr;
   childNode_002.idleThreadFunction = ChildNodeThread_002;
 
-  //SystemNodes.push_back( childNode_002 );
+  SystemNodes.push_back( childNode_002 );
 
   /*------------------------------------------------
   Initialize child 3 of the root node
@@ -111,7 +113,7 @@ void RunMultiNodeTests()
   childNode_012.device             = nullptr;
   childNode_012.idleThreadFunction = ChildNodeThread_012;
 
-  //SystemNodes.push_back( childNode_012 );
+  SystemNodes.push_back( childNode_012 );
 
   /*------------------------------------------------
   Initialize child 1 of node 003
@@ -138,6 +140,32 @@ void RunMultiNodeTests()
   childNode_0113.idleThreadFunction = ChildNodeThread_0113;
 
   SystemNodes.push_back( childNode_0113 );
+
+  /*------------------------------------------------
+  Initialize child 2 of node 0113
+  ------------------------------------------------*/
+  EndpointInitializer childNode_02113;
+  childNode_02113.initialized        = false;
+  childNode_02113.deviceAddress      = 02113;
+  childNode_02113.parentAddress      = 0113;
+  childNode_02113.deviceName         = "Node-02113";
+  childNode_02113.device             = nullptr;
+  childNode_02113.idleThreadFunction = ChildNodeThread_02113;
+
+  SystemNodes.push_back( childNode_02113 );
+
+  /*------------------------------------------------
+  Initialize child 4 of node 02113
+  ------------------------------------------------*/
+  EndpointInitializer childNode_042113;
+  childNode_042113.initialized        = false;
+  childNode_042113.deviceAddress      = 042113;
+  childNode_042113.parentAddress      = 02113;
+  childNode_042113.deviceName         = "Node-042113";
+  childNode_042113.device             = nullptr;
+  childNode_042113.idleThreadFunction = ChildNodeThread_042113;
+
+  SystemNodes.push_back( childNode_042113 );
 
 
   /*------------------------------------------------
@@ -719,6 +747,180 @@ static void ChildNodeThread_0113( EndpointInitializer *init )
   }
 
   if ( isConnected_0113 == NetResult::CONNECTION_SUCCESS )
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+  else
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "FAILED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+
+  /*------------------------------------------------
+  Device Processing Thread
+  ------------------------------------------------*/
+  size_t current_time = Chimera::millis();
+
+  while ( true )
+  {
+    if ( ( Chimera::millis() - current_time ) > AsyncUpdateRate )
+    {
+      init->device->doAsyncProcessing();
+      current_time = Chimera::millis();
+    }
+
+    Chimera::delayMilliseconds( ThreadUpdateRate );
+  }
+}
+
+/*------------------------------------------------
+Node 02113
+------------------------------------------------*/
+std::atomic<NetResult> isConnected_02113;
+static void ChildNode_02113_ConnectCallback( NetResult result, NetId id )
+{
+  isConnected_02113 = result;
+}
+
+static void ChildNodeThread_02113( EndpointInitializer *init )
+{
+  SetThreadDescription( GetCurrentThread(), L"ChildNode-02113" );
+
+  /*------------------------------------------------
+  Initialize the device logger
+  ------------------------------------------------*/
+  uLog::SinkHandle logSink = std::make_shared<uLog::CoutSink>();
+  logSink->setLogLevel( uLog::Level::LVL_TRACE );
+  logSink->setName( init->deviceName );
+  logSink->enable();
+  uLog::registerSink( logSink );
+
+  /*------------------------------------------------
+  Create and initialize the device
+  ------------------------------------------------*/
+  RF24::Endpoint::SystemInit cfg;
+  cfg.network.mode                = RF24::Network::Mode::NET_MODE_STATIC;
+  cfg.network.nodeStaticAddress   = init->deviceAddress;
+  cfg.network.parentStaticAddress = init->parentAddress;
+  cfg.network.rxQueueBuffer       = nullptr;
+  cfg.network.rxQueueSize         = 5 * RF24::Hardware::PACKET_WIDTH;
+  cfg.network.txQueueBuffer       = nullptr;
+  cfg.network.txQueueSize         = 5 * RF24::Hardware::PACKET_WIDTH;
+
+  cfg.physical.dataRate       = RF24::Hardware::DataRate::DR_1MBPS;
+  cfg.physical.powerAmplitude = RF24::Hardware::PowerAmplitude::PA_HIGH;
+  cfg.physical.rfChannel      = 96;
+  cfg.physical.deviceName     = init->deviceName;
+
+  init->device = RF24::Endpoint::createShared( cfg );
+
+  init->device->attachLogger( logSink );
+  init->device->configure( cfg );
+  init->device->setName( init->deviceName );
+
+  /*------------------------------------------------
+  Connect to the configured parent node
+  ------------------------------------------------*/
+  isConnected_02113 = NetResult::CONNECTION_UNKNOWN;
+
+  Chimera::delayMilliseconds( BootDelay );
+
+  init->device->connect( ChildNode_02113_ConnectCallback, ConnectTimeout );
+  while ( isConnected_02113 == NetResult::CONNECTION_UNKNOWN )
+  {
+    init->device->processNetworking();
+    Chimera::delayMilliseconds( 10 );
+  }
+
+  if ( isConnected_02113 == NetResult::CONNECTION_SUCCESS )
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+  else
+  {
+    logSink->flog( uLog::Level::LVL_INFO, "FAILED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
+                   cfg.network.parentStaticAddress );
+  }
+
+  /*------------------------------------------------
+  Device Processing Thread
+  ------------------------------------------------*/
+  size_t current_time = Chimera::millis();
+
+  while ( true )
+  {
+    if ( ( Chimera::millis() - current_time ) > AsyncUpdateRate )
+    {
+      init->device->doAsyncProcessing();
+      current_time = Chimera::millis();
+    }
+
+    Chimera::delayMilliseconds( ThreadUpdateRate );
+  }
+}
+
+/*------------------------------------------------
+Node 042113
+------------------------------------------------*/
+std::atomic<NetResult> isConnected_042113;
+static void ChildNode_042113_ConnectCallback( NetResult result, NetId id )
+{
+  isConnected_042113 = result;
+}
+
+static void ChildNodeThread_042113( EndpointInitializer *init )
+{
+  SetThreadDescription( GetCurrentThread(), L"ChildNode-042113" );
+
+  /*------------------------------------------------
+  Initialize the device logger
+  ------------------------------------------------*/
+  uLog::SinkHandle logSink = std::make_shared<uLog::CoutSink>();
+  logSink->setLogLevel( uLog::Level::LVL_TRACE );
+  logSink->setName( init->deviceName );
+  logSink->enable();
+  uLog::registerSink( logSink );
+
+  /*------------------------------------------------
+  Create and initialize the device
+  ------------------------------------------------*/
+  RF24::Endpoint::SystemInit cfg;
+  cfg.network.mode                = RF24::Network::Mode::NET_MODE_STATIC;
+  cfg.network.nodeStaticAddress   = init->deviceAddress;
+  cfg.network.parentStaticAddress = init->parentAddress;
+  cfg.network.rxQueueBuffer       = nullptr;
+  cfg.network.rxQueueSize         = 5 * RF24::Hardware::PACKET_WIDTH;
+  cfg.network.txQueueBuffer       = nullptr;
+  cfg.network.txQueueSize         = 5 * RF24::Hardware::PACKET_WIDTH;
+
+  cfg.physical.dataRate       = RF24::Hardware::DataRate::DR_1MBPS;
+  cfg.physical.powerAmplitude = RF24::Hardware::PowerAmplitude::PA_HIGH;
+  cfg.physical.rfChannel      = 96;
+  cfg.physical.deviceName     = init->deviceName;
+
+  init->device = RF24::Endpoint::createShared( cfg );
+
+  init->device->attachLogger( logSink );
+  init->device->configure( cfg );
+  init->device->setName( init->deviceName );
+
+  /*------------------------------------------------
+  Connect to the configured parent node
+  ------------------------------------------------*/
+  isConnected_042113 = NetResult::CONNECTION_UNKNOWN;
+
+  Chimera::delayMilliseconds( BootDelay );
+
+  init->device->connect( ChildNode_042113_ConnectCallback, ConnectTimeout );
+  while ( isConnected_042113 == NetResult::CONNECTION_UNKNOWN )
+  {
+    init->device->processNetworking();
+    Chimera::delayMilliseconds( 10 );
+  }
+
+  if ( isConnected_042113 == NetResult::CONNECTION_SUCCESS )
   {
     logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );

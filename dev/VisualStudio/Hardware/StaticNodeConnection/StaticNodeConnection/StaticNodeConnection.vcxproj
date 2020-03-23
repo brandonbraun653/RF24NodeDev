@@ -313,7 +313,6 @@
     <ClCompile Include="$(EFP_BASE)\Profiler\FastSemihosting.cpp" />
     <ClCompile Include="$(EFP_BASE)\Profiler\SamplingProfiler.cpp" />
     <ClCompile Include="$(EFP_BASE)\Profiler\InstrumentingProfiler.cpp" />
-    <ClCompile Include="$(EFP_BASE)\Profiler\TestResourceManager.cpp" />
     <ClCompile Include="$(EFP_BASE)\Profiler\ProfilerRTOS_FreeRTOS.c" />
     <ClInclude Include="$(EFP_BASE)\Profiler\SysprogsProfiler.h" />
     <ClInclude Include="$(EFP_BASE)\Profiler\SmallNumberCoder.h" />

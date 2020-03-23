@@ -7,4 +7,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="endpoint">
+      <UniqueIdentifier>{b7b41e12-3deb-42b6-8af2-5ecb089c02b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
 </Project>
