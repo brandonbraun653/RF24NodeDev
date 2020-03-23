@@ -50,6 +50,10 @@ static void SlaveNodeThread( void *arg );
 
 static RF24::Endpoint::SystemInit cfg;
 
+#if defined( RELEASE )
+#define RF24_DEVICE_1
+#endif 
+
 int main( void )
 {
   /*------------------------------------------------
