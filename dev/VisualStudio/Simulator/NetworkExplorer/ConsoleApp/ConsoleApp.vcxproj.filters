@@ -4,9 +4,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ping_tests.cpp" />
     <ClCompile Include="multi_node_tests.cpp" />
+    <ClCompile Include="test_connection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ping_tests.hpp" />
     <ClInclude Include="multi_node_tests.hpp" />
+    <ClInclude Include="test_connection.hpp" />
   </ItemGroup>
 </Project>

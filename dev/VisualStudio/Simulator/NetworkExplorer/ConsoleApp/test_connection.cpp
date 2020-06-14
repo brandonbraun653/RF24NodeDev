@@ -13,13 +13,16 @@
 #include <uLog/ulog.hpp>
 #include <uLog/sinks/sink_cout.hpp>
 
+using NetResult = RF24::Connection::Result;
+using NetId     = RF24::Connection::BindSite;
+
 static constexpr size_t AsyncUpdateRate  = 50;
 static constexpr size_t ThreadUpdateRate = 15;
 
 static void MasterNodeThread();
 static void SlaveNode001Thread();
 
-void RunPingTests()
+void RunConnectionTests()
 {
   auto masterThread = std::thread( MasterNodeThread );
   auto slaveThread  = std::thread( SlaveNode001Thread );
@@ -89,6 +92,10 @@ static void MasterNodeThread()
   }
 }
 
+
+/*------------------------------------------------
+Node 001
+------------------------------------------------*/
 static void SlaveNode001Thread()
 {
   uLog::SinkHandle slaveSink = std::make_shared<uLog::CoutSink>();
@@ -118,14 +125,15 @@ static void SlaveNode001Thread()
   slave->configure( cfg );
   slave->setName( cfg.physical.deviceName );
 
-  //if ( slave->connect( 1000 ) )
-  //{
-  //  slaveSink->flog( uLog::Level::LVL_INFO, "Holy crap it worked?!\n" );
-  //}
-  //else
-  //{
-  //  slaveSink->flog( uLog::Level::LVL_INFO, "Did not connect for some reason\n" );
-  //}
+ /*------------------------------------------------
+  Connect to the configured parent node
+  ------------------------------------------------*/
+  Chimera::delayMilliseconds( 100 );
+
+  if ( !slave->connectBlocking( 1000 ) )
+  {
+    slaveSink->flog( uLog::Level::LVL_INFO, "Failed connection to the network\n" );
+  }
 
   /*------------------------------------------------
   Main processing loop for the slave node
@@ -152,15 +160,13 @@ static void SlaveNode001Thread()
     ------------------------------------------------*/
     if ( ( Chimera::millis() - testCodeProcessTime ) > 1000 )
     {
-      // slave->write( RF24::RootNode0, hello_world.data(), hello_world.size() );
-      slaveSink->flog( uLog::Level::LVL_INFO, "%d-Pinging the root node\n", Chimera::millis() );
-      if ( slave->ping( RF24::RootNode0, 150 ) )
+      if ( slave->isConnected( false ) )
       {
-        slaveSink->flog( uLog::Level::LVL_INFO, "%d-Success!\n", Chimera::millis() );
+        slave->disconnect();
       }
       else
       {
-        slaveSink->flog( uLog::Level::LVL_INFO, "%d-Failure :(\n", Chimera::millis() );
+        slave->connectBlocking( 1000 );
       }
 
       testCodeProcessTime = Chimera::millis();

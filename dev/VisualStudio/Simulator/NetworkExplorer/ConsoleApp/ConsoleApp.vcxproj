@@ -33,10 +33,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="multi_node_tests.cpp" />
     <ClCompile Include="ping_tests.cpp" />
+    <ClCompile Include="test_connection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="multi_node_tests.hpp" />
     <ClInclude Include="ping_tests.hpp" />
+    <ClInclude Include="test_connection.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

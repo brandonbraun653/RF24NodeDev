@@ -304,7 +304,7 @@ static void ChildNodeThread_001( EndpointInitializer *init )
 
   Chimera::delayMilliseconds( BootDelay );
 
-  init->device->connect( ChildNode_001_ConnectCallback, ConnectTimeout );
+  init->device->connectAsync( ChildNode_001_ConnectCallback, ConnectTimeout );
   while ( isConnected == NetResult::CONNECTION_UNKNOWN )
   {
     init->device->processNetworking();
@@ -391,7 +391,7 @@ static void ChildNodeThread_002( EndpointInitializer *init )
 
   Chimera::delayMilliseconds( BootDelay );
 
-  init->device->connect( ChildNode_002_ConnectCallback, ConnectTimeout );
+  init->device->connectAsync( ChildNode_002_ConnectCallback, ConnectTimeout );
   while ( isConnected_002 == NetResult::CONNECTION_UNKNOWN )
   {
     init->device->processNetworking();
@@ -478,7 +478,7 @@ static void ChildNodeThread_003( EndpointInitializer *init )
 
   Chimera::delayMilliseconds( BootDelay );
 
-  init->device->connect( ChildNode_003_ConnectCallback, ConnectTimeout );
+  init->device->connectAsync( ChildNode_003_ConnectCallback, ConnectTimeout );
   while ( isConnected_003 == NetResult::CONNECTION_UNKNOWN )
   {
     init->device->processNetworking();
@@ -565,7 +565,7 @@ static void ChildNodeThread_012( EndpointInitializer *init )
 
   Chimera::delayMilliseconds( BootDelay );
 
-  init->device->connect( ChildNode_012_ConnectCallback, ConnectTimeout );
+  init->device->connectAsync( ChildNode_012_ConnectCallback, ConnectTimeout );
   while ( isConnected_012 == NetResult::CONNECTION_UNKNOWN )
   {
     init->device->processNetworking();
@@ -652,7 +652,7 @@ static void ChildNodeThread_013( EndpointInitializer *init )
 
   Chimera::delayMilliseconds( BootDelay );
 
-  init->device->connect( ChildNode_013_ConnectCallback, ConnectTimeout );
+  init->device->connectAsync( ChildNode_013_ConnectCallback, ConnectTimeout );
   while ( isConnected_013 == NetResult::CONNECTION_UNKNOWN )
   {
     init->device->processNetworking();
@@ -739,7 +739,7 @@ static void ChildNodeThread_0113( EndpointInitializer *init )
 
   Chimera::delayMilliseconds( BootDelay );
 
-  init->device->connect( ChildNode_0113_ConnectCallback, ConnectTimeout );
+  init->device->connectAsync( ChildNode_0113_ConnectCallback, ConnectTimeout );
   while ( isConnected_0113 == NetResult::CONNECTION_UNKNOWN )
   {
     init->device->processNetworking();
@@ -826,7 +826,7 @@ static void ChildNodeThread_02113( EndpointInitializer *init )
 
   Chimera::delayMilliseconds( BootDelay );
 
-  init->device->connect( ChildNode_02113_ConnectCallback, ConnectTimeout );
+  init->device->connectAsync( ChildNode_02113_ConnectCallback, ConnectTimeout );
   while ( isConnected_02113 == NetResult::CONNECTION_UNKNOWN )
   {
     init->device->processNetworking();
@@ -913,7 +913,7 @@ static void ChildNodeThread_042113( EndpointInitializer *init )
 
   Chimera::delayMilliseconds( BootDelay );
 
-  init->device->connect( ChildNode_042113_ConnectCallback, ConnectTimeout );
+  init->device->connectAsync( ChildNode_042113_ConnectCallback, ConnectTimeout );
   while ( isConnected_042113 == NetResult::CONNECTION_UNKNOWN )
   {
     init->device->processNetworking();
