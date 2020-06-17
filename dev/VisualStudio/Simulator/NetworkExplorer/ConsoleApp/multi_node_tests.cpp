@@ -300,18 +300,18 @@ static void ChildNodeThread_001( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
-  isConnected = NetResult::CONNECTION_UNKNOWN;
+  isConnected = NetResult::CONNECT_PROC_UNKNOWN;
 
   Chimera::delayMilliseconds( BootDelay );
 
   init->device->connectAsync( ChildNode_001_ConnectCallback, ConnectTimeout );
-  while ( isConnected == NetResult::CONNECTION_UNKNOWN )
+  while ( isConnected == NetResult::CONNECT_PROC_UNKNOWN )
   {
     init->device->processNetworking();
     Chimera::delayMilliseconds( 10 );
   }
 
-  if ( isConnected == NetResult::CONNECTION_SUCCESS )
+  if ( isConnected == NetResult::CONNECT_PROC_SUCCESS )
   {
     logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );
@@ -387,18 +387,18 @@ static void ChildNodeThread_002( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
-  isConnected_002 = NetResult::CONNECTION_UNKNOWN;
+  isConnected_002 = NetResult::CONNECT_PROC_UNKNOWN;
 
   Chimera::delayMilliseconds( BootDelay );
 
   init->device->connectAsync( ChildNode_002_ConnectCallback, ConnectTimeout );
-  while ( isConnected_002 == NetResult::CONNECTION_UNKNOWN )
+  while ( isConnected_002 == NetResult::CONNECT_PROC_UNKNOWN )
   {
     init->device->processNetworking();
     Chimera::delayMilliseconds( 10 );
   }
 
-  if ( isConnected_002 == NetResult::CONNECTION_SUCCESS )
+  if ( isConnected_002 == NetResult::CONNECT_PROC_SUCCESS )
   {
     logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );
@@ -474,18 +474,18 @@ static void ChildNodeThread_003( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
-  isConnected_003 = NetResult::CONNECTION_UNKNOWN;
+  isConnected_003 = NetResult::CONNECT_PROC_UNKNOWN;
 
   Chimera::delayMilliseconds( BootDelay );
 
   init->device->connectAsync( ChildNode_003_ConnectCallback, ConnectTimeout );
-  while ( isConnected_003 == NetResult::CONNECTION_UNKNOWN )
+  while ( isConnected_003 == NetResult::CONNECT_PROC_UNKNOWN )
   {
     init->device->processNetworking();
     Chimera::delayMilliseconds( 10 );
   }
 
-  if ( isConnected_003 == NetResult::CONNECTION_SUCCESS )
+  if ( isConnected_003 == NetResult::CONNECT_PROC_SUCCESS )
   {
     logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );
@@ -561,18 +561,18 @@ static void ChildNodeThread_012( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
-  isConnected_012 = NetResult::CONNECTION_UNKNOWN;
+  isConnected_012 = NetResult::CONNECT_PROC_UNKNOWN;
 
   Chimera::delayMilliseconds( BootDelay );
 
   init->device->connectAsync( ChildNode_012_ConnectCallback, ConnectTimeout );
-  while ( isConnected_012 == NetResult::CONNECTION_UNKNOWN )
+  while ( isConnected_012 == NetResult::CONNECT_PROC_UNKNOWN )
   {
     init->device->processNetworking();
     Chimera::delayMilliseconds( 10 );
   }
 
-  if ( isConnected_012 == NetResult::CONNECTION_SUCCESS )
+  if ( isConnected_012 == NetResult::CONNECT_PROC_SUCCESS )
   {
     logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );
@@ -648,18 +648,18 @@ static void ChildNodeThread_013( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
-  isConnected_013 = NetResult::CONNECTION_UNKNOWN;
+  isConnected_013 = NetResult::CONNECT_PROC_UNKNOWN;
 
   Chimera::delayMilliseconds( BootDelay );
 
   init->device->connectAsync( ChildNode_013_ConnectCallback, ConnectTimeout );
-  while ( isConnected_013 == NetResult::CONNECTION_UNKNOWN )
+  while ( isConnected_013 == NetResult::CONNECT_PROC_UNKNOWN )
   {
     init->device->processNetworking();
     Chimera::delayMilliseconds( 10 );
   }
 
-  if ( isConnected_013 == NetResult::CONNECTION_SUCCESS )
+  if ( isConnected_013 == NetResult::CONNECT_PROC_SUCCESS )
   {
     logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );
@@ -735,18 +735,18 @@ static void ChildNodeThread_0113( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
-  isConnected_0113 = NetResult::CONNECTION_UNKNOWN;
+  isConnected_0113 = NetResult::CONNECT_PROC_UNKNOWN;
 
   Chimera::delayMilliseconds( BootDelay );
 
   init->device->connectAsync( ChildNode_0113_ConnectCallback, ConnectTimeout );
-  while ( isConnected_0113 == NetResult::CONNECTION_UNKNOWN )
+  while ( isConnected_0113 == NetResult::CONNECT_PROC_UNKNOWN )
   {
     init->device->processNetworking();
     Chimera::delayMilliseconds( 10 );
   }
 
-  if ( isConnected_0113 == NetResult::CONNECTION_SUCCESS )
+  if ( isConnected_0113 == NetResult::CONNECT_PROC_SUCCESS )
   {
     logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );
@@ -822,18 +822,18 @@ static void ChildNodeThread_02113( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
-  isConnected_02113 = NetResult::CONNECTION_UNKNOWN;
+  isConnected_02113 = NetResult::CONNECT_PROC_UNKNOWN;
 
   Chimera::delayMilliseconds( BootDelay );
 
   init->device->connectAsync( ChildNode_02113_ConnectCallback, ConnectTimeout );
-  while ( isConnected_02113 == NetResult::CONNECTION_UNKNOWN )
+  while ( isConnected_02113 == NetResult::CONNECT_PROC_UNKNOWN )
   {
     init->device->processNetworking();
     Chimera::delayMilliseconds( 10 );
   }
 
-  if ( isConnected_02113 == NetResult::CONNECTION_SUCCESS )
+  if ( isConnected_02113 == NetResult::CONNECT_PROC_SUCCESS )
   {
     logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );
@@ -909,18 +909,18 @@ static void ChildNodeThread_042113( EndpointInitializer *init )
   /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
-  isConnected_042113 = NetResult::CONNECTION_UNKNOWN;
+  isConnected_042113 = NetResult::CONNECT_PROC_UNKNOWN;
 
   Chimera::delayMilliseconds( BootDelay );
 
   init->device->connectAsync( ChildNode_042113_ConnectCallback, ConnectTimeout );
-  while ( isConnected_042113 == NetResult::CONNECTION_UNKNOWN )
+  while ( isConnected_042113 == NetResult::CONNECT_PROC_UNKNOWN )
   {
     init->device->processNetworking();
     Chimera::delayMilliseconds( 10 );
   }
 
-  if ( isConnected_042113 == NetResult::CONNECTION_SUCCESS )
+  if ( isConnected_042113 == NetResult::CONNECT_PROC_SUCCESS )
   {
     logSink->flog( uLog::Level::LVL_INFO, "PASSED connecting node [%04o] to node [%04o]\n", cfg.network.nodeStaticAddress,
                    cfg.network.parentStaticAddress );

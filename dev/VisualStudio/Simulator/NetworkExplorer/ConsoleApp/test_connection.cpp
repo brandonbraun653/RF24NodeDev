@@ -130,7 +130,7 @@ static void SlaveNode001Thread()
   ------------------------------------------------*/
   Chimera::delayMilliseconds( 100 );
 
-  if ( !slave->connectBlocking( 1000 ) )
+  if ( slave->connectBlocking( 10000 ) != Chimera::CommonStatusCodes::OK )
   {
     slaveSink->flog( uLog::Level::LVL_INFO, "Failed connection to the network\n" );
   }
@@ -158,15 +158,15 @@ static void SlaveNode001Thread()
     /*------------------------------------------------
     Process any test code used for development
     ------------------------------------------------*/
-    if ( ( Chimera::millis() - testCodeProcessTime ) > 1000 )
+    if ( ( Chimera::millis() - testCodeProcessTime ) > 5000 )
     {
-      if ( slave->isConnected( false ) )
+      if ( slave->isConnected( RF24::Connection::BindSite::PARENT ) )
       {
         slave->disconnect();
       }
       else
       {
-        slave->connectBlocking( 1000 );
+        slave->connectBlocking( 10000 );
       }
 
       testCodeProcessTime = Chimera::millis();
