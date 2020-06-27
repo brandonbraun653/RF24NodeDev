@@ -23,6 +23,12 @@ static constexpr size_t AsyncUpdateRate  = 50;
 static constexpr size_t ThreadUpdateRate = 15;
 static constexpr size_t SayHelloRate     = 5000;
 
+struct MessageType
+{
+  uint8_t number;
+  uint8_t crc;
+};
+
 struct EndpointInitializer
 {
   RF24::Endpoint::Interface_sPtr device;
@@ -48,7 +54,7 @@ static void ChildNodeThread_0113( EndpointInitializer *init );
 static void ChildNodeThread_02113( EndpointInitializer *init );
 static void ChildNodeThread_042113( EndpointInitializer *init );
 
-void RunMultiNodeTests()
+void RunMessagingTests()
 {
   /*------------------------------------------------
   Initialize the root node
@@ -222,6 +228,12 @@ static void RootNodeThread( EndpointInitializer *init )
   init->device->setName( init->deviceName );
 
   /*------------------------------------------------
+  Create an initialize data buffers
+  ------------------------------------------------*/
+  MessageType msg;
+
+
+  /*------------------------------------------------
   Device Processing Thread
   ------------------------------------------------*/
   Chimera::delayMilliseconds( BootDelay );
@@ -237,11 +249,15 @@ static void RootNodeThread( EndpointInitializer *init )
     }
 
     /*------------------------------------------------
-    Let the world know you are still alive
+    Make a single transmission to a child node
     ------------------------------------------------*/
     if ( ( Chimera::millis() - hello_time ) > SayHelloRate )
     {
-      logSink->flog( uLog::Level::LVL_INFO, "Hello\n");
+      msg.crc = 0;
+      msg.number = 2;
+
+      init->device->write( 001, &msg, sizeof( MessageType ) );
+
       hello_time = Chimera::millis();
     }
 
@@ -298,6 +314,11 @@ static void ChildNodeThread_001( EndpointInitializer *init )
   init->device->setName( init->deviceName );
 
   /*------------------------------------------------
+  Initialize messaging data
+  ------------------------------------------------*/
+  MessageType rxData;
+
+  /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
   isConnected = NetResult::CONNECT_PROC_UNKNOWN;
@@ -333,6 +354,16 @@ static void ChildNodeThread_001( EndpointInitializer *init )
     {
       init->device->doAsyncProcessing();
       current_time = Chimera::millis();
+    }
+
+    if ( init->device->packetAvailable() )
+    {
+      size_t packetSize = init->device->nextPacketLength();
+
+      if ( packetSize == sizeof( MessageType ) )
+      {
+        init->device->read( &rxData, sizeof( MessageType ) );
+      }
     }
 
     Chimera::delayMilliseconds( ThreadUpdateRate );

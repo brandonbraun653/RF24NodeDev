@@ -25,6 +25,7 @@
 #include <ping_tests.hpp>
 #include <multi_node_tests.hpp>
 #include <test_connection.hpp>
+#include <test_messaging.hpp>
 
 int main()
 {
@@ -50,7 +51,8 @@ int main()
   rootSink->flog( uLog::Level::LVL_INFO, "Executing tests\n" );
   //RunPingTests();
   //RunMultiNodeTests();
-  RunConnectionTests();
+  //RunConnectionTests();
+  RunMessagingTests();
   
   return 0;
 }
