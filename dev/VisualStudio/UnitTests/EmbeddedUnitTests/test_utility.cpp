@@ -22,6 +22,9 @@
 
 using namespace RF24;
 
+/*-------------------------------------------------------------------------------
+Test Vector Structures
+-------------------------------------------------------------------------------*/
 struct AddressTestSuite
 {
   LogicalAddress address;
@@ -52,6 +55,16 @@ struct LevelIDTestSuite
   LogicalID idAtLevel5;
 };
 
+struct LevelAddressTestSuite
+{
+  LogicalAddress address;
+  LogicalLevel level;
+  LogicalAddress expected;
+};
+
+/*-------------------------------------------------------------------------------
+Test Data
+-------------------------------------------------------------------------------*/
 /*------------------------------------------------
 Note: For all the literal addresses below, prepending
 with a zero forces the numbers to be in octal format.
@@ -59,7 +72,7 @@ with a zero forces the numbers to be in octal format.
 /* clang-format off */
 static std::vector<AddressTestSuite> PropertyTestCandidates = {
   /*Address                                  Parent                  Level          Child      Root    Validity   Rsvd  */
-  { 006666,                       Network::RSVD_ADDR_INVALID,  NODE_LEVEL_INVALID,  false,    false,    false,    false },  // Completely invalid nodes 
+  { 006666,                       Network::RSVD_ADDR_INVALID,  NODE_LEVEL_INVALID,  false,    false,    false,    false },  // Completely invalid nodes
   { 007001,                       Network::RSVD_ADDR_INVALID,  NODE_LEVEL_INVALID,  false,    false,    false,    false },
   { 000701,                       Network::RSVD_ADDR_INVALID,  NODE_LEVEL_INVALID,  false,    false,    false,    false },
   { 000071,                       Network::RSVD_ADDR_INVALID,  NODE_LEVEL_INVALID,  false,    false,    false,    false },
@@ -68,12 +81,12 @@ static std::vector<AddressTestSuite> PropertyTestCandidates = {
   { 002371,                       Network::RSVD_ADDR_INVALID,  NODE_LEVEL_INVALID,  false,    false,    false,    false },
   { 003722,                       Network::RSVD_ADDR_INVALID,  NODE_LEVEL_INVALID,  false,    false,    false,    false },
   { 006243,                       Network::RSVD_ADDR_INVALID,  NODE_LEVEL_INVALID,  false,    false,    false,    false },
-  { 000000,                                           000000,                   0,  false,     true,     true,    false },  // Root nodes
-  { 077770,                                           077770,                   0,  false,     true,     true,    false },
-  { 007770,                                           007770,                   0,  false,     true,     true,    false },
-  { 001000,                                           001000,                   0,  false,     true,     true,    false },
-  { 000200,                                           000200,                   0,  false,     true,     true,    false },
-  { 000030,                                           000030,                   0,  false,     true,     true,    false },
+  { 000000,                       Network::RSVD_ADDR_INVALID,                   0,  false,     true,     true,    false },  // Root nodes
+  { 077770,                       Network::RSVD_ADDR_INVALID,                   0,  false,     true,     true,    false },
+  { 007770,                       Network::RSVD_ADDR_INVALID,                   0,  false,     true,     true,    false },
+  { 001000,                       Network::RSVD_ADDR_INVALID,                   0,  false,     true,     true,    false },
+  { 000200,                       Network::RSVD_ADDR_INVALID,                   0,  false,     true,     true,    false },
+  { 000030,                       Network::RSVD_ADDR_INVALID,                   0,  false,     true,     true,    false },
   { 000001,                                  RF24::RootNode0,                   1,   true,    false,     true,    false },  // Child nodes
   { 000002,                                  RF24::RootNode0,                   1,   true,    false,     true,    false },
   { 000003,                                  RF24::RootNode0,                   1,   true,    false,     true,    false },
@@ -105,7 +118,7 @@ static std::vector<LevelIDTestSuite> LevelIDTestCandidates = {
 };
 
 static std::vector<DescendantTestSuite> DescendantTestCandidates = {
-  /*Parent                        Child   Descendant   Direct*/ 
+  /*Parent                        Child   Descendant   Direct*/
   { 006666,                       000000,    false,    false },  // Completely invalid nodes
   { 007001,                       000000,    false,    false },
   { 000701,                       000000,    false,    false },
@@ -118,21 +131,26 @@ static std::vector<DescendantTestSuite> DescendantTestCandidates = {
   { Network::RSVD_ADDR_MULTICAST, 000000,    false,    false },  // Reserved nodes
   { Network::RSVD_ADDR_ROUTED,    000000,    false,    false },
   { Network::RSVD_ADDR_INVALID,   000000,    false,    false },
-  { Network::RSVD_ADDR_LOOKUP,    000000,    false,    false }, 
-  { 077770,                       000001,    false,    false },  // Root nodes
-  { 007770,                       000001,    false,    false },
-  { 001000,                       000001,    false,    false },
-  { 000200,                       000001,    false,    false },
-  { 000030,                       000001,    false,    false },
+  { Network::RSVD_ADDR_LOOKUP,    000000,    false,    false },
+  { 077770,                       000001,     true,    false },  // Root nodes
+  { 007770,                       000001,     true,    false },
+  { 001000,                       000001,     true,    false },
+  { 000200,                       000001,     true,    false },
+  { 000030,                       000001,     true,    false },
   { 000001,                       052341,     true,    false },  // Indirect descendant
   { 000011,                       042311,     true,    false },
   { 000111,                       034111,     true,    false },
-  { 000234,                       022234,     true,    false },    
+  { 000234,                       022234,     true,    false },
+  { 000000,                       000002,     true,     true },
+  { 000000,                       000024,     true,    false },
+  { 000000,                       000424,     true,    false },
+  { 000000,                       003424,     true,    false },
+  { 000000,                       053424,     true,    false },
   { 001111,                       021111,     true,     true },  // Direct descendant
   { 000425,                       002425,     true,     true },
   { 000013,                       000313,     true,     true },
   { 000004,                       000054,     true,     true },
-  { 000000,                       000001,    false,     true }, 
+  { 000000,                       000001,     true,     true },
   { 011111,                       011111,    false,    false },  // Identical
   { 001234,                       001234,    false,    false },
   { 000435,                       000435,    false,    false },
@@ -141,7 +159,9 @@ static std::vector<DescendantTestSuite> DescendantTestCandidates = {
 };
 /* clang-format on */
 
-
+/*-------------------------------------------------------------------------------
+Tests
+-------------------------------------------------------------------------------*/
 TEST( Addressing, PropertyTests )
 {
   for ( AddressTestSuite& test : PropertyTestCandidates )
@@ -172,7 +192,59 @@ TEST( Addressing, DescendantTests )
 {
   for ( DescendantTestSuite& test : DescendantTestCandidates )
   {
-    EXPECT_EQ( isDescendent( test.parent, test.child ), test.isDescendant );
-    EXPECT_EQ( isDirectDescendent( test.parent, test.child ), test.isDirect );
+    const auto parent = test.parent;
+    const auto child = test.child;
+
+    EXPECT_EQ( isDescendent( parent, child ), test.isDescendant );
+    EXPECT_EQ( isDirectDescendent( parent, child ), test.isDirect );
+  }
+}
+
+TEST( Addressing, AddressAtLevel )
+{
+  using namespace RF24::Network;
+
+  /* clang-format off */
+  std::vector<LevelAddressTestSuite> testVector = {
+    /* Address                Level             Expected     */
+    { RootNode0,          NODE_LEVEL_0,    RootNode0         }, // Root nodes are always just themselves
+    { RootNode0,          NODE_LEVEL_1,    RSVD_ADDR_INVALID },
+    { RootNode0,          NODE_LEVEL_2,    RSVD_ADDR_INVALID },
+    { RootNode0,          NODE_LEVEL_3,    RSVD_ADDR_INVALID },
+    { RootNode0,          NODE_LEVEL_4,    RSVD_ADDR_INVALID },
+    { RootNode0,          NODE_LEVEL_5,    RSVD_ADDR_INVALID },
+    
+    { RSVD_ADDR_INVALID,  NODE_LEVEL_0,    RSVD_ADDR_INVALID }, // Invalid nodes don't have addresses at any level
+    { RSVD_ADDR_INVALID,  NODE_LEVEL_1,    RSVD_ADDR_INVALID },
+    { RSVD_ADDR_INVALID,  NODE_LEVEL_2,    RSVD_ADDR_INVALID },
+    { RSVD_ADDR_INVALID,  NODE_LEVEL_3,    RSVD_ADDR_INVALID },
+    { RSVD_ADDR_INVALID,  NODE_LEVEL_4,    RSVD_ADDR_INVALID },
+    { RSVD_ADDR_INVALID,  NODE_LEVEL_5,    RSVD_ADDR_INVALID },
+    { 067247,             NODE_LEVEL_0,    RSVD_ADDR_INVALID },
+    { 067247,             NODE_LEVEL_1,    RSVD_ADDR_INVALID },
+    { 067247,             NODE_LEVEL_2,    RSVD_ADDR_INVALID },
+    { 067247,             NODE_LEVEL_3,    RSVD_ADDR_INVALID },
+    { 067247,             NODE_LEVEL_4,    RSVD_ADDR_INVALID },
+    { 067247,             NODE_LEVEL_5,    RSVD_ADDR_INVALID },
+    
+    { 054321,             NODE_LEVEL_0,    RSVD_ADDR_INVALID }, // Fully qualified address at all levels
+    { 054321,             NODE_LEVEL_1,    01                },
+    { 054321,             NODE_LEVEL_2,    021               },
+    { 054321,             NODE_LEVEL_3,    0321              },
+    { 054321,             NODE_LEVEL_4,    04321             },
+    { 054321,             NODE_LEVEL_5,    054321            },
+
+    { 000321,             NODE_LEVEL_0,    RSVD_ADDR_INVALID }, // Partially qualified address
+    { 000321,             NODE_LEVEL_1,    01                },
+    { 000321,             NODE_LEVEL_2,    021               },
+    { 000321,             NODE_LEVEL_3,    0321              },
+    { 000321,             NODE_LEVEL_4,    RSVD_ADDR_INVALID },
+    { 000321,             NODE_LEVEL_5,    RSVD_ADDR_INVALID },
+  };
+  /* clang-format on */
+
+  for ( LevelAddressTestSuite& test : testVector )
+  {
+    EXPECT_EQ( getAddressAtLevel( test.address, test.level ), test.expected );
   }
 }

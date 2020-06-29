@@ -70,44 +70,44 @@ successfully be deconstructed back to the original data.
 This test validates that all generated physical addresses
 are unique across the entire logical address range.
 ------------------------------------------------*/
-TEST( Encode, SIM_AddressingUniqueness )
-{
-  std::vector<RF24::Port> generatedPorts;
-  std::vector<RF24::PhysicalAddress> generatedAddrs;
-  
-  auto constexpr minAddress = std::numeric_limits<RF24::LogicalAddress>::min();
-  auto constexpr maxAddress = std::numeric_limits<RF24::LogicalAddress>::max();
-
-  auto constexpr minPipe = static_cast<size_t>( PIPE_NUM_0 );
-  auto constexpr maxPipe = static_cast<size_t>( PIPE_NUM_5 );
-
-  /* Generate the addresses and ports */
-  for ( auto addr = minAddress; addr < maxAddress; addr++ )
-  {
-    for ( auto pipe = minPipe; pipe <= maxPipe; pipe++ )
-    {
-      auto phyAddrCandidate = getPhysicalAddress( addr, static_cast<RF24::Hardware::PipeNumber>( pipe ) );
-
-      if ( phyAddrCandidate != INVALID_PHY_ADDR )
-      {
-        generatedAddrs.push_back( phyAddrCandidate );
-        generatedPorts.push_back( decodePort( phyAddrCandidate ) );
-      }
-    }
-  }
-
-  /* Sort the data in prep for finding the duplicates */
-  std::sort( generatedPorts.begin(), generatedPorts.end() );
-  std::sort( generatedAddrs.begin(), generatedAddrs.end() );
-
-  /* If no duplicates are found, the returned iterator will equal the end of the vector */
-  auto duplicateIterator = std::unique( generatedPorts.begin(), generatedPorts.end() );
-  EXPECT_EQ( duplicateIterator, generatedPorts.end() );
- 
-
-
-  EXPECT_EQ( std::unique( generatedAddrs.begin(), generatedAddrs.end() ), generatedAddrs.end() );
-}
+//TEST( Encode, SIM_AddressingUniqueness )
+//{
+//  std::vector<RF24::Port> generatedPorts;
+//  std::vector<RF24::PhysicalAddress> generatedAddrs;
+//  
+//  auto constexpr minAddress = std::numeric_limits<RF24::LogicalAddress>::min();
+//  auto constexpr maxAddress = std::numeric_limits<RF24::LogicalAddress>::max();
+//
+//  auto constexpr minPipe = static_cast<size_t>( PIPE_NUM_0 );
+//  auto constexpr maxPipe = static_cast<size_t>( PIPE_NUM_5 );
+//
+//  /* Generate the addresses and ports */
+//  for ( auto addr = minAddress; addr < maxAddress; addr++ )
+//  {
+//    for ( auto pipe = minPipe; pipe <= maxPipe; pipe++ )
+//    {
+//      auto phyAddrCandidate = getPhysicalAddress( addr, static_cast<RF24::Hardware::PipeNumber>( pipe ) );
+//
+//      if ( phyAddrCandidate != INVALID_PHY_ADDR )
+//      {
+//        generatedAddrs.push_back( phyAddrCandidate );
+//        generatedPorts.push_back( decodePort( phyAddrCandidate ) );
+//      }
+//    }
+//  }
+//
+//  /* Sort the data in prep for finding the duplicates */
+//  std::sort( generatedPorts.begin(), generatedPorts.end() );
+//  std::sort( generatedAddrs.begin(), generatedAddrs.end() );
+//
+//  /* If no duplicates are found, the returned iterator will equal the end of the vector */
+//  auto duplicateIterator = std::unique( generatedPorts.begin(), generatedPorts.end() );
+//  EXPECT_EQ( duplicateIterator, generatedPorts.end() );
+// 
+//
+//
+//  EXPECT_EQ( std::unique( generatedAddrs.begin(), generatedAddrs.end() ), generatedAddrs.end() );
+//}
 
 
 

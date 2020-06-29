@@ -80,7 +80,7 @@ void RunMessagingTests()
   childNode_001.device             = nullptr;
   childNode_001.idleThreadFunction = ChildNodeThread_001;
 
-  SystemNodes.push_back( childNode_001 );
+  //SystemNodes.push_back( childNode_001 );
 
   /*------------------------------------------------
   Initialize child 2 of the root node
@@ -106,7 +106,7 @@ void RunMessagingTests()
   childNode_003.device             = nullptr;
   childNode_003.idleThreadFunction = ChildNodeThread_003;
 
-  SystemNodes.push_back( childNode_003 );
+  //SystemNodes.push_back( childNode_003 );
 
   /*------------------------------------------------
   Initialize child 1 of node 002
@@ -119,7 +119,7 @@ void RunMessagingTests()
   childNode_012.device             = nullptr;
   childNode_012.idleThreadFunction = ChildNodeThread_012;
 
-  SystemNodes.push_back( childNode_012 );
+  //SystemNodes.push_back( childNode_012 );
 
   /*------------------------------------------------
   Initialize child 1 of node 003
@@ -132,7 +132,7 @@ void RunMessagingTests()
   childNode_013.device             = nullptr;
   childNode_013.idleThreadFunction = ChildNodeThread_013;
 
-  SystemNodes.push_back( childNode_013 );
+  //SystemNodes.push_back( childNode_013 );
 
   /*------------------------------------------------
   Initialize child 1 of node 013
@@ -145,7 +145,7 @@ void RunMessagingTests()
   childNode_0113.device             = nullptr;
   childNode_0113.idleThreadFunction = ChildNodeThread_0113;
 
-  SystemNodes.push_back( childNode_0113 );
+  //SystemNodes.push_back( childNode_0113 );
 
   /*------------------------------------------------
   Initialize child 2 of node 0113
@@ -158,7 +158,7 @@ void RunMessagingTests()
   childNode_02113.device             = nullptr;
   childNode_02113.idleThreadFunction = ChildNodeThread_02113;
 
-  SystemNodes.push_back( childNode_02113 );
+  //SystemNodes.push_back( childNode_02113 );
 
   /*------------------------------------------------
   Initialize child 4 of node 02113
@@ -171,7 +171,7 @@ void RunMessagingTests()
   childNode_042113.device             = nullptr;
   childNode_042113.idleThreadFunction = ChildNodeThread_042113;
 
-  SystemNodes.push_back( childNode_042113 );
+  //SystemNodes.push_back( childNode_042113 );
 
 
   /*------------------------------------------------
@@ -256,7 +256,11 @@ static void RootNodeThread( EndpointInitializer *init )
       msg.crc = 0;
       msg.number = 2;
 
-      init->device->write( 001, &msg, sizeof( MessageType ) );
+      logSink->flog( uLog::Level::LVL_INFO, "%d-APP: Sending CRC: %d, Number: %d\n", Chimera::millis(), msg.crc, msg.number );
+
+      //init->device->write( 001, &msg, sizeof( MessageType ) );
+      //init->device->write( 002, &msg, sizeof( MessageType ) );
+      init->device->write( 012, &msg, sizeof( MessageType ) );
 
       hello_time = Chimera::millis();
     }
@@ -363,6 +367,7 @@ static void ChildNodeThread_001( EndpointInitializer *init )
       if ( packetSize == sizeof( MessageType ) )
       {
         init->device->read( &rxData, sizeof( MessageType ) );
+        logSink->flog( uLog::Level::LVL_INFO, "%d-APP: Received CRC: %d, Number: %d\n", Chimera::millis(), rxData.crc, rxData.number );
       }
     }
 
@@ -416,6 +421,11 @@ static void ChildNodeThread_002( EndpointInitializer *init )
   init->device->setName( init->deviceName );
 
   /*------------------------------------------------
+  Initialize messaging data
+  ------------------------------------------------*/
+  MessageType rxData;
+
+  /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
   isConnected_002 = NetResult::CONNECT_PROC_UNKNOWN;
@@ -451,6 +461,17 @@ static void ChildNodeThread_002( EndpointInitializer *init )
     {
       init->device->doAsyncProcessing();
       current_time = Chimera::millis();
+    }
+
+    if ( init->device->packetAvailable() )
+    {
+      size_t packetSize = init->device->nextPacketLength();
+
+      if ( packetSize == sizeof( MessageType ) )
+      {
+        init->device->read( &rxData, sizeof( MessageType ) );
+        logSink->flog( uLog::Level::LVL_INFO, "%d-APP: Received CRC: %d, Number: %d\n", Chimera::millis(), rxData.crc, rxData.number );
+      }
     }
 
     Chimera::delayMilliseconds( ThreadUpdateRate );
@@ -590,6 +611,11 @@ static void ChildNodeThread_012( EndpointInitializer *init )
   init->device->setName( init->deviceName );
 
   /*------------------------------------------------
+  Initialize messaging data
+  ------------------------------------------------*/
+  MessageType rxData;
+
+  /*------------------------------------------------
   Connect to the configured parent node
   ------------------------------------------------*/
   isConnected_012 = NetResult::CONNECT_PROC_UNKNOWN;
@@ -625,6 +651,18 @@ static void ChildNodeThread_012( EndpointInitializer *init )
     {
       init->device->doAsyncProcessing();
       current_time = Chimera::millis();
+    }
+
+    
+    if ( init->device->packetAvailable() )
+    {
+      size_t packetSize = init->device->nextPacketLength();
+
+      if ( packetSize == sizeof( MessageType ) )
+      {
+        init->device->read( &rxData, sizeof( MessageType ) );
+        logSink->flog( uLog::Level::LVL_INFO, "%d-APP: Received CRC: %d, Number: %d\n", Chimera::millis(), rxData.crc, rxData.number );
+      }
     }
 
     Chimera::delayMilliseconds( ThreadUpdateRate );
