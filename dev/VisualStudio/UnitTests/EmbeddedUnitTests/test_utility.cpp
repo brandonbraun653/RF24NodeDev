@@ -248,3 +248,74 @@ TEST( Addressing, AddressAtLevel )
     EXPECT_EQ( getAddressAtLevel( test.address, test.level ), test.expected );
   }
 }
+
+/*-------------------------------------------------------------------------------
+Test generation of a child node address connected to a parent address
+-------------------------------------------------------------------------------*/
+struct GenerateChildTestSuite
+{
+  Connection::BindSite whichChild;
+  LogicalAddress parent;
+  LogicalAddress expectedChild;
+};
+
+/* clang-format off */
+static std::vector<GenerateChildTestSuite> ChildGenerationCandidates = {
+  /*        Child To Generate                      Parent Address                   Expected Output   */
+  // Invalid inputs/outputs 
+  { Connection::BindSite::CHILD_1, RF24::Network::RSVD_ADDR_INVALID, RF24::Network::RSVD_ADDR_INVALID },  // Bad parent
+  { Connection::BindSite::CHILD_2,                           006555, RF24::Network::RSVD_ADDR_INVALID },
+  { Connection::BindSite::INVALID,                  RF24::RootNode0, RF24::Network::RSVD_ADDR_INVALID },  // Bad Child
+  { Connection::BindSite::CHILD_3,                            05042, RF24::Network::RSVD_ADDR_INVALID },
+  { Connection::BindSite::CHILD_4,                           066666, RF24::Network::RSVD_ADDR_INVALID },
+  { Connection::BindSite::MAX,                               000413, RF24::Network::RSVD_ADDR_INVALID },
+  { Connection::BindSite::FIRST,                             000001, RF24::Network::RSVD_ADDR_INVALID },
+
+  // Good inputs at their min/mid/max boundaries
+  { Connection::BindSite::CHILD_1,                  RF24::RootNode0,                            00001 },
+  { Connection::BindSite::CHILD_2,                  RF24::RootNode0,                            00002 },
+  { Connection::BindSite::CHILD_3,                  RF24::RootNode0,                            00003 },
+  { Connection::BindSite::CHILD_4,                  RF24::RootNode0,                            00004 },
+  { Connection::BindSite::CHILD_5,                  RF24::RootNode0,                            00005 },
+
+  { Connection::BindSite::CHILD_1,                           003333,                           013333 },
+  { Connection::BindSite::CHILD_2,                           003333,                           023333 },
+  { Connection::BindSite::CHILD_3,                           003333,                           033333 },
+  { Connection::BindSite::CHILD_4,                           003333,                           043333 },
+  { Connection::BindSite::CHILD_5,                           003333,                           053333 }, 
+  
+  { Connection::BindSite::CHILD_1,                           005555,                           015555 },
+  { Connection::BindSite::CHILD_2,                           005555,                           025555 },
+  { Connection::BindSite::CHILD_3,                           005555,                           035555 },
+  { Connection::BindSite::CHILD_4,                           005555,                           045555 },
+  { Connection::BindSite::CHILD_5,                           005555,                           055555 },
+
+  { Connection::BindSite::CHILD_1,                           000001,                           000011 },
+  { Connection::BindSite::CHILD_2,                           000042,                           000242 },
+  { Connection::BindSite::CHILD_3,                           000413,                           003413 },
+  { Connection::BindSite::CHILD_4,                           005524,                           045524 },
+  { Connection::BindSite::CHILD_5,                           002245,                           052245 },
+
+  { Connection::BindSite::LAST,                              000042,                           000542 },
+
+};
+/* clang-format on */
+
+TEST( Generation, GetChildFromParent )
+{
+  std::array<char, 100> errMsg;
+  errMsg.fill( 0 );
+
+  size_t iter = 0;
+
+  for ( auto &test : ChildGenerationCandidates )
+  {
+    auto actual = RF24::getChild( test.parent, test.whichChild );
+    snprintf( errMsg.data(), errMsg.size(), "Failed -- Iteration: %d, Parent: %04o, BindSite: %d, Actual: %04o", iter, test.parent, test.whichChild, actual );
+
+    std::string outputMsg = errMsg.data();
+
+    EXPECT_EQ( actual, test.expectedChild ) << outputMsg;
+    iter++;
+  }
+}
